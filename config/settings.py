@@ -1,39 +1,24 @@
 from pathlib import Path
 import os
 import environ
+from django.core.exceptions import ImproperlyConfigured
 from celery.schedules import crontab
 from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(
-    DEBUG=(bool, False),
-    ALLOWED_HOSTS=(list, ['127.0.0.1', 'localhost']),
-    DATABASE_URL=(str, 'sqlite:///db.sqlite3'),
-    CELERY_BROKER_URL=(str, 'redis://localhost:6379/0'),
-    CELERY_RESULT_BACKEND=(str, 'redis://localhost:6379/0'),
-    CACHE_URL=(str, 'locmemcache://'), 
-    TIME_ZONE=(str, 'Africa/Nairobi'),
-    PAYSTACK_SECRET_KEY=(str, None),
-    PAYSTACK_PUBLIC_KEY=(str, None),
-    PAYSTACK_WEBHOOK_SECRET=(str, None),
-    SECRET_KEY=(str, None),
-    EMAIL_BACKEND=(str, 'django.core.mail.backends.smtp.EmailBackend'),
-    DEFAULT_FROM_EMAIL=(str, 'no-reply@remyink.local'),
-    EMAIL_HOST=(str, 'smtp.gmail.com'),
-    EMAIL_PORT=(int, 587),
-    EMAIL_HOST_USER=(str, ''),
-    EMAIL_HOST_PASSWORD=(str, ''),
-    EMAIL_USE_TLS=(bool, True),
-    EMAIL_USE_SSL=(bool, False),
-)
+env = environ.Env()
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env('SECRET_KEY')
-DEBUG = env('DEBUG')
+DEBUG = env.bool('DEBUG')
+ENVIRONMENT = env('ENVIRONMENT', default='production').lower()
+IS_PRODUCTION = ENVIRONMENT == 'production'
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS') 
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+if IS_PRODUCTION and not ALLOWED_HOSTS:
+    raise ImproperlyConfigured('ALLOWED_HOSTS must be set in production.')
 
 PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY')
 PAYSTACK_PUBLIC_KEY = env('PAYSTACK_PUBLIC_KEY')
@@ -68,7 +53,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     'channels',
-    'django_extensions',
     'django_celery_beat',
     'django_filters',
 
@@ -80,14 +64,19 @@ INSTALLED_APPS = [
     'payment_gateway',
     'notifications',
 ]
+if DEBUG:
+    INSTALLED_APPS.append('django_extensions')
 
 ASGI_APPLICATION = "config.asgi.application"
+WSGI_APPLICATION = 'config.wsgi.application'
+
+CHANNEL_REDIS_URL = env('CHANNEL_REDIS_URL', default='redis://127.0.0.1:6379/1')
 
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
+            "hosts": [CHANNEL_REDIS_URL],
         },
     },
 }
@@ -124,19 +113,25 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+def _csv_env_list(key: str) -> list[str]:
+    raw = env(key, default="")
+    return [item.strip() for item in str(raw).split(",") if item.strip()]
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
 
-CORS_ALLOW_CREDENTIALS = True
-
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = _csv_env_list('CORS_ALLOWED_ORIGINS')
+CSRF_TRUSTED_ORIGINS = _csv_env_list('CSRF_TRUSTED_ORIGINS')
+CORS_ALLOWED_ORIGIN_REGEXES = _csv_env_list('CORS_ALLOWED_ORIGIN_REGEXES')
+CORS_ALLOW_CREDENTIALS = env.bool('CORS_ALLOW_CREDENTIALS', default=True)
+CORS_ALLOW_ALL_ORIGINS = env.bool('CORS_ALLOW_ALL_ORIGINS', default=False)
+if IS_PRODUCTION and CORS_ALLOW_ALL_ORIGINS:
+    raise ImproperlyConfigured('CORS_ALLOW_ALL_ORIGINS cannot be True in production.')
+if IS_PRODUCTION and not CORS_ALLOW_ALL_ORIGINS and CORS_ALLOW_CREDENTIALS:
+    if not CORS_ALLOWED_ORIGINS and not CORS_ALLOWED_ORIGIN_REGEXES:
+        raise ImproperlyConfigured(
+            'Set CORS_ALLOWED_ORIGINS or CORS_ALLOWED_ORIGIN_REGEXES for credentialed CORS in production.'
+        )
+if IS_PRODUCTION and not CSRF_TRUSTED_ORIGINS:
+    raise ImproperlyConfigured('CSRF_TRUSTED_ORIGINS must be set in production.')
 
 ROOT_URLCONF = 'config.urls'
 
@@ -166,7 +161,7 @@ REST_FRAMEWORK = {
 }
 
 CACHES = {
-    "default": env.cache(),
+    "default": env.cache('CACHE_URL'),
 }
 
 TEMPLATES = [
@@ -199,10 +194,8 @@ SPECTACULAR_SETTINGS = {
     'POSTPROCESSING_HOOKS': [],
 }
 
-WSGI_APPLICATION = 'config.wsgi.application'
-
 DATABASES = {
-    'default': env.db(),
+    'default': env.db('DATABASE_URL'),
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -227,15 +220,18 @@ TIME_ZONE = env('TIME_ZONE')
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR] if os.path.isdir(STATIC_DIR) else []
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOG_LEVEL = env('LOG_LEVEL', default='INFO')
+LOG_TO_FILE = env.bool('LOG_TO_FILE', default=True)
 
 LOGGING = {
     'version': 1,
@@ -252,7 +248,7 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'DEBUG',
+            'level': LOG_LEVEL,
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
@@ -268,49 +264,65 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console', 'file_general'],
-            'level': 'INFO',
+            'level': LOG_LEVEL,
             'propagate': False,
         },
         'pay_freelancer': {
             'handlers': ['console', 'file_general'],
-            'level': 'INFO',
+            'level': LOG_LEVEL,
             'propagate': False,
         },
         'celery': {
             'handlers': ['console', 'file_general'],
-            'level': 'INFO',
+            'level': LOG_LEVEL,
             'propagate': False,
         },
         '': {
             'handlers': ['console', 'file_general'],
-            'level': 'INFO',
+            'level': LOG_LEVEL,
             'propagate': False,
         },
     },
     'root': {
         'handlers': ['console', 'file_general'],
-        'level': 'INFO',
+        'level': LOG_LEVEL,
     },
 }
-
-LOGS_DIR = os.path.join(BASE_DIR, 'logs')
-if not os.path.exists(LOGS_DIR):
-    os.makedirs(LOGS_DIR)
+if not LOG_TO_FILE:
+    for logger_name in ('django', 'pay_freelancer', 'celery', ''):
+        handlers = LOGGING['loggers'][logger_name]['handlers']
+        LOGGING['loggers'][logger_name]['handlers'] = [h for h in handlers if h != 'file_general']
+    LOGGING['root']['handlers'] = [h for h in LOGGING['root']['handlers'] if h != 'file_general']
+else:
+    LOGS_DIR = os.path.join(BASE_DIR, 'logs')
+    if not os.path.exists(LOGS_DIR):
+        os.makedirs(LOGS_DIR)
 
 
 EMAIL_BACKEND = env('EMAIL_BACKEND')
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_PORT = env.int('EMAIL_PORT')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
-EMAIL_USE_SSL = env('EMAIL_USE_SSL')
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+EMAIL_USE_SSL = env.bool('EMAIL_USE_SSL')
+if EMAIL_USE_TLS and EMAIL_USE_SSL:
+    raise ImproperlyConfigured('EMAIL_USE_TLS and EMAIL_USE_SSL cannot both be True.')
 
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_REFERRER_POLICY = env('SECURE_REFERRER_POLICY', default='strict-origin-when-cross-origin')
+X_FRAME_OPTIONS = env('X_FRAME_OPTIONS', default='DENY')
+USE_X_FORWARDED_HOST = env.bool('USE_X_FORWARDED_HOST', default=True)
+if env.bool('USE_X_FORWARDED_PROTO', default=True):
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=not DEBUG)
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=not DEBUG)
+SESSION_COOKIE_HTTPONLY = env.bool('SESSION_COOKIE_HTTPONLY', default=True)
+CSRF_COOKIE_HTTPONLY = env.bool('CSRF_COOKIE_HTTPONLY', default=False)
+SESSION_COOKIE_SAMESITE = env('SESSION_COOKIE_SAMESITE', default='Lax')
+CSRF_COOKIE_SAMESITE = env('CSRF_COOKIE_SAMESITE', default='Lax')
 SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=not DEBUG)
 SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', default=31536000 if not DEBUG else 0)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=not DEBUG)
