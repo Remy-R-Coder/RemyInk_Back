@@ -1,0 +1,6400 @@
+openapi: 3.0.3
+info:
+  title: RemyInk API
+  version: 1.0.0
+  description: API documentation for the RemyInk freelance platform
+paths:
+  /api/chat/guest-thread/create/:
+    post:
+      operationId: api_chat_guest_thread_create_create
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/chat/guest-threads/:
+    get:
+      operationId: api_chat_guest_threads_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/chat/my-messages/:
+    get:
+      operationId: api_chat_my_messages_list
+      description: Returns all chat threads where the user is a participant (freelancer
+        or client)
+      summary: List all chat threads for current user
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChatThreadList'
+          description: ''
+  /api/chat/my-messages/{id}/:
+    get:
+      operationId: api_chat_my_messages_retrieve
+      description: Retrieve a specific thread with all messages. Marks messages as
+        read.
+      summary: Get thread details with messages
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+  /api/chat/my-messages/{id}/mark-read/:
+    post:
+      operationId: api_chat_my_messages_mark_read_create
+      description: Mark all messages in a thread as read by the current user
+      summary: Mark thread messages as read
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this chat thread.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/chat/my-messages/{id}/messages/{message_id}/respond/:
+    post:
+      operationId: api_chat_my_messages_messages_respond_create
+      description: Accept or reject a pending offer. Accepting creates a Job.
+      summary: Respond to an offer (accept/reject)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: message_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - accept
+                  - reject
+                  description: Action to take on the offer
+              required:
+              - action
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+        '400':
+          description: Invalid action or offer state
+        '403':
+          description: Not authorized to respond to this offer
+        '404':
+          description: Message or offer not found
+  /api/chat/my-messages/{id}/send-message/:
+    post:
+      operationId: api_chat_my_messages_send_message_create
+      description: Send a new message or offer in an existing thread
+      summary: Send a message in a thread
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this chat thread.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+  /api/chat/my-messages/create-thread/:
+    post:
+      operationId: api_chat_my_messages_create_thread_create
+      description: Create a new chat thread or retrieve existing one with specified
+        user
+      summary: Create or get thread with another user
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                other_user_username:
+                  type: string
+                  description: Username of user to chat with
+              required:
+              - other_user_username
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+  /api/chat/my-messages/pending-offers/:
+    get:
+      operationId: api_chat_my_messages_pending_offers_retrieve
+      description: Get all pending offers where user needs to respond
+      summary: Get pending offers
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/chat/my-messages/unread-count/:
+    get:
+      operationId: api_chat_my_messages_unread_count_retrieve
+      description: Get total count of unread messages for the current user
+      summary: Get unread message count
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  unread_count:
+                    type: integer
+          description: ''
+  /api/chat/pending-offers/:
+    get:
+      operationId: api_chat_pending_offers_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/chat/thread-unreads/:
+    get:
+      operationId: api_chat_thread_unreads_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/chat/threads/:
+    get:
+      operationId: api_chat_threads_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedChatThreadListList'
+          description: ''
+    post:
+      operationId: api_chat_threads_create
+      summary: Create or get a chat thread between freelancer and client/guest
+      tags:
+      - Chat Threads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                other_user_username:
+                  type: string
+              required:
+              - other_user_username
+      security:
+      - optionalJwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+  /api/chat/threads/{id}/:
+    get:
+      operationId: api_chat_threads_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this chat thread.
+        required: true
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+    put:
+      operationId: api_chat_threads_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this chat thread.
+        required: true
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+    patch:
+      operationId: api_chat_threads_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this chat thread.
+        required: true
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+    delete:
+      operationId: api_chat_threads_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this chat thread.
+        required: true
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/chat/threads/{id}/mark-as-read/:
+    put:
+      operationId: api_chat_threads_mark_as_read_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this chat thread.
+        required: true
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+  /api/chat/threads/{thread_pk}/messages/:
+    get:
+      operationId: api_chat_threads_messages_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: path
+        name: thread_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - Chat Messages
+      security:
+      - optionalJwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedChatMessageList'
+          description: ''
+    post:
+      operationId: api_chat_threads_messages_create
+      parameters:
+      - in: path
+        name: thread_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - Chat Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+      security:
+      - optionalJwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+  /api/chat/threads/{thread_pk}/messages/{id}/update-offer/:
+    post:
+      operationId: api_chat_threads_messages_update_offer_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: thread_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - Chat Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+      security:
+      - optionalJwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+  /api/chat/threads/{thread_pk}/read/:
+    put:
+      operationId: api_chat_threads_read_update
+      parameters:
+      - in: path
+        name: thread_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+  /api/chat/threads/link-guest-threads/:
+    post:
+      operationId: api_chat_threads_link_guest_threads_create
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+  /api/chat/threads/preview-guest-threads/:
+    get:
+      operationId: api_chat_threads_preview_guest_threads_retrieve
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+  /api/chat/threads/sent-offers/:
+    get:
+      operationId: api_chat_threads_sent_offers_retrieve
+      tags:
+      - Chat Threads
+      security:
+      - optionalJwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadDetail'
+          description: ''
+  /api/chat/unread-count/:
+    get:
+      operationId: api_chat_unread_count_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/chat/upload/:
+    post:
+      operationId: api_chat_upload_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatAttachmentUploadRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChatAttachmentUploadRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ChatAttachmentUploadRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatAttachmentUpload'
+          description: ''
+  /api/dashboard/jobs/:
+    get:
+      operationId: api_dashboard_jobs_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/dashboard/notifications/:
+    get:
+      operationId: api_dashboard_notifications_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/dashboard/notifications/{notification_id}/read/:
+    post:
+      operationId: api_dashboard_notifications_read_create
+      parameters:
+      - in: path
+        name: notification_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: api_dashboard_notifications_read_update
+      parameters:
+      - in: path
+        name: notification_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/dashboard/notifications/{notification_id}/unread/:
+    post:
+      operationId: api_dashboard_notifications_unread_create
+      parameters:
+      - in: path
+        name: notification_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: api_dashboard_notifications_unread_update
+      parameters:
+      - in: path
+        name: notification_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/dashboard/stats/:
+    get:
+      operationId: api_dashboard_stats_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/dashboard/summary/:
+    get:
+      operationId: api_dashboard_summary_retrieve
+      summary: Get complete dashboard summary for both clients and freelancers
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/jobs/categories/:
+    get:
+      operationId: api_jobs_categories_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCategoryList'
+          description: ''
+    post:
+      operationId: api_jobs_categories_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CategoryRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CategoryRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+  /api/jobs/categories/{id}/:
+    get:
+      operationId: api_jobs_categories_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this TaskCategory.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+    put:
+      operationId: api_jobs_categories_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this TaskCategory.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CategoryRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CategoryRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+    patch:
+      operationId: api_jobs_categories_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this TaskCategory.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCategoryRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCategoryRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCategoryRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+    delete:
+      operationId: api_jobs_categories_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this TaskCategory.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/jobs/subject-areas/:
+    get:
+      operationId: api_jobs_subject_areas_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSubjectAreaList'
+          description: ''
+    post:
+      operationId: api_jobs_subject_areas_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubjectAreaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubjectAreaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubjectAreaRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectArea'
+          description: ''
+  /api/jobs/subject-areas/{id}/:
+    get:
+      operationId: api_jobs_subject_areas_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this Task Subject Area.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectArea'
+          description: ''
+    put:
+      operationId: api_jobs_subject_areas_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this Task Subject Area.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubjectAreaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubjectAreaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubjectAreaRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectArea'
+          description: ''
+    patch:
+      operationId: api_jobs_subject_areas_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this Task Subject Area.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSubjectAreaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSubjectAreaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSubjectAreaRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectArea'
+          description: ''
+    delete:
+      operationId: api_jobs_subject_areas_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this Task Subject Area.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/orders/jobs/:
+    get:
+      operationId: api_orders_jobs_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedJobList'
+          description: ''
+    post:
+      operationId: api_orders_jobs_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobCreateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/JobCreateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/JobCreateRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobCreate'
+          description: ''
+  /api/orders/jobs/{id}/:
+    get:
+      operationId: api_orders_jobs_retrieve
+      summary: Retrieve job details (guest or authenticated)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  status:
+                    type: string
+                  status_display:
+                    type: string
+                  post_payment:
+                    type: object
+                    properties:
+                      next:
+                        type: string
+                        enum:
+                        - login
+                        - password_setup
+                      redirect_to:
+                        type: string
+                      message:
+                        type: string
+              examples:
+                PaidJobResponseWithLoginRedirect:
+                  value:
+                    id: 7ced640e-1d73-423c-90bf-37796f564db1
+                    status: PAID
+                    status_display: Paid by Client - Funds Held
+                    post_payment:
+                      next: login
+                      redirect_to: /login
+                      message: Payment successful. Log in with your email and password
+                        to continue.
+                  summary: Paid job response with login redirect
+          description: ''
+    put:
+      operationId: api_orders_jobs_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+    patch:
+      operationId: api_orders_jobs_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+    delete:
+      operationId: api_orders_jobs_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/orders/jobs/{id}/complete/:
+    post:
+      operationId: api_orders_jobs_complete_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/dispute/:
+    get:
+      operationId: api_orders_jobs_dispute_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+    post:
+      operationId: api_orders_jobs_dispute_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/dispute/in-review/:
+    post:
+      operationId: api_orders_jobs_dispute_in_review_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/dispute/resolve/:
+    post:
+      operationId: api_orders_jobs_dispute_resolve_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/in-progress/:
+    post:
+      operationId: api_orders_jobs_in_progress_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/mark-in-progress/:
+    post:
+      operationId: api_orders_jobs_mark_in_progress_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/rate-freelancer/:
+    post:
+      operationId: api_orders_jobs_rate_freelancer_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/start/:
+    post:
+      operationId: api_orders_jobs_start_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/start-work/:
+    post:
+      operationId: api_orders_jobs_start_work_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/status/:
+    post:
+      operationId: api_orders_jobs_status_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/submission/attachments/:
+    get:
+      operationId: api_orders_jobs_submission_attachments_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/submission/attachments/{attachment_id}/download/:
+    get:
+      operationId: api_orders_jobs_submission_attachments_download_retrieve
+      parameters:
+      - in: path
+        name: attachment_id
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/submission/legacy/{legacy_key}/download/:
+    get:
+      operationId: api_orders_jobs_submission_legacy_download_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      - in: path
+        name: legacy_key
+        schema:
+          type: string
+          pattern: ^assignment|plag_report|ai_report$
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/jobs/{id}/submit/:
+    post:
+      operationId: api_orders_jobs_submit_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this job.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: ''
+  /api/orders/payments/paystack/initialize/:
+    post:
+      operationId: api_orders_payments_paystack_initialize_create
+      summary: Initialize Paystack payment for a job
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - job_id
+              properties:
+                job_id:
+                  type: string
+                  format: uuid
+                session_key:
+                  type: string
+                  description: Optional if passed as query param.
+                client_email:
+                  type: string
+                  format: email
+                  description: Required for guest/shadow client jobs.
+                client_password:
+                  type: string
+                  minLength: 8
+                  description: Required for guest/shadow client jobs when no existing
+                    client account matches client_email.
+                client_password_confirm:
+                  type: string
+                  minLength: 8
+                  description: Must match client_password.
+            examples:
+              GuestInitRequest:
+                value:
+                  job_id: 7ced640e-1d73-423c-90bf-37796f564db1
+                  client_email: client@example.com
+                  client_password: StrongPass123!
+                  client_password_confirm: StrongPass123!
+                summary: Guest init request
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  authorizationUrl:
+                    type: string
+                    format: uri
+                  reference:
+                    type: string
+              examples:
+                InitSuccess:
+                  value:
+                    authorizationUrl: https://checkout.paystack.com/abcd1234
+                    reference: JOB-7ced640e-1d73-423c-90bf-37796f564db1-1772259985
+                  summary: Init success
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  detail:
+                    type: string
+                  client_email:
+                    type: string
+                  client_password:
+                    type: string
+                  client_password_confirm:
+                    type: string
+              examples:
+                MissingGuestPassword:
+                  value:
+                    client_password: This field is required.
+                  summary: Missing guest password
+                PasswordMismatch:
+                  value:
+                    client_password_confirm: Passwords do not match.
+                  summary: Password mismatch
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              examples:
+                Auth/sessionMissing:
+                  value:
+                    error: Authentication required or session_key is required.
+                  summary: Auth/session missing
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+          description: ''
+  /api/orders/webhooks/paystack/:
+    post:
+      operationId: api_orders_webhooks_paystack_create
+      tags:
+      - api
+      responses:
+        '200':
+          description: No response body
+  /api/payment/paystack/transfer/initiate/:
+    post:
+      operationId: api_payment_paystack_transfer_initiate_create
+      description: View to manually initiate a Paystack transfer for a specific job/payout
+        ID.
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/payment/paystack/transfer/webhook/:
+    post:
+      operationId: api_payment_paystack_transfer_webhook_create
+      tags:
+      - api
+      responses:
+        '200':
+          description: No response body
+  /api/payments/initialize/:
+    post:
+      operationId: api_payments_initialize_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitializeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PaymentInitializeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PaymentInitializeRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitialize'
+          description: ''
+  /api/payments/list/:
+    get:
+      operationId: api_payments_list_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPaymentList'
+          description: ''
+  /api/payments/list/{id}/:
+    get:
+      operationId: api_payments_list_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this Payment.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+          description: ''
+  /api/payments/status/{job_id}/:
+    get:
+      operationId: api_payments_status_retrieve
+      parameters:
+      - in: path
+        name: job_id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/payments/verify/:
+    post:
+      operationId: api_payments_verify_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentVerifyRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PaymentVerifyRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PaymentVerifyRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentVerify'
+          description: ''
+  /api/payments/webhook/:
+    post:
+      operationId: api_payments_webhook_create
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/payments/webhooks/logs/:
+    get:
+      operationId: api_payments_webhooks_logs_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPaymentWebhookLogList'
+          description: ''
+  /api/payments/webhooks/logs/{id}/:
+    get:
+      operationId: api_payments_webhooks_logs_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this Payment Webhook Log.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentWebhookLog'
+          description: ''
+  /api/profile/alias/:
+    get:
+      operationId: api_profile_alias_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: api_profile_alias_create
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    patch:
+      operationId: api_profile_alias_partial_update
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/profile/picture/:
+    get:
+      operationId: api_profile_picture_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: api_profile_picture_create
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: api_profile_picture_update
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    patch:
+      operationId: api_profile_picture_partial_update
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/chat/threads/:
+    get:
+      operationId: api_users_chat_threads_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/csrf-and-session/:
+    get:
+      operationId: api_users_csrf_and_session_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/users/dashboard/jobs/:
+    get:
+      operationId: api_users_dashboard_jobs_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/dashboard/notifications/:
+    get:
+      operationId: api_users_dashboard_notifications_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/dashboard/notifications/{notification_id}/read/:
+    post:
+      operationId: api_users_dashboard_notifications_read_create
+      parameters:
+      - in: path
+        name: notification_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: api_users_dashboard_notifications_read_update
+      parameters:
+      - in: path
+        name: notification_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/dashboard/notifications/{notification_id}/unread/:
+    post:
+      operationId: api_users_dashboard_notifications_unread_create
+      parameters:
+      - in: path
+        name: notification_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: api_users_dashboard_notifications_unread_update
+      parameters:
+      - in: path
+        name: notification_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/dashboard/stats/:
+    get:
+      operationId: api_users_dashboard_stats_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/dashboard/summary/:
+    get:
+      operationId: api_users_dashboard_summary_retrieve
+      summary: Get complete dashboard summary for both clients and freelancers
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/users/dashboard/thread-unreads/:
+    get:
+      operationId: api_users_dashboard_thread_unreads_retrieve
+      summary: Get unread counts for all threads
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/users/dashboard/unread-count/:
+    get:
+      operationId: api_users_dashboard_unread_count_retrieve
+      summary: Get unread messages count
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  unread_count:
+                    type: integer
+          description: ''
+  /api/users/freelancers/:
+    get:
+      operationId: api_users_freelancers_list
+      summary: List all active Freelancers with optional filters
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedFreelancerListList'
+          description: ''
+  /api/users/freelancers/{id}/:
+    get:
+      operationId: api_users_freelancers_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FreelancerList'
+          description: ''
+  /api/users/logout/:
+    post:
+      operationId: api_users_logout_create
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/me/:
+    get:
+      operationId: api_users_me_retrieve
+      summary: Retrieve the current user's profile
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/users/onboarding/finalize-client/:
+    post:
+      operationId: api_users_onboarding_finalize_client_create
+      summary: Finalize a Shadow Client Account
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientAccountFinalizeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClientAccountFinalizeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClientAccountFinalizeRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/users/onboarding/onboard_freelancer/:
+    post:
+      operationId: api_users_onboarding_onboard_freelancer_create
+      summary: Onboard a new Freelancer
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FreelancerOnboardingRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FreelancerOnboardingRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FreelancerOnboardingRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/users/password/setup/confirm/:
+    post:
+      operationId: api_users_password_setup_confirm_create
+      summary: Set password using secure setup token
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetupPasswordConfirmRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SetupPasswordConfirmRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SetupPasswordConfirmRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/users/password/setup/request/:
+    post:
+      operationId: api_users_password_setup_request_create
+      summary: Request secure password setup link
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetupPasswordRequestRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SetupPasswordRequestRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SetupPasswordRequestRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/users/profile/:
+    get:
+      operationId: api_users_profile_retrieve
+      summary: Get user profile
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+    patch:
+      operationId: api_users_profile_partial_update
+      summary: Update user profile
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+  /api/users/profile/alias/:
+    get:
+      operationId: api_users_profile_alias_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: api_users_profile_alias_create
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    patch:
+      operationId: api_users_profile_alias_partial_update
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/profile/certifications/:
+    get:
+      operationId: api_users_profile_certifications_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCertificationList'
+          description: ''
+    post:
+      operationId: api_users_profile_certifications_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CertificationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CertificationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CertificationRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certification'
+          description: ''
+  /api/users/profile/certifications/{id}/:
+    get:
+      operationId: api_users_profile_certifications_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certification'
+          description: ''
+    put:
+      operationId: api_users_profile_certifications_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CertificationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CertificationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CertificationRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certification'
+          description: ''
+    patch:
+      operationId: api_users_profile_certifications_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCertificationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCertificationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCertificationRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certification'
+          description: ''
+    delete:
+      operationId: api_users_profile_certifications_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/profile/complete/:
+    get:
+      operationId: api_users_profile_complete_retrieve
+      summary: Get complete user profile with all sections
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompleteProfile'
+          description: ''
+  /api/users/profile/education/:
+    get:
+      operationId: api_users_profile_education_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedEducationList'
+          description: ''
+    post:
+      operationId: api_users_profile_education_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EducationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EducationRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Education'
+          description: ''
+  /api/users/profile/education/{id}/:
+    get:
+      operationId: api_users_profile_education_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Education'
+          description: ''
+    put:
+      operationId: api_users_profile_education_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EducationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EducationRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Education'
+          description: ''
+    patch:
+      operationId: api_users_profile_education_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedEducationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedEducationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedEducationRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Education'
+          description: ''
+    delete:
+      operationId: api_users_profile_education_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/profile/featured-clients/:
+    get:
+      operationId: api_users_profile_featured_clients_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedFeaturedClientList'
+          description: ''
+    post:
+      operationId: api_users_profile_featured_clients_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeaturedClientRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FeaturedClientRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FeaturedClientRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeaturedClient'
+          description: ''
+  /api/users/profile/featured-clients/{id}/:
+    get:
+      operationId: api_users_profile_featured_clients_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeaturedClient'
+          description: ''
+    put:
+      operationId: api_users_profile_featured_clients_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeaturedClientRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FeaturedClientRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FeaturedClientRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeaturedClient'
+          description: ''
+    patch:
+      operationId: api_users_profile_featured_clients_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedFeaturedClientRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedFeaturedClientRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedFeaturedClientRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeaturedClient'
+          description: ''
+    delete:
+      operationId: api_users_profile_featured_clients_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/profile/picture/:
+    get:
+      operationId: api_users_profile_picture_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: api_users_profile_picture_create
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: api_users_profile_picture_update
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    patch:
+      operationId: api_users_profile_picture_partial_update
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/profile/portfolio/:
+    get:
+      operationId: api_users_profile_portfolio_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPortfolioList'
+          description: ''
+    post:
+      operationId: api_users_profile_portfolio_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PortfolioRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PortfolioRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Portfolio'
+          description: ''
+  /api/users/profile/portfolio/{id}/:
+    get:
+      operationId: api_users_profile_portfolio_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Portfolio'
+          description: ''
+    put:
+      operationId: api_users_profile_portfolio_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PortfolioRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PortfolioRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Portfolio'
+          description: ''
+    patch:
+      operationId: api_users_profile_portfolio_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPortfolioRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPortfolioRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPortfolioRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Portfolio'
+          description: ''
+    delete:
+      operationId: api_users_profile_portfolio_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/profile/skills/:
+    get:
+      operationId: api_users_profile_skills_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSkillList'
+          description: ''
+    post:
+      operationId: api_users_profile_skills_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SkillRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SkillRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Skill'
+          description: ''
+  /api/users/profile/skills/{id}/:
+    get:
+      operationId: api_users_profile_skills_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Skill'
+          description: ''
+    put:
+      operationId: api_users_profile_skills_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SkillRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SkillRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Skill'
+          description: ''
+    patch:
+      operationId: api_users_profile_skills_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSkillRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSkillRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSkillRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Skill'
+          description: ''
+    delete:
+      operationId: api_users_profile_skills_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/profile/work-experience/:
+    get:
+      operationId: api_users_profile_work_experience_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedWorkExperienceList'
+          description: ''
+    post:
+      operationId: api_users_profile_work_experience_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkExperienceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkExperienceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WorkExperienceRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkExperience'
+          description: ''
+  /api/users/profile/work-experience/{id}/:
+    get:
+      operationId: api_users_profile_work_experience_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkExperience'
+          description: ''
+    put:
+      operationId: api_users_profile_work_experience_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkExperienceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkExperienceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WorkExperienceRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkExperience'
+          description: ''
+    patch:
+      operationId: api_users_profile_work_experience_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedWorkExperienceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedWorkExperienceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedWorkExperienceRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkExperience'
+          description: ''
+    delete:
+      operationId: api_users_profile_work_experience_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/ratings/:
+    get:
+      operationId: api_users_ratings_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRatingList'
+          description: ''
+    post:
+      operationId: api_users_ratings_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RatingRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RatingRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RatingRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+          description: ''
+  /api/users/ratings/{id}/:
+    get:
+      operationId: api_users_ratings_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this rating.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+          description: ''
+    put:
+      operationId: api_users_ratings_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this rating.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RatingRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RatingRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RatingRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+          description: ''
+    patch:
+      operationId: api_users_ratings_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this rating.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRatingRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRatingRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRatingRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+          description: ''
+    delete:
+      operationId: api_users_ratings_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this rating.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/settings/account/:
+    get:
+      operationId: api_users_settings_account_retrieve
+      summary: Get account settings
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountSettings'
+          description: ''
+    patch:
+      operationId: api_users_settings_account_partial_update
+      summary: Update account settings
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAccountSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAccountSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAccountSettingsRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountSettings'
+          description: ''
+  /api/users/settings/notifications/:
+    get:
+      operationId: api_users_settings_notifications_retrieve
+      summary: Get notification preferences
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreference'
+          description: ''
+    patch:
+      operationId: api_users_settings_notifications_partial_update
+      summary: Update notification preferences
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedNotificationPreferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedNotificationPreferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedNotificationPreferenceRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreference'
+          description: ''
+  /api/users/settings/password/:
+    post:
+      operationId: api_users_settings_password_create
+      summary: Change password
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChangeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordChangeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordChangeRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/users/token/client/:
+    post:
+      operationId: api_users_token_client_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientTokenObtainPairRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClientTokenObtainPairRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClientTokenObtainPairRequest'
+        required: true
+      responses:
+        '200':
+          description: No response body
+  /api/users/token/freelancer/:
+    post:
+      operationId: api_users_token_freelancer_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTokenObtainPairRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EmailTokenObtainPairRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EmailTokenObtainPairRequest'
+        required: true
+      responses:
+        '200':
+          description: No response body
+  /api/users/token/refresh/:
+    post:
+      operationId: api_users_token_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /profile/alias/:
+    get:
+      operationId: profile_alias_retrieve
+      tags:
+      - profile
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: profile_alias_create
+      tags:
+      - profile
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    patch:
+      operationId: profile_alias_partial_update
+      tags:
+      - profile
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /profile/picture/:
+    get:
+      operationId: profile_picture_retrieve
+      tags:
+      - profile
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: profile_picture_create
+      tags:
+      - profile
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    put:
+      operationId: profile_picture_update
+      tags:
+      - profile
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+    patch:
+      operationId: profile_picture_partial_update
+      tags:
+      - profile
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+components:
+  schemas:
+    AccountSettings:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          readOnly: true
+        phone:
+          type: string
+          nullable: true
+          pattern: ^\+?1?\d{9,15}$
+          maxLength: 20
+      required:
+      - email
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          description: Unique name of the category (e.g., Computing and IT).
+          maxLength: 100
+        slug:
+          type: string
+          readOnly: true
+          description: Auto-generated slug from name, used for URLs and lookups.
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+          description: Optional description of this category.
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        last_modified:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - last_modified
+      - name
+      - slug
+    CategoryRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          description: Unique name of the category (e.g., Computing and IT).
+          maxLength: 100
+        description:
+          type: string
+          description: Optional description of this category.
+      required:
+      - name
+    Certification:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        certification_name:
+          type: string
+          description: Certification name
+          maxLength: 200
+        issuing_organization:
+          type: string
+          description: Issuing organization
+          maxLength: 200
+        issue_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Year obtained
+        expiry_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+          description: Expiry year (if applicable)
+        credential_id:
+          type: string
+          description: Credential ID
+          maxLength: 100
+        credential_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Verification URL
+          maxLength: 200
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - certification_name
+      - created_at
+      - id
+      - issue_year
+      - issuing_organization
+      - updated_at
+    CertificationRequest:
+      type: object
+      properties:
+        certification_name:
+          type: string
+          minLength: 1
+          description: Certification name
+          maxLength: 200
+        issuing_organization:
+          type: string
+          minLength: 1
+          description: Issuing organization
+          maxLength: 200
+        issue_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Year obtained
+        expiry_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+          description: Expiry year (if applicable)
+        credential_id:
+          type: string
+          description: Credential ID
+          maxLength: 100
+        credential_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Verification URL
+          maxLength: 200
+      required:
+      - certification_name
+      - issue_year
+      - issuing_organization
+    ChatAttachment:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        file_url:
+          type: string
+          format: uri
+          maxLength: 1000
+        name:
+          type: string
+          maxLength: 255
+        mime_type:
+          type: string
+          nullable: true
+          maxLength: 100
+        size:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+        size_kb:
+          type: number
+          format: double
+          readOnly: true
+        size_mb:
+          type: number
+          format: double
+          readOnly: true
+        uploaded_by:
+          type: string
+          readOnly: true
+          nullable: true
+        uploaded_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_linked:
+          type: boolean
+          readOnly: true
+      required:
+      - file_url
+      - id
+      - is_linked
+      - name
+      - size_kb
+      - size_mb
+      - uploaded_at
+      - uploaded_by
+    ChatAttachmentRequest:
+      type: object
+      properties:
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          maxLength: 1000
+        name:
+          type: string
+          minLength: 1
+          maxLength: 255
+        mime_type:
+          type: string
+          nullable: true
+          maxLength: 100
+        size:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+      required:
+      - file_url
+      - name
+    ChatAttachmentUpload:
+      type: object
+      properties:
+        file:
+          type: string
+          format: uri
+        message_id:
+          type: integer
+          nullable: true
+      required:
+      - file
+    ChatAttachmentUploadRequest:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+        message_id:
+          type: integer
+          nullable: true
+      required:
+      - file
+    ChatMessage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        thread:
+          type: integer
+          readOnly: true
+        message:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_offer:
+          type: boolean
+        sender_name:
+          type: string
+          readOnly: true
+        sender_user_id:
+          type: string
+          nullable: true
+          readOnly: true
+        sender_guest_key:
+          type: string
+          nullable: true
+          readOnly: true
+        offer:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        offer_title:
+          type: string
+        offer_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        offer_timeline:
+          type: integer
+        offer_revisions:
+          type: integer
+          minimum: 0
+        offer_description:
+          type: string
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatAttachment'
+          readOnly: true
+      required:
+      - attachments
+      - created_at
+      - id
+      - offer
+      - sender_guest_key
+      - sender_name
+      - sender_user_id
+      - thread
+      - updated_at
+    ChatMessageRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          nullable: true
+        is_offer:
+          type: boolean
+        offer_title:
+          type: string
+          minLength: 1
+        offer_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        offer_timeline:
+          type: integer
+        offer_revisions:
+          type: integer
+          minimum: 0
+        offer_description:
+          type: string
+        attachment_ids:
+          type: array
+          items:
+            type: integer
+            writeOnly: true
+          writeOnly: true
+    ChatThreadDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        freelancer_username:
+          type: string
+          readOnly: true
+        freelancer_id:
+          type: string
+          format: uuid
+          readOnly: true
+        client_username:
+          type: string
+          readOnly: true
+          nullable: true
+        client_id:
+          type: string
+          format: uuid
+          readOnly: true
+          nullable: true
+        is_guest_thread:
+          type: boolean
+          readOnly: true
+        other_party_name:
+          type: string
+          readOnly: true
+        last_message_preview:
+          type: string
+          readOnly: true
+        last_message:
+          type: object
+          additionalProperties: {}
+          description: Return the full last message object with all details
+          readOnly: true
+        unread_count:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+          readOnly: true
+        participant_count:
+          type: integer
+          readOnly: true
+      required:
+      - client_id
+      - client_username
+      - created_at
+      - freelancer_id
+      - freelancer_username
+      - id
+      - is_guest_thread
+      - last_message
+      - last_message_preview
+      - messages
+      - other_party_name
+      - participant_count
+      - unread_count
+      - updated_at
+    ChatThreadList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        freelancer_username:
+          type: string
+          readOnly: true
+        freelancer_id:
+          type: string
+          format: uuid
+          readOnly: true
+        client_username:
+          type: string
+          readOnly: true
+          nullable: true
+        client_id:
+          type: string
+          format: uuid
+          readOnly: true
+          nullable: true
+        is_guest_thread:
+          type: boolean
+          readOnly: true
+        other_party_name:
+          type: string
+          readOnly: true
+        last_message_preview:
+          type: string
+          readOnly: true
+        last_message:
+          type: object
+          additionalProperties: {}
+          description: Return the full last message object with all details
+          readOnly: true
+        unread_count:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - client_id
+      - client_username
+      - created_at
+      - freelancer_id
+      - freelancer_username
+      - id
+      - is_guest_thread
+      - last_message
+      - last_message_preview
+      - other_party_name
+      - unread_count
+      - updated_at
+    ClientAccountFinalizeRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          minLength: 1
+        password:
+          type: string
+          writeOnly: true
+          minLength: 8
+      required:
+      - email
+      - password
+    ClientTokenObtainPairRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          writeOnly: true
+          minLength: 1
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - email
+      - password
+    CompleteProfile:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        username:
+          type: string
+          nullable: true
+          maxLength: 20
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        role:
+          enum:
+          - ADMIN
+          - FREELANCER
+          - CLIENT
+          type: string
+          description: |-
+            * `ADMIN` - Admin
+            * `FREELANCER` - Freelancer
+            * `CLIENT` - Client
+          x-spec-enum-id: 80dd49793331b1f1
+        is_active:
+          type: boolean
+        profile:
+          allOf:
+          - $ref: '#/components/schemas/UserProfile'
+          readOnly: true
+        featured_clients:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeaturedClient'
+          readOnly: true
+        portfolio_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Portfolio'
+          readOnly: true
+        work_experience:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkExperience'
+          readOnly: true
+        education:
+          type: array
+          items:
+            $ref: '#/components/schemas/Education'
+          readOnly: true
+        certifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certification'
+          readOnly: true
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+          readOnly: true
+        freelancerprofile:
+          allOf:
+          - $ref: '#/components/schemas/FreelancerProfile'
+          readOnly: true
+      required:
+      - certifications
+      - education
+      - email
+      - featured_clients
+      - freelancerprofile
+      - id
+      - portfolio_items
+      - profile
+      - skills
+      - work_experience
+    Education:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        institution:
+          type: string
+          description: University/School name
+          maxLength: 200
+        degree:
+          type: string
+          description: Degree/Qualification
+          maxLength: 200
+        field_of_study:
+          type: string
+          description: Major/Field of study
+          maxLength: 200
+        start_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Start year
+        graduation_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+          description: Graduation year
+        is_current:
+          type: boolean
+          description: Currently studying
+        grade:
+          type: string
+          description: GPA/Grade
+          maxLength: 50
+        description:
+          type: string
+          description: Additional details
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - degree
+      - id
+      - institution
+      - start_year
+      - updated_at
+    EducationRequest:
+      type: object
+      properties:
+        institution:
+          type: string
+          minLength: 1
+          description: University/School name
+          maxLength: 200
+        degree:
+          type: string
+          minLength: 1
+          description: Degree/Qualification
+          maxLength: 200
+        field_of_study:
+          type: string
+          description: Major/Field of study
+          maxLength: 200
+        start_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Start year
+        graduation_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+          description: Graduation year
+        is_current:
+          type: boolean
+          description: Currently studying
+        grade:
+          type: string
+          description: GPA/Grade
+          maxLength: 50
+        description:
+          type: string
+          description: Additional details
+      required:
+      - degree
+      - institution
+      - start_year
+    EmailTokenObtainPairRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          writeOnly: true
+          minLength: 1
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - email
+      - password
+    FeaturedClient:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        client_name:
+          type: string
+          description: Client/Brand name
+          maxLength: 100
+        client_logo:
+          type: string
+          format: uri
+          nullable: true
+        client_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Client website URL
+          maxLength: 200
+        description:
+          type: string
+          description: Brief description of work done
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order (0-4 for max 5 clients)
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - client_name
+      - created_at
+      - id
+      - updated_at
+    FeaturedClientRequest:
+      type: object
+      properties:
+        client_name:
+          type: string
+          minLength: 1
+          description: Client/Brand name
+          maxLength: 100
+        client_logo:
+          type: string
+          format: binary
+          nullable: true
+        client_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Client website URL
+          maxLength: 200
+        description:
+          type: string
+          description: Brief description of work done
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order (0-4 for max 5 clients)
+      required:
+      - client_name
+    FreelancerList:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        username:
+          type: string
+          nullable: true
+          maxLength: 20
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        phone:
+          type: string
+          nullable: true
+          pattern: ^\+?1?\d{9,15}$
+          maxLength: 20
+        profile:
+          allOf:
+          - $ref: '#/components/schemas/FreelancerProfile'
+          readOnly: true
+        avg_rating:
+          type: number
+          format: double
+          nullable: true
+          readOnly: true
+        is_admin:
+          type: boolean
+          readOnly: true
+        active_chats:
+          type: integer
+          readOnly: true
+        response_rate:
+          type: integer
+          readOnly: true
+        total_earnings:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          readOnly: true
+        current_balance:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          readOnly: true
+      required:
+      - active_chats
+      - avg_rating
+      - current_balance
+      - email
+      - id
+      - is_admin
+      - profile
+      - response_rate
+      - total_earnings
+    FreelancerOnboardingRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          minLength: 1
+          maxLength: 254
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+        phone:
+          type: string
+          nullable: true
+          pattern: ^\+?1?\d{9,15}$
+          maxLength: 20
+        categories:
+          type: array
+          items:
+            type: string
+            format: uuid
+            writeOnly: true
+          writeOnly: true
+        subjects:
+          type: array
+          items:
+            type: string
+            format: uuid
+            writeOnly: true
+          writeOnly: true
+        mpesa_number:
+          type: string
+          writeOnly: true
+        hourly_rate:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        experience_years:
+          type: integer
+          default: 0
+        bio:
+          type: string
+      required:
+      - email
+      - password
+    FreelancerProfile:
+      type: object
+      properties:
+        user:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        mpesa_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        categories:
+          type: array
+          items:
+            type: string
+            format: uuid
+          readOnly: true
+        subjects:
+          type: array
+          items:
+            type: string
+            format: uuid
+          readOnly: true
+        avg_price:
+          type: number
+          format: double
+          readOnly: true
+        avg_delivery_time:
+          type: integer
+          readOnly: true
+        avg_rating:
+          type: number
+          format: double
+          nullable: true
+          readOnly: true
+        total_chats:
+          type: integer
+          readOnly: true
+        avg_response_time:
+          type: string
+          readOnly: true
+        completed_jobs:
+          type: integer
+          readOnly: true
+        hourly_rate:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        experience_years:
+          type: integer
+          readOnly: true
+        bio:
+          type: string
+          readOnly: true
+        is_available:
+          type: boolean
+          readOnly: true
+        has_payout_method:
+          type: boolean
+          readOnly: true
+        payout_method_details:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        payout_preference:
+          enum:
+          - MPESA
+          type: string
+          description: '* `MPESA` - M-Pesa'
+          x-spec-enum-id: c8af37c2de5a7151
+          readOnly: true
+      required:
+      - avg_delivery_time
+      - avg_price
+      - avg_rating
+      - avg_response_time
+      - bio
+      - categories
+      - completed_jobs
+      - experience_years
+      - has_payout_method
+      - hourly_rate
+      - is_available
+      - payout_method_details
+      - payout_preference
+      - subjects
+      - total_chats
+      - user
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        client_id:
+          type: string
+          format: uuid
+          readOnly: true
+        client_username:
+          type: string
+          readOnly: true
+        client_email:
+          type: string
+          format: email
+          readOnly: true
+        freelancer_id:
+          type: string
+          format: uuid
+          readOnly: true
+        freelancer_username:
+          type: string
+          readOnly: true
+        freelancer_email:
+          type: string
+          format: email
+          readOnly: true
+        category_name:
+          type: string
+          readOnly: true
+        subject_name:
+          type: string
+          readOnly: true
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        total_amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        allowed_reviews:
+          type: integer
+          readOnly: true
+        reviews_used:
+          type: integer
+          readOnly: true
+        reviews_remaining:
+          type: integer
+          readOnly: true
+        status:
+          enum:
+          - PROVISIONAL
+          - PENDING_PAYMENT
+          - PAYMENT_FAILED
+          - PAID
+          - ASSIGNED
+          - IN_PROGRESS
+          - DELIVERED
+          - CLIENT_COMPLETED
+          - DISPUTE_OPEN
+          - DISPUTE_RESOLVED
+          - CANCELLED
+          type: string
+          description: |-
+            * `PROVISIONAL` - Provisional - Awaiting Payment Intent
+            * `PENDING_PAYMENT` - Pending Client Payment
+            * `PAYMENT_FAILED` - Client Payment Failed
+            * `PAID` - Paid by Client - Funds Held
+            * `ASSIGNED` - Assigned to Freelancer
+            * `IN_PROGRESS` - In Progress - Work Being Done
+            * `DELIVERED` - Delivered - Awaiting Client Review
+            * `CLIENT_COMPLETED` - Client Completed - Payout Ready
+            * `DISPUTE_OPEN` - Dispute Open
+            * `DISPUTE_RESOLVED` - Dispute Resolved
+            * `CANCELLED` - Cancelled
+          x-spec-enum-id: 66551c2b908b7883
+          readOnly: true
+        status_display:
+          type: string
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        paystack_reference:
+          type: string
+          readOnly: true
+          nullable: true
+        paystack_authorization_url:
+          type: string
+          format: uri
+          readOnly: true
+          nullable: true
+        paystack_status:
+          type: string
+          readOnly: true
+          nullable: true
+        client_marked_complete_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        submission:
+          allOf:
+          - $ref: '#/components/schemas/JobSubmissionRead'
+          readOnly: true
+        dispute:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+      required:
+      - allowed_reviews
+      - category_name
+      - client_email
+      - client_id
+      - client_marked_complete_at
+      - client_username
+      - created_at
+      - dispute
+      - freelancer_email
+      - freelancer_id
+      - freelancer_username
+      - id
+      - paystack_authorization_url
+      - paystack_reference
+      - paystack_status
+      - price
+      - reviews_remaining
+      - reviews_used
+      - status
+      - status_display
+      - subject_name
+      - submission
+      - total_amount
+      - updated_at
+    JobCreate:
+      type: object
+      properties:
+        category:
+          type: string
+          format: uuid
+          nullable: true
+        subject_area:
+          type: string
+          format: uuid
+          nullable: true
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        freelancer:
+          type: string
+          format: uuid
+          nullable: true
+        allowed_reviews:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+      required:
+      - price
+    JobCreateRequest:
+      type: object
+      properties:
+        category:
+          type: string
+          format: uuid
+          nullable: true
+        subject_area:
+          type: string
+          format: uuid
+          nullable: true
+        subject:
+          type: string
+          format: uuid
+          writeOnly: true
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        freelancer:
+          type: string
+          format: uuid
+          nullable: true
+        allowed_reviews:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+      required:
+      - price
+    JobSubmissionRead:
+      type: object
+      properties:
+        submission_text:
+          type: string
+        assignment_url:
+          type: string
+          nullable: true
+          readOnly: true
+        plag_report_url:
+          type: string
+          nullable: true
+          readOnly: true
+        ai_report_url:
+          type: string
+          nullable: true
+          readOnly: true
+        attachment_files:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        attachments:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        all_attachments:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
+          readOnly: true
+        revision_round:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        submitted_at:
+          type: string
+          format: date-time
+      required:
+      - ai_report_url
+      - all_attachments
+      - assignment_url
+      - attachment_files
+      - attachments
+      - plag_report_url
+    JobSubmissionReadRequest:
+      type: object
+      properties:
+        submission_text:
+          type: string
+        revision_round:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        submitted_at:
+          type: string
+          format: date-time
+    NotificationPreference:
+      type: object
+      properties:
+        email_new_message:
+          type: boolean
+        email_new_offer:
+          type: boolean
+        email_offer_accepted:
+          type: boolean
+        email_job_completed:
+          type: boolean
+        email_payment_received:
+          type: boolean
+        email_marketing:
+          type: boolean
+        app_new_message:
+          type: boolean
+        app_new_offer:
+          type: boolean
+        app_offer_accepted:
+          type: boolean
+        app_job_completed:
+          type: boolean
+        app_payment_received:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - updated_at
+    PaginatedCategoryList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+    PaginatedCertificationList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certification'
+    PaginatedChatMessageList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+    PaginatedChatThreadListList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatThreadList'
+    PaginatedEducationList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Education'
+    PaginatedFeaturedClientList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeaturedClient'
+    PaginatedFreelancerListList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/FreelancerList'
+    PaginatedJobList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+    PaginatedPaymentList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payment'
+    PaginatedPaymentWebhookLogList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentWebhookLog'
+    PaginatedPortfolioList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Portfolio'
+    PaginatedRatingList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rating'
+    PaginatedSkillList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+    PaginatedSubjectAreaList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubjectArea'
+    PaginatedWorkExperienceList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkExperience'
+    PasswordChangeRequest:
+      type: object
+      properties:
+        current_password:
+          type: string
+          writeOnly: true
+          minLength: 1
+        new_password:
+          type: string
+          writeOnly: true
+          minLength: 8
+        confirm_password:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - confirm_password
+      - current_password
+      - new_password
+    PatchedAccountSettingsRequest:
+      type: object
+      properties:
+        phone:
+          type: string
+          nullable: true
+          pattern: ^\+?1?\d{9,15}$
+          maxLength: 20
+    PatchedCategoryRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          description: Unique name of the category (e.g., Computing and IT).
+          maxLength: 100
+        description:
+          type: string
+          description: Optional description of this category.
+    PatchedCertificationRequest:
+      type: object
+      properties:
+        certification_name:
+          type: string
+          minLength: 1
+          description: Certification name
+          maxLength: 200
+        issuing_organization:
+          type: string
+          minLength: 1
+          description: Issuing organization
+          maxLength: 200
+        issue_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Year obtained
+        expiry_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+          description: Expiry year (if applicable)
+        credential_id:
+          type: string
+          description: Credential ID
+          maxLength: 100
+        credential_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Verification URL
+          maxLength: 200
+    PatchedEducationRequest:
+      type: object
+      properties:
+        institution:
+          type: string
+          minLength: 1
+          description: University/School name
+          maxLength: 200
+        degree:
+          type: string
+          minLength: 1
+          description: Degree/Qualification
+          maxLength: 200
+        field_of_study:
+          type: string
+          description: Major/Field of study
+          maxLength: 200
+        start_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Start year
+        graduation_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+          description: Graduation year
+        is_current:
+          type: boolean
+          description: Currently studying
+        grade:
+          type: string
+          description: GPA/Grade
+          maxLength: 50
+        description:
+          type: string
+          description: Additional details
+    PatchedFeaturedClientRequest:
+      type: object
+      properties:
+        client_name:
+          type: string
+          minLength: 1
+          description: Client/Brand name
+          maxLength: 100
+        client_logo:
+          type: string
+          format: binary
+          nullable: true
+        client_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Client website URL
+          maxLength: 200
+        description:
+          type: string
+          description: Brief description of work done
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order (0-4 for max 5 clients)
+    PatchedNotificationPreferenceRequest:
+      type: object
+      properties:
+        email_new_message:
+          type: boolean
+        email_new_offer:
+          type: boolean
+        email_offer_accepted:
+          type: boolean
+        email_job_completed:
+          type: boolean
+        email_payment_received:
+          type: boolean
+        email_marketing:
+          type: boolean
+        app_new_message:
+          type: boolean
+        app_new_offer:
+          type: boolean
+        app_offer_accepted:
+          type: boolean
+        app_job_completed:
+          type: boolean
+        app_payment_received:
+          type: boolean
+    PatchedPortfolioRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          description: Project title
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          description: Project description
+        project_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Live project URL
+          maxLength: 200
+        image:
+          type: string
+          format: binary
+          nullable: true
+        thumbnail:
+          type: string
+          format: binary
+          nullable: true
+        client_name:
+          type: string
+          description: Client name
+          maxLength: 100
+        completion_date:
+          type: string
+          format: date
+          nullable: true
+        tags:
+          description: Project tags/skills used
+        is_featured:
+          type: boolean
+          description: Show on featured portfolio
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order
+    PatchedRatingRequest:
+      type: object
+      properties:
+        rater:
+          type: string
+          format: uuid
+        rated_user:
+          type: string
+          format: uuid
+        job:
+          type: string
+          format: uuid
+          nullable: true
+        score:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,1})?$
+        review:
+          type: string
+          nullable: true
+    PatchedSkillRequest:
+      type: object
+      properties:
+        skill_name:
+          type: string
+          minLength: 1
+          description: Skill name
+          maxLength: 100
+        skill_level:
+          enum:
+          - BEGINNER
+          - INTERMEDIATE
+          - ADVANCED
+          - EXPERT
+          type: string
+          description: |-
+            * `BEGINNER` - Beginner
+            * `INTERMEDIATE` - Intermediate
+            * `ADVANCED` - Advanced
+            * `EXPERT` - Expert
+          x-spec-enum-id: 3392be8f42a0c37c
+        years_experience:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Years of experience
+    PatchedSubjectAreaRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          description: Name of the subject area (e.g., Data Analytics).
+          maxLength: 100
+        description:
+          type: string
+          description: Description of this subject area (Optional).
+        category:
+          type: string
+          format: uuid
+          description: The parent category this subject area belongs to.
+    PatchedUserProfileRequest:
+      type: object
+      properties:
+        display_name:
+          type: string
+          description: Public display name
+          maxLength: 100
+        tagline:
+          type: string
+          description: Short tagline/headline
+          maxLength: 200
+        location:
+          type: string
+          description: City, Country
+          maxLength: 100
+        languages:
+          description: List of languages spoken
+        about:
+          type: string
+          description: Rich text bio/about section
+        intro_video_url:
+          type: string
+          format: uri
+          nullable: true
+          description: URL to intro video
+          maxLength: 200
+        avatar:
+          type: string
+          format: binary
+          nullable: true
+        cover_image:
+          type: string
+          format: binary
+          nullable: true
+        is_public:
+          type: boolean
+          description: Profile visible to public
+        account_status:
+          enum:
+          - ACTIVE
+          - INACTIVE
+          - SUSPENDED
+          type: string
+          description: |-
+            * `ACTIVE` - Active
+            * `INACTIVE` - Inactive
+            * `SUSPENDED` - Suspended
+          x-spec-enum-id: f088d05f2c656393
+    PatchedWorkExperienceRequest:
+      type: object
+      properties:
+        job_title:
+          type: string
+          minLength: 1
+          description: Job title/position
+          maxLength: 200
+        company:
+          type: string
+          minLength: 1
+          description: Company name
+          maxLength: 200
+        location:
+          type: string
+          description: Job location
+          maxLength: 100
+        start_date:
+          type: string
+          format: date
+          description: Start date
+        end_date:
+          type: string
+          format: date
+          nullable: true
+          description: End date (leave empty if current)
+        is_current:
+          type: boolean
+          description: Currently working here
+        description:
+          type: string
+          minLength: 1
+          description: Job description and achievements
+    Payment:
+      type: object
+      description: Serializer for Payment model
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        job:
+          type: string
+          format: uuid
+        job_id:
+          type: string
+          format: uuid
+          readOnly: true
+        job_title:
+          type: string
+          readOnly: true
+        user:
+          type: string
+          format: uuid
+        user_email:
+          type: string
+          format: email
+          readOnly: true
+        username:
+          type: string
+          readOnly: true
+        amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        currency:
+          type: string
+          maxLength: 3
+        reference:
+          type: string
+          readOnly: true
+        authorization_url:
+          type: string
+          format: uri
+          readOnly: true
+          nullable: true
+        access_code:
+          type: string
+          readOnly: true
+          nullable: true
+        status:
+          enum:
+          - PENDING
+          - PROCESSING
+          - SUCCESS
+          - FAILED
+          - CANCELLED
+          - REFUNDED
+          type: string
+          description: |-
+            * `PENDING` - Pending
+            * `PROCESSING` - Processing
+            * `SUCCESS` - Success
+            * `FAILED` - Failed
+            * `CANCELLED` - Cancelled
+            * `REFUNDED` - Refunded
+          x-spec-enum-id: 1ca6e8d8481c0f89
+          readOnly: true
+        verified_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        paid_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - access_code
+      - amount
+      - authorization_url
+      - created_at
+      - id
+      - job
+      - job_id
+      - job_title
+      - paid_at
+      - reference
+      - status
+      - updated_at
+      - user
+      - user_email
+      - username
+      - verified_at
+    PaymentInitialize:
+      type: object
+      description: Serializer for payment initialization request
+      properties:
+        job_id:
+          type: string
+          format: uuid
+        callback_url:
+          type: string
+          format: uri
+      required:
+      - job_id
+    PaymentInitializeRequest:
+      type: object
+      description: Serializer for payment initialization request
+      properties:
+        job_id:
+          type: string
+          format: uuid
+        callback_url:
+          type: string
+          format: uri
+      required:
+      - job_id
+    PaymentVerify:
+      type: object
+      description: Serializer for payment verification request
+      properties:
+        reference:
+          type: string
+          maxLength: 255
+      required:
+      - reference
+    PaymentVerifyRequest:
+      type: object
+      description: Serializer for payment verification request
+      properties:
+        reference:
+          type: string
+          minLength: 1
+          maxLength: 255
+      required:
+      - reference
+    PaymentWebhookLog:
+      type: object
+      description: Serializer for webhook logs
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        event_type:
+          type: string
+          maxLength: 100
+        reference:
+          type: string
+          maxLength: 255
+        payload: {}
+        payment:
+          type: string
+          format: uuid
+          nullable: true
+        processed:
+          type: boolean
+        processing_error:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - event_type
+      - id
+      - payload
+      - reference
+    Portfolio:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          description: Project title
+          maxLength: 200
+        description:
+          type: string
+          description: Project description
+        project_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Live project URL
+          maxLength: 200
+        image:
+          type: string
+          format: uri
+          nullable: true
+        thumbnail:
+          type: string
+          format: uri
+          nullable: true
+        client_name:
+          type: string
+          description: Client name
+          maxLength: 100
+        completion_date:
+          type: string
+          format: date
+          nullable: true
+        tags:
+          description: Project tags/skills used
+        is_featured:
+          type: boolean
+          description: Show on featured portfolio
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - description
+      - id
+      - title
+      - updated_at
+    PortfolioRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          description: Project title
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          description: Project description
+        project_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Live project URL
+          maxLength: 200
+        image:
+          type: string
+          format: binary
+          nullable: true
+        thumbnail:
+          type: string
+          format: binary
+          nullable: true
+        client_name:
+          type: string
+          description: Client name
+          maxLength: 100
+        completion_date:
+          type: string
+          format: date
+          nullable: true
+        tags:
+          description: Project tags/skills used
+        is_featured:
+          type: boolean
+          description: Show on featured portfolio
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order
+      required:
+      - description
+      - title
+    Rating:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        rater:
+          type: string
+          format: uuid
+        rated_user:
+          type: string
+          format: uuid
+        job:
+          type: string
+          format: uuid
+          nullable: true
+        job_id:
+          type: string
+          format: uuid
+          readOnly: true
+        job_title:
+          type: string
+          readOnly: true
+        score:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,1})?$
+        review:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        rater_username:
+          type: string
+          readOnly: true
+        rated_user_username:
+          type: string
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - job_id
+      - job_title
+      - rated_user
+      - rated_user_username
+      - rater
+      - rater_username
+      - score
+    RatingRequest:
+      type: object
+      properties:
+        rater:
+          type: string
+          format: uuid
+        rated_user:
+          type: string
+          format: uuid
+        job:
+          type: string
+          format: uuid
+          nullable: true
+        score:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,1})?$
+        review:
+          type: string
+          nullable: true
+      required:
+      - rated_user
+      - rater
+      - score
+    SetupPasswordConfirmRequest:
+      type: object
+      properties:
+        uid:
+          type: string
+          minLength: 1
+        token:
+          type: string
+          minLength: 1
+        password:
+          type: string
+          writeOnly: true
+          minLength: 8
+        confirm_password:
+          type: string
+          writeOnly: true
+          minLength: 8
+      required:
+      - confirm_password
+      - password
+      - token
+      - uid
+    SetupPasswordRequestRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          minLength: 1
+      required:
+      - email
+    Skill:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        skill_name:
+          type: string
+          description: Skill name
+          maxLength: 100
+        skill_level:
+          enum:
+          - BEGINNER
+          - INTERMEDIATE
+          - ADVANCED
+          - EXPERT
+          type: string
+          description: |-
+            * `BEGINNER` - Beginner
+            * `INTERMEDIATE` - Intermediate
+            * `ADVANCED` - Advanced
+            * `EXPERT` - Expert
+          x-spec-enum-id: 3392be8f42a0c37c
+        years_experience:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Years of experience
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - skill_name
+      - updated_at
+    SkillRequest:
+      type: object
+      properties:
+        skill_name:
+          type: string
+          minLength: 1
+          description: Skill name
+          maxLength: 100
+        skill_level:
+          enum:
+          - BEGINNER
+          - INTERMEDIATE
+          - ADVANCED
+          - EXPERT
+          type: string
+          description: |-
+            * `BEGINNER` - Beginner
+            * `INTERMEDIATE` - Intermediate
+            * `ADVANCED` - Advanced
+            * `EXPERT` - Expert
+          x-spec-enum-id: 3392be8f42a0c37c
+        years_experience:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Years of experience
+      required:
+      - skill_name
+    SubjectArea:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          description: Name of the subject area (e.g., Data Analytics).
+          maxLength: 100
+        slug:
+          type: string
+          readOnly: true
+          description: Auto-generated slug from name.
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+          description: Description of this subject area (Optional).
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        last_modified:
+          type: string
+          format: date-time
+          readOnly: true
+        category:
+          type: string
+          format: uuid
+          description: The parent category this subject area belongs to.
+      required:
+      - category
+      - created_at
+      - id
+      - last_modified
+      - name
+      - slug
+    SubjectAreaRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          description: Name of the subject area (e.g., Data Analytics).
+          maxLength: 100
+        description:
+          type: string
+          description: Description of this subject area (Optional).
+        category:
+          type: string
+          format: uuid
+          description: The parent category this subject area belongs to.
+      required:
+      - category
+      - name
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+      required:
+      - access
+      - refresh
+    TokenRefreshRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+          minLength: 1
+      required:
+      - refresh
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        username:
+          type: string
+          readOnly: true
+          nullable: true
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        phone:
+          type: string
+          nullable: true
+          pattern: ^\+?1?\d{9,15}$
+          maxLength: 20
+        role:
+          enum:
+          - ADMIN
+          - FREELANCER
+          - CLIENT
+          type: string
+          description: |-
+            * `ADMIN` - Admin
+            * `FREELANCER` - Freelancer
+            * `CLIENT` - Client
+          x-spec-enum-id: 80dd49793331b1f1
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+        warnings:
+          type: integer
+          readOnly: true
+        suspended_until:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        freelancerprofile:
+          allOf:
+          - $ref: '#/components/schemas/FreelancerProfile'
+          readOnly: true
+        unread_messages:
+          type: integer
+          readOnly: true
+        balance_info:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        is_freelancer:
+          type: boolean
+          readOnly: true
+        current_balance:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          readOnly: true
+        pending_balance:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          readOnly: true
+        total_earnings:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          readOnly: true
+        is_shadow_account:
+          type: boolean
+          readOnly: true
+      required:
+      - balance_info
+      - current_balance
+      - email
+      - freelancerprofile
+      - id
+      - is_active
+      - is_freelancer
+      - is_shadow_account
+      - pending_balance
+      - role
+      - suspended_until
+      - total_earnings
+      - unread_messages
+      - username
+      - warnings
+    UserProfile:
+      type: object
+      properties:
+        display_name:
+          type: string
+          description: Public display name
+          maxLength: 100
+        tagline:
+          type: string
+          description: Short tagline/headline
+          maxLength: 200
+        location:
+          type: string
+          description: City, Country
+          maxLength: 100
+        languages:
+          description: List of languages spoken
+        about:
+          type: string
+          description: Rich text bio/about section
+        intro_video_url:
+          type: string
+          format: uri
+          nullable: true
+          description: URL to intro video
+          maxLength: 200
+        avatar:
+          type: string
+          format: uri
+          nullable: true
+        cover_image:
+          type: string
+          format: uri
+          nullable: true
+        is_public:
+          type: boolean
+          description: Profile visible to public
+        account_status:
+          enum:
+          - ACTIVE
+          - INACTIVE
+          - SUSPENDED
+          type: string
+          description: |-
+            * `ACTIVE` - Active
+            * `INACTIVE` - Inactive
+            * `SUSPENDED` - Suspended
+          x-spec-enum-id: f088d05f2c656393
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - updated_at
+    WorkExperience:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        job_title:
+          type: string
+          description: Job title/position
+          maxLength: 200
+        company:
+          type: string
+          description: Company name
+          maxLength: 200
+        location:
+          type: string
+          description: Job location
+          maxLength: 100
+        start_date:
+          type: string
+          format: date
+          description: Start date
+        end_date:
+          type: string
+          format: date
+          nullable: true
+          description: End date (leave empty if current)
+        is_current:
+          type: boolean
+          description: Currently working here
+        description:
+          type: string
+          description: Job description and achievements
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - company
+      - created_at
+      - description
+      - id
+      - job_title
+      - start_date
+      - updated_at
+    WorkExperienceRequest:
+      type: object
+      properties:
+        job_title:
+          type: string
+          minLength: 1
+          description: Job title/position
+          maxLength: 200
+        company:
+          type: string
+          minLength: 1
+          description: Company name
+          maxLength: 200
+        location:
+          type: string
+          description: Job location
+          maxLength: 100
+        start_date:
+          type: string
+          format: date
+          description: Start date
+        end_date:
+          type: string
+          format: date
+          nullable: true
+          description: End date (leave empty if current)
+        is_current:
+          type: boolean
+          description: Currently working here
+        description:
+          type: string
+          minLength: 1
+          description: Job description and achievements
+      required:
+      - company
+      - description
+      - job_title
+      - start_date
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    optionalJwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

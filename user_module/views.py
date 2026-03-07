@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view, permission_classes, action
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework import permissions, status, viewsets
+from rest_framework import permissions, status, viewsets, serializers
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -55,6 +55,11 @@ from .utils import GuestIDCounter
 logger = logging.getLogger()
 User = get_user_model()
 
+
+class EmptySerializer(serializers.Serializer):
+    pass
+
+@extend_schema(responses={200: dict})
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def get_csrf_and_session(request):
@@ -267,6 +272,7 @@ class FreelancerListViewSet(viewsets.ReadOnlyModelViewSet):
 
 class DashboardStatsView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def get(self, request):
         try:
@@ -384,6 +390,7 @@ class DashboardStatsView(APIView):
 
 class DashboardJobsView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def get(self, request):
         user = request.user
@@ -409,6 +416,7 @@ class DashboardJobsView(APIView):
 
 class DashboardNotificationsView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
 
     @staticmethod
     def _normalize_notification_link(notification):
@@ -506,6 +514,7 @@ class DashboardNotificationsView(APIView):
 
 class DashboardNotificationReadView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def post(self, request, notification_id):
         return self._mark_read(request, notification_id)
@@ -550,6 +559,7 @@ class DashboardNotificationReadView(APIView):
 
 class DashboardNotificationUnreadView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def post(self, request, notification_id):
         return self._mark_unread(request, notification_id)
@@ -594,6 +604,7 @@ class DashboardNotificationUnreadView(APIView):
 
 class GuestThreadsView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def get(self, request):
         user = request.user
@@ -638,6 +649,7 @@ class RatingViewSet(viewsets.ModelViewSet):
 
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def post(self, request):
         try:
@@ -776,6 +788,7 @@ class UserProfileViewSetNew(viewsets.ModelViewSet):
 
 class ProfileAliasView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def get(self, request):
         profile, _ = UserProfile.objects.get_or_create(user=request.user)
@@ -804,6 +817,7 @@ class ProfileAliasView(APIView):
 
 class ProfilePictureView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
     parser_classes = [MultiPartParser, FormParser, JSONParser]
 
     def get(self, request):

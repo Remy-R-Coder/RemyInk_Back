@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 from django.db import transaction
@@ -14,11 +15,16 @@ from orders.models import Job, JobStatus
 
 logger = logging.getLogger(__name__)
 
+
+class EmptySerializer(serializers.Serializer):
+    pass
+
 class TransferInitiationView(APIView):
     """
     View to manually initiate a Paystack transfer for a specific job/payout ID.
     """
     permission_classes = [IsAuthenticated] 
+    serializer_class = EmptySerializer
     def post(self, request):
         payout_id = request.data.get('payout_id')
 
@@ -50,6 +56,7 @@ class TransferInitiationView(APIView):
 class PaystackTransferWebhookView(APIView):
     authentication_classes = []
     permission_classes = []
+    serializer_class = EmptySerializer
 
     def post(self, request):
         signature = request.headers.get('x-paystack-signature')

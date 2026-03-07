@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from typing import Any
 from django.db import transaction
 from django.db.models import Avg, Count, Q, Sum
 from django.contrib.auth.tokens import default_token_generator
@@ -127,14 +128,14 @@ class FreelancerProfileSerializer(serializers.ModelSerializer):
             'payout_preference': {'read_only': True},
         }
 
-    def get_user(self, obj):
+    def get_user(self, obj: FreelancerProfile) -> dict[str, Any]:
         return {
             'id': obj.user.id,
             'username': obj.user.username,
             'is_admin': obj.user.role == Role.ADMIN,
         }
 
-    def get_avg_price(self, obj):
+    def get_avg_price(self, obj: FreelancerProfile) -> float:
         subject_id = self.context.get('subject_id')
         avg_price = Job.objects.filter(
             freelancer__id=obj.user.id,
@@ -142,7 +143,7 @@ class FreelancerProfileSerializer(serializers.ModelSerializer):
         ).aggregate(Avg('price'))['price__avg']
         return round(avg_price, 2) if avg_price is not None else 50.00
 
-    def get_avg_delivery_time(self, obj):
+    def get_avg_delivery_time(self, obj: FreelancerProfile) -> int:
         subject_id = self.context.get('subject_id')
         avg_time = Job.objects.filter(
             freelancer__id=obj.user.id,
@@ -150,17 +151,17 @@ class FreelancerProfileSerializer(serializers.ModelSerializer):
         ).aggregate(Avg('delivery_time_days'))['delivery_time_days__avg']
         return round(avg_time) if avg_time is not None else 3
 
-    def get_avg_rating(self, obj):
+    def get_avg_rating(self, obj: FreelancerProfile) -> float | None:
         avg = Rating.objects.filter(rated_user=obj.user).aggregate(Avg("score"))["score__avg"]
         return round(avg, 1) if avg is not None else None
 
-    def get_total_chats(self, obj):
+    def get_total_chats(self, obj: FreelancerProfile) -> int:
         return ChatThread.objects.filter(freelancer=obj.user).count()
 
-    def get_avg_response_time(self, obj):
+    def get_avg_response_time(self, obj: FreelancerProfile) -> str:
         return "< 1 hour"
 
-    def get_payout_method_details(self, obj):
+    def get_payout_method_details(self, obj: FreelancerProfile) -> dict[str, Any]:
         return obj.payout_method_details
 
 
@@ -196,7 +197,7 @@ class UserSerializer(serializers.ModelSerializer):
             'current_balance', 'pending_balance', 'total_earnings', 'is_shadow_account'
         ]
 
-    def get_unread_messages(self, obj):
+    def get_unread_messages(self, obj: User) -> int:
         if obj.role in [Role.FREELANCER, Role.ADMIN]:
             return ChatMessage.objects.filter(
                 Q(thread__freelancer=obj)
@@ -215,7 +216,7 @@ class UserSerializer(serializers.ModelSerializer):
             ).count()
         return 0
 
-    def get_balance_info(self, obj):
+    def get_balance_info(self, obj: User) -> dict[str, Any]:
         return {
             'current_balance': str(obj.current_balance),
             'pending_balance': str(obj.pending_balance),
@@ -224,7 +225,7 @@ class UserSerializer(serializers.ModelSerializer):
             'total_payouts': str(obj.total_payouts),
         }
         
-    def get_is_shadow_account(self, obj):
+    def get_is_shadow_account(self, obj: User) -> bool:
         return obj.role == Role.CLIENT and not obj.is_active
 
 
@@ -477,21 +478,21 @@ class FreelancerListSerializer(serializers.ModelSerializer):
             'current_balance',
         ]
 
-    def get_avg_rating(self, obj):
+    def get_avg_rating(self, obj: User) -> float | None:
         avg = Rating.objects.filter(rated_user=obj).aggregate(Avg("score"))["score__avg"]
         return round(avg, 1) if avg is not None else None
 
-    def get_is_admin(self, obj):
+    def get_is_admin(self, obj: User) -> bool:
         return obj.role == Role.ADMIN
 
-    def get_active_chats(self, obj):
+    def get_active_chats(self, obj: User) -> int:
         seven_days_ago = timezone.now() - timedelta(days=7)
         return ChatThread.objects.filter(
             freelancer=obj,
             updated_at__gte=seven_days_ago
         ).count()
 
-    def get_response_rate(self, obj):
+    def get_response_rate(self, obj: User) -> int:
         total_threads = ChatThread.objects.filter(freelancer=obj).count()
         if total_threads == 0:
             return 100  

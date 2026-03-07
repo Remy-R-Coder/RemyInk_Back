@@ -7,7 +7,7 @@ from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
-    DEBUG=(bool, True),
+    DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, ['127.0.0.1', 'localhost']),
     DATABASE_URL=(str, 'sqlite:///db.sqlite3'),
     CELERY_BROKER_URL=(str, 'redis://localhost:6379/0'),
@@ -30,16 +30,11 @@ env = environ.Env(
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-# --- CORE SETTINGS ---
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
-# 3. FIX: Retrieve ALLOWED_HOSTS using env.list
-# This resolves the KeyError/ImproperlyConfigured error
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS') 
 
-
-# --- PAYSTACK CONFIGURATION (CLEANED) ---
 PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY')
 PAYSTACK_PUBLIC_KEY = env('PAYSTACK_PUBLIC_KEY')
 PAYSTACK_WEBHOOK_SECRET = env('PAYSTACK_WEBHOOK_SECRET')
@@ -47,7 +42,7 @@ PAYSTACK_INITIALIZE_URL = 'https://api.paystack.co/transaction/initialize'
 PAYSTACK_VERIFY_URL = 'https://api.paystack.co/transaction/verify/'
 
 CLIENT_FEE_PERCENTAGE = 0.20
-FREELANCER_PAYOUT_PERCENTAGE = 0.80 # Kept as a general setting
+FREELANCER_PAYOUT_PERCENTAGE = 0.80
 
 
 SIMPLE_JWT = {
@@ -119,6 +114,7 @@ CELERY_BEAT_SCHEDULE = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -310,3 +306,12 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 EMAIL_USE_SSL = env('EMAIL_USE_SSL')
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=not DEBUG)
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=not DEBUG)
+SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=not DEBUG)
+SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', default=31536000 if not DEBUG else 0)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=not DEBUG)
+SECURE_HSTS_PRELOAD = env.bool('SECURE_HSTS_PRELOAD', default=not DEBUG)

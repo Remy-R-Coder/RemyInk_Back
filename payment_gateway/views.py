@@ -1,8 +1,9 @@
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, serializers
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from drf_spectacular.utils import extend_schema
 from django.shortcuts import get_object_or_404
 from django.db import transaction
 from django.conf import settings
@@ -22,9 +23,13 @@ from orders.models import Job, JobStatus
 
 logger = logging.getLogger(__name__)
 
+class EmptySerializer(serializers.Serializer):
+    pass
+
 
 class InitializePaymentView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = PaymentInitializeSerializer
 
     def post(self, request):
         serializer = PaymentInitializeSerializer(data=request.data, context={'request': request})
@@ -94,6 +99,7 @@ class InitializePaymentView(APIView):
 
 class VerifyPaymentView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = PaymentVerifySerializer
 
     def post(self, request):
         serializer = PaymentVerifySerializer(data=request.data)
@@ -129,6 +135,7 @@ class VerifyPaymentView(APIView):
 
 class PaymentStatusView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
@@ -152,6 +159,7 @@ class PaymentStatusView(APIView):
 
 class PaystackWebhookView(APIView):
     permission_classes = [AllowAny]
+    serializer_class = EmptySerializer
 
     def post(self, request):
         signature = request.headers.get('X-Paystack-Signature')
@@ -217,8 +225,13 @@ class PaystackWebhookView(APIView):
 class PaymentViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = PaymentSerializer
     permission_classes = [IsAuthenticated]
+    queryset = Payment.objects.none()
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return Payment.objects.none()
+        if not getattr(self.request, 'user', None) or not self.request.user.is_authenticated:
+            return Payment.objects.none()
         return Payment.objects.filter(user=self.request.user).select_related('job', 'user')
 
 

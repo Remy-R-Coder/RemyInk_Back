@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from typing import Any
 from .models import Job, JobSubmission, JobSubmissionAttachment, Dispute, JobStatus
 
 
@@ -24,28 +25,28 @@ class JobSubmissionReadSerializer(serializers.ModelSerializer):
             'submitted_at',
         ]
 
-    def _abs(self, url):
+    def _abs(self, url: str | None) -> str | None:
         request = self.context.get('request')
         if request and url:
             return request.build_absolute_uri(url)
         return url
 
-    def get_assignment_url(self, obj):
+    def get_assignment_url(self, obj: JobSubmission) -> str | None:
         return self._abs(obj.assignment.url) if obj.assignment else None
 
-    def get_plag_report_url(self, obj):
+    def get_plag_report_url(self, obj: JobSubmission) -> str | None:
         return self._abs(obj.plag_report.url) if obj.plag_report else None
 
-    def get_ai_report_url(self, obj):
+    def get_ai_report_url(self, obj: JobSubmission) -> str | None:
         return self._abs(obj.ai_report.url) if obj.ai_report else None
 
-    def get_attachment_files(self, obj):
+    def get_attachment_files(self, obj: JobSubmission) -> list[str]:
         return [self._abs(att.file.url) for att in obj.attachments.all() if att.file]
 
-    def get_attachments(self, obj):
+    def get_attachments(self, obj: JobSubmission) -> list[str]:
         return self.get_attachment_files(obj)
 
-    def _attachment_item(self, label, file_field):
+    def _attachment_item(self, label: str, file_field: Any) -> dict[str, str] | None:
         if not file_field:
             return None
         try:
@@ -58,7 +59,7 @@ class JobSubmissionReadSerializer(serializers.ModelSerializer):
             'url': self._abs(file_field.url),
         }
 
-    def get_all_attachments(self, obj):
+    def get_all_attachments(self, obj: JobSubmission) -> list[dict[str, str]]:
         job_id = str(obj.job.id)
         items = []
         for label, field in [
@@ -94,7 +95,7 @@ class JobSerializer(serializers.ModelSerializer):
     freelancer_email = serializers.EmailField(source='freelancer.email', read_only=True)
 
     category_name = serializers.CharField(source='category.name', read_only=True)
-    subject_name = serializers.CharField(source='subject.name', read_only=True)
+    subject_name = serializers.CharField(source='subject_area.name', read_only=True)
     status_display = serializers.CharField(source='get_status_display', read_only=True)
     reviews_remaining = serializers.SerializerMethodField()
     submission = JobSubmissionReadSerializer(read_only=True)
@@ -116,11 +117,11 @@ class JobSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = fields
 
-    def get_reviews_remaining(self, obj):
+    def get_reviews_remaining(self, obj: Job) -> int:
         remaining = int(obj.allowed_reviews or 0) - int(obj.reviews_used or 0)
         return remaining if remaining > 0 else 0
 
-    def get_dispute(self, obj):
+    def get_dispute(self, obj: Job) -> dict[str, Any] | None:
         dispute = getattr(obj, 'dispute', None)
         if not dispute:
             return None
@@ -128,9 +129,25 @@ class JobSerializer(serializers.ModelSerializer):
 
 
 class JobCreateSerializer(serializers.ModelSerializer):
+    # Backward-compatible alias: accepts `subject` payload and stores it on `subject_area`.
+    subject = serializers.PrimaryKeyRelatedField(
+        source='subject_area',
+        queryset=Job._meta.get_field('subject_area').remote_field.model.objects.all(),
+        required=False,
+        write_only=True,
+    )
+
     class Meta:
         model = Job
-        fields = ['category', 'subject', 'price', 'freelancer', 'allowed_reviews']
+        fields = ['category', 'subject_area', 'subject', 'price', 'freelancer', 'allowed_reviews']
+        extra_kwargs = {
+            'subject_area': {'required': False},
+        }
+
+    def validate(self, attrs):
+        if not attrs.get('subject_area'):
+            raise serializers.ValidationError({'subject_area': 'This field is required.'})
+        return attrs
 
 
 class JobSubmissionSerializer(serializers.ModelSerializer):

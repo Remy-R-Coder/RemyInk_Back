@@ -4698,3 +4698,373 @@ INFO 2026-02-28 13:11:09,689 runserver 110365 128174774597312 [mHTTP GET /api/o
 INFO 2026-02-28 13:11:18,622 runserver 110365 128174774597312 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:50644][0m
 INFO 2026-02-28 13:11:39,611 runserver 110365 128174774597312 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.00, 127.0.0.1:46006][0m
 INFO 2026-02-28 13:11:39,622 runserver 110365 128174774597312 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:50632][0m
+INFO 2026-03-05 00:07:54,291 autoreload 132318 137223808946688 Watching for file changes with StatReloader
+INFO 2026-03-05 00:07:54,498 server 132318 137223724381888 HTTP/2 support enabled
+INFO 2026-03-05 00:07:54,498 server 132318 137223724381888 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-03-05 00:07:54,499 server 132318 137223724381888 Listening on TCP address 127.0.0.1:8000
+INFO 2026-03-05 00:09:10,331 runserver 132318 137223724381888 [mHTTP OPTIONS /api/users/me/ 200 [0.00, 127.0.0.1:38566][0m
+INFO 2026-03-05 00:09:10,334 runserver 132318 137223724381888 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.00, 127.0.0.1:38576][0m
+INFO 2026-03-05 00:09:10,404 runserver 132318 137223724381888 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:38566][0m
+INFO 2026-03-05 00:09:10,410 runserver 132318 137223724381888 [mHTTP GET /api/users/me/ 200 [0.06, 127.0.0.1:38576][0m
+INFO 2026-03-05 00:09:15,568 runserver 132318 137223724381888 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.00, 127.0.0.1:38576][0m
+INFO 2026-03-05 00:09:15,587 runserver 132318 137223724381888 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:58100][0m
+INFO 2026-03-05 00:09:19,863 views 132318 137223689201344 Created new guest session: Client172 (1vkmxkt6...)
+INFO 2026-03-05 00:09:19,868 runserver 132318 137223724381888 [mHTTP GET /api/users/csrf-and-session/ 200 [0.02, 127.0.0.1:58100][0m
+INFO 2026-03-05 00:09:19,882 views 132318 137223689201344 Created new guest session: Client173 (h1loywgg...)
+INFO 2026-03-05 00:09:19,886 runserver 132318 137223724381888 [mHTTP GET /api/users/csrf-and-session/ 200 [0.02, 127.0.0.1:58110][0m
+INFO 2026-03-05 00:09:23,022 runserver 132318 137223724381888 [mHTTP OPTIONS /api/jobs/categories?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:38576][0m
+INFO 2026-03-05 00:09:23,026 runserver 132318 137223724381888 [mHTTP OPTIONS /api/jobs/categories?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:38566][0m
+INFO 2026-03-05 00:09:23,052 runserver 132318 137223724381888 [32mHTTP GET /api/jobs/categories?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 301 [0.01, 127.0.0.1:58110][0m
+INFO 2026-03-05 00:09:23,060 runserver 132318 137223724381888 [mHTTP OPTIONS /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:38566][0m
+INFO 2026-03-05 00:09:23,060 runserver 132318 137223724381888 [mHTTP OPTIONS /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:38576][0m
+INFO 2026-03-05 00:09:23,074 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:58110][0m
+INFO 2026-03-05 00:09:23,083 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:58100][0m
+INFO 2026-03-05 00:09:25,833 runserver 132318 137223724381888 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:38576][0m
+INFO 2026-03-05 00:09:25,845 runserver 132318 137223724381888 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:58100][0m
+INFO 2026-03-05 00:09:28,169 runserver 132318 137223724381888 [mHTTP OPTIONS /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:38576][0m
+INFO 2026-03-05 00:09:28,265 runserver 132318 137223724381888 [mHTTP GET /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.09, 127.0.0.1:58100][0m
+INFO 2026-03-05 00:10:46,179 runserver 132318 137223724381888 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:51908][0m
+INFO 2026-03-05 00:10:46,192 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.02, 127.0.0.1:51926][0m
+INFO 2026-03-05 00:10:46,198 runserver 132318 137223724381888 [mHTTP GET /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.03, 127.0.0.1:51914][0m
+INFO 2026-03-05 00:11:18,414 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:34040][0m
+INFO 2026-03-05 00:11:19,539 runserver 132318 137223724381888 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:34040][0m
+INFO 2026-03-05 00:11:22,172 runserver 132318 137223724381888 [mHTTP GET /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.02, 127.0.0.1:34040][0m
+INFO 2026-03-05 00:11:44,382 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:34040][0m
+INFO 2026-03-05 00:11:44,389 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:50736][0m
+INFO 2026-03-05 00:11:45,916 runserver 132318 137223724381888 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:50736][0m
+INFO 2026-03-05 00:11:48,729 runserver 132318 137223724381888 [mHTTP GET /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.02, 127.0.0.1:50736][0m
+INFO 2026-03-05 00:13:01,618 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:52216][0m
+INFO 2026-03-05 00:13:31,807 runserver 132318 137223724381888 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:52216][0m
+INFO 2026-03-05 00:13:37,836 runserver 132318 137223724381888 [mHTTP GET /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.02, 127.0.0.1:52216][0m
+INFO 2026-03-05 00:13:41,478 runserver 132318 137223724381888 [mHTTP OPTIONS /api/chat/guest-thread/create/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:45976][0m
+INFO 2026-03-05 00:13:41,508 runserver 132318 137223724381888 [mHTTP POST /api/chat/guest-thread/create/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 201 [0.03, 127.0.0.1:52216][0m
+INFO 2026-03-05 00:13:42,504 runserver 132318 137223724381888 [mHTTP OPTIONS /api/chat/threads/53/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:45976][0m
+INFO 2026-03-05 00:13:42,513 authentication 132318 137223679760064 JWT auth returned None (no auth header present)
+INFO 2026-03-05 00:13:42,520 runserver 132318 137223724381888 [mHTTP GET /api/chat/threads/53/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:52216][0m
+INFO 2026-03-05 00:13:46,651 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:52216][0m
+INFO 2026-03-05 00:13:46,657 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:37706][0m
+INFO 2026-03-05 00:13:48,429 runserver 132318 137223724381888 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:37706][0m
+INFO 2026-03-05 00:14:54,641 runserver 132318 137223724381888 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:59708][0m
+INFO 2026-03-05 00:14:54,646 runserver 132318 137223724381888 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:59718][0m
+INFO 2026-03-05 00:15:22,174 runserver 132318 137223724381888 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:59718][0m
+INFO 2026-03-05 00:15:25,798 runserver 132318 137223724381888 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=55492819-5af8-4999-ac64-f3fcde32f6ec&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:54938][0m
+INFO 2026-03-05 00:15:25,807 runserver 132318 137223724381888 [mHTTP GET /api/jobs/subject-areas/?category_id=55492819-5af8-4999-ac64-f3fcde32f6ec&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:59718][0m
+INFO 2026-03-05 00:15:27,888 runserver 132318 137223724381888 [mHTTP OPTIONS /api/users/freelancers/?subject_id=0ffce343-2f36-4ba6-b989-77e65e69475b&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:54938][0m
+INFO 2026-03-05 00:15:27,907 runserver 132318 137223724381888 [mHTTP GET /api/users/freelancers/?subject_id=0ffce343-2f36-4ba6-b989-77e65e69475b&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.02, 127.0.0.1:59718][0m
+INFO 2026-03-05 00:15:42,088 runserver 132318 137223724381888 [mHTTP POST /api/chat/guest-thread/create/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.02, 127.0.0.1:59718][0m
+INFO 2026-03-07 11:54:43,993 autoreload 8372 126702034428416 Watching for file changes with StatReloader
+INFO 2026-03-07 11:54:44,212 server 8372 126701949990592 HTTP/2 support enabled
+INFO 2026-03-07 11:54:44,212 server 8372 126701949990592 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-03-07 11:54:44,212 server 8372 126701949990592 Listening on TCP address 127.0.0.1:8000
+INFO 2026-03-07 11:56:00,494 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:36590][0m
+INFO 2026-03-07 11:56:00,495 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:36604][0m
+INFO 2026-03-07 11:56:00,509 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:36604][0m
+INFO 2026-03-07 11:56:00,509 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:36590][0m
+INFO 2026-03-07 11:56:00,521 runserver 8372 126701949990592 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:36616][0m
+INFO 2026-03-07 11:56:00,528 runserver 8372 126701949990592 [mHTTP GET /api/jobs/categories/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:36632][0m
+INFO 2026-03-07 11:56:02,410 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:36590][0m
+INFO 2026-03-07 11:56:02,430 runserver 8372 126701949990592 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:36632][0m
+INFO 2026-03-07 11:56:04,014 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:38512][0m
+INFO 2026-03-07 11:56:04,048 runserver 8372 126701949990592 [mHTTP GET /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.02, 127.0.0.1:38526][0m
+INFO 2026-03-07 11:56:06,015 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/guest-thread/create/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:38512][0m
+INFO 2026-03-07 11:56:06,050 runserver 8372 126701949990592 [mHTTP POST /api/chat/guest-thread/create/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.03, 127.0.0.1:38526][0m
+INFO 2026-03-07 11:56:07,096 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/53/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:38512][0m
+INFO 2026-03-07 11:56:07,103 authentication 8372 126701856093888 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:56:07,110 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/53/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:38526][0m
+INFO 2026-03-07 11:56:10,145 authentication 8372 126701856093888 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:56:10,148 views 8372 126701856093888 Creating message - User: None, Thread: 53, Data: {'message': 'hi', 'attachment_ids': []}
+INFO 2026-03-07 11:56:10,318 views 8372 126701856093888 Linked thread 53 to shadow client Client012
+INFO 2026-03-07 11:56:10,401 runserver 8372 126701949990592 [mHTTP POST /api/chat/threads/53/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 201 [0.26, 127.0.0.1:38526][0m
+INFO 2026-03-07 11:56:10,406 authentication 8372 126701856093888 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:56:10,415 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/53/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:38526][0m
+INFO 2026-03-07 11:57:14,783 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/token/freelancer/ 200 [0.00, 127.0.0.1:52240][0m
+INFO 2026-03-07 11:57:14,964 runserver 8372 126701949990592 [mHTTP POST /api/users/token/freelancer/ 200 [0.18, 127.0.0.1:52240][0m
+INFO 2026-03-07 11:57:14,968 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/me/ 200 [0.00, 127.0.0.1:52240][0m
+INFO 2026-03-07 11:57:14,981 runserver 8372 126701949990592 [mHTTP GET /api/users/me/ 200 [0.01, 127.0.0.1:52240][0m
+INFO 2026-03-07 11:57:14,986 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.00, 127.0.0.1:52240][0m
+INFO 2026-03-07 11:57:15,001 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:52240][0m
+INFO 2026-03-07 11:57:15,573 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/dashboard/summary/ 200 [0.01, 127.0.0.1:52240][0m
+INFO 2026-03-07 11:57:15,574 runserver 8372 126701949990592 [mHTTP OPTIONS /api/orders/jobs/?page=1&page_size=100 200 [0.01, 127.0.0.1:52248][0m
+INFO 2026-03-07 11:57:15,575 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/unread-count/ 200 [0.01, 127.0.0.1:52250][0m
+INFO 2026-03-07 11:57:15,575 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/ 200 [0.01, 127.0.0.1:52244][0m
+INFO 2026-03-07 11:57:15,576 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/dashboard/summary/ 200 [0.01, 127.0.0.1:52268][0m
+INFO 2026-03-07 11:57:15,576 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/pending-offers/ 200 [0.01, 127.0.0.1:52264][0m
+INFO 2026-03-07 11:57:15,597 authentication 8372 126701821826752 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:57:15,613 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.03, 127.0.0.1:52282][0m
+INFO 2026-03-07 11:57:15,621 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.04, 127.0.0.1:52304][0m
+INFO 2026-03-07 11:57:15,635 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.05, 127.0.0.1:52290][0m
+INFO 2026-03-07 11:57:15,644 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.06, 127.0.0.1:52278][0m
+INFO 2026-03-07 11:57:15,656 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.08, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:57:15,694 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.04, 127.0.0.1:52278][0m
+INFO 2026-03-07 11:57:20,791 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:52264][0m
+INFO 2026-03-07 11:57:21,112 authentication 8372 126701856093888 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:57:21,123 runserver 8372 126701949990592 [mHTTP GET /api/users/me/ 200 [0.05, 127.0.0.1:52264][0m
+INFO 2026-03-07 11:57:21,128 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.04, 127.0.0.1:52304][0m
+INFO 2026-03-07 11:57:21,132 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:52268][0m
+INFO 2026-03-07 11:57:21,136 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.05, 127.0.0.1:52282][0m
+INFO 2026-03-07 11:57:21,149 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.07, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:57:21,154 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.07, 127.0.0.1:52290][0m
+INFO 2026-03-07 11:57:21,169 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.09, 127.0.0.1:52278][0m
+INFO 2026-03-07 11:57:33,501 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/me/ 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:57:33,502 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:57:33,509 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/csrf-and-session/ 200 [0.00, 127.0.0.1:33572][0m
+WARNING 2026-03-07 11:57:33,512 log 8372 126701856093888 Unauthorized: /api/users/me/
+WARNING 2026-03-07 11:57:33,512 log 8372 126701728163520 Unauthorized: /api/users/dashboard/notifications/
+WARNING 2026-03-07 11:57:33,513 runserver 8372 126701949990592 [31;1mHTTP GET /api/users/me/ 401 [0.01, 127.0.0.1:33556][0m
+WARNING 2026-03-07 11:57:33,513 runserver 8372 126701949990592 [31;1mHTTP GET /api/users/dashboard/notifications/ 401 [0.01, 127.0.0.1:33558][0m
+WARNING 2026-03-07 11:57:33,525 log 8372 126701856093888 Unauthorized: /api/users/csrf-and-session/
+WARNING 2026-03-07 11:57:33,526 runserver 8372 126701949990592 [31;1mHTTP GET /api/users/csrf-and-session/ 401 [0.00, 127.0.0.1:33570][0m
+INFO 2026-03-07 11:57:35,758 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:57:35,758 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:57:35,769 runserver 8372 126701949990592 [32mHTTP GET /api/jobs/categories?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 301 [0.01, 127.0.0.1:33570][0m
+INFO 2026-03-07 11:57:35,769 runserver 8372 126701949990592 [32mHTTP GET /api/jobs/categories?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 301 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:57:35,776 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:57:35,776 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:57:35,786 runserver 8372 126701949990592 [mHTTP GET /api/jobs/categories/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.01, 127.0.0.1:33570][0m
+INFO 2026-03-07 11:57:35,786 runserver 8372 126701949990592 [mHTTP GET /api/jobs/categories/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:57:37,760 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:57:37,765 runserver 8372 126701949990592 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33570][0m
+INFO 2026-03-07 11:57:39,129 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:57:39,147 runserver 8372 126701949990592 [mHTTP GET /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.02, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:57:41,984 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:57:41,988 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:57:41,988 views 8372 126701821826752 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-03-07 11:57:42,011 runserver 8372 126701949990592 [mHTTP POST /api/chat/threads/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 201 [0.03, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:57:42,129 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/54/messages/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:57:42,132 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/54/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:57:42,132 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:57:42,135 authentication 8372 126701830219456 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:57:42,145 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/messages/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:57:42,146 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.01, 127.0.0.1:33570][0m
+INFO 2026-03-07 11:57:44,677 authentication 8372 126701830219456 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:57:44,681 views 8372 126701830219456 Creating message - User: None, Thread: 54, Data: {'message': 'Hi', 'attachment_ids': []}
+INFO 2026-03-07 11:57:44,834 views 8372 126701830219456 Linked thread 54 to shadow client Client013
+INFO 2026-03-07 11:57:44,850 runserver 8372 126701949990592 [mHTTP POST /api/chat/threads/54/messages/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 201 [0.18, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:57:44,855 authentication 8372 126701830219456 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:57:44,863 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/messages/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:57:48,358 authentication 8372 126701813434048 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:57:48,378 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.04, 127.0.0.1:52282][0m
+INFO 2026-03-07 11:57:48,391 runserver 8372 126701949990592 [mHTTP GET /api/users/me/ 200 [0.06, 127.0.0.1:52268][0m
+INFO 2026-03-07 11:57:48,391 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.06, 127.0.0.1:52304][0m
+INFO 2026-03-07 11:57:48,411 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.08, 127.0.0.1:52264][0m
+INFO 2026-03-07 11:57:48,413 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.08, 127.0.0.1:52290][0m
+INFO 2026-03-07 11:57:48,418 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.08, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:57:48,439 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.10, 127.0.0.1:52278][0m
+INFO 2026-03-07 11:57:51,885 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/54/messages/ 200 [0.00, 127.0.0.1:52264][0m
+INFO 2026-03-07 11:57:51,887 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/54/ 200 [0.00, 127.0.0.1:52268][0m
+INFO 2026-03-07 11:57:51,894 authentication 8372 126701847701184 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:57:51,894 authentication 8372 126701736556224 JWT auth successful for user: Remy001 (FREELANCER)
+ERROR 2026-03-07 11:57:51,908 services 8372 126701736556224 Error getting guest display name from database: database is locked
+INFO 2026-03-07 11:57:51,908 services 8372 126701736556224 Generated guest name (cache fallback): Client001 for session 7pxmup62...
+INFO 2026-03-07 11:57:51,909 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/messages/ 200 [0.02, 127.0.0.1:52278][0m
+INFO 2026-03-07 11:57:51,912 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/ 200 [0.02, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:57:57,884 authentication 8372 126701847701184 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:57:57,885 views 8372 126701847701184 Creating message - User: Remy001 (FREELANCER), Thread: 54, Data: {'message': 'Hi', 'attachment_ids': []}
+INFO 2026-03-07 11:57:57,901 runserver 8372 126701949990592 [mHTTP POST /api/chat/threads/54/messages/ 201 [0.02, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:57:57,908 authentication 8372 126701847701184 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:57:57,915 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/messages/ 200 [0.01, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:58:01,207 authentication 8372 126701847701184 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:58:01,224 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/csrf-and-session/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:58:01,228 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/messages/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.02, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:01,237 views 8372 126701736556224 Created new guest session: Client174 (jgxdz3jf...)
+INFO 2026-03-07 11:58:01,241 runserver 8372 126701949990592 [mHTTP GET /api/users/csrf-and-session/?session_key=7pxmup62lr331hdhrlwnro5rbdkonj0d 200 [0.02, 127.0.0.1:33570][0m
+INFO 2026-03-07 11:58:03,500 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/54/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.01, 127.0.0.1:52244][0m
+INFO 2026-03-07 11:58:03,526 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/54/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.03, 127.0.0.1:52250][0m
+INFO 2026-03-07 11:58:03,534 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:52264][0m
+INFO 2026-03-07 11:58:03,535 runserver 8372 126701949990592 [mHTTP GET /api/users/me/ 200 [0.05, 127.0.0.1:52268][0m
+INFO 2026-03-07 11:58:03,537 authentication 8372 126701719770816 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:03,538 authentication 8372 126701830219456 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:03,543 authentication 8372 126701813434048 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:03,547 authentication 8372 126701821826752 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:03,577 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.06, 127.0.0.1:52290][0m
+INFO 2026-03-07 11:58:03,588 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/ 200 [0.07, 127.0.0.1:52278][0m
+ERROR 2026-03-07 11:58:03,599 services 8372 126701813434048 Error getting guest display name from database: database is locked
+INFO 2026-03-07 11:58:03,600 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/messages/ 200 [0.09, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:58:03,604 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/54/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.07, 127.0.0.1:52304][0m
+INFO 2026-03-07 11:58:12,469 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/54/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:58:12,473 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+WARNING 2026-03-07 11:58:12,476 log 8372 126701728163520 Unauthorized: /api/chat/threads/54/messages/
+WARNING 2026-03-07 11:58:12,476 runserver 8372 126701949990592 [31;1mHTTP GET /api/chat/threads/54/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 401 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:13,488 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+WARNING 2026-03-07 11:58:13,496 log 8372 126701856093888 Unauthorized: /api/chat/threads/54/messages/
+WARNING 2026-03-07 11:58:13,497 runserver 8372 126701949990592 [31;1mHTTP GET /api/chat/threads/54/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 401 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:15,510 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+WARNING 2026-03-07 11:58:15,518 log 8372 126701728163520 Unauthorized: /api/chat/threads/54/messages/
+WARNING 2026-03-07 11:58:15,519 runserver 8372 126701949990592 [31;1mHTTP GET /api/chat/threads/54/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 401 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:19,786 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+WARNING 2026-03-07 11:58:19,789 log 8372 126701856093888 Unauthorized: /api/chat/threads/54/messages/
+WARNING 2026-03-07 11:58:19,789 runserver 8372 126701949990592 [31;1mHTTP GET /api/chat/threads/54/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 401 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:22,244 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:58:22,244 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:58:22,255 runserver 8372 126701949990592 [32mHTTP GET /api/jobs/categories?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 301 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:22,256 runserver 8372 126701949990592 [32mHTTP GET /api/jobs/categories?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 301 [0.01, 127.0.0.1:33570][0m
+INFO 2026-03-07 11:58:22,261 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:58:22,262 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/categories/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:58:22,269 runserver 8372 126701949990592 [mHTTP GET /api/jobs/categories/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:22,272 runserver 8372 126701949990592 [mHTTP GET /api/jobs/categories/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.01, 127.0.0.1:33570][0m
+INFO 2026-03-07 11:58:23,726 runserver 8372 126701949990592 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:58:23,735 runserver 8372 126701949990592 [mHTTP GET /api/jobs/subject-areas/?category_id=cc2f2ae7-745b-4b7c-8824-2805cd0bdd69&session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:28,955 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:58:28,972 runserver 8372 126701949990592 [mHTTP GET /api/users/freelancers/?subject_id=5a15fc02-d1e5-443a-9dea-eb33f9b61250&session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.02, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:31,402 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/guest-thread/create/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.00, 127.0.0.1:33558][0m
+INFO 2026-03-07 11:58:31,435 runserver 8372 126701949990592 [mHTTP POST /api/chat/guest-thread/create/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 201 [0.03, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:31,526 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.00, 127.0.0.1:33556][0m
+INFO 2026-03-07 11:58:31,528 authentication 8372 126701813434048 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:58:31,534 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:33,514 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:52268][0m
+INFO 2026-03-07 11:58:35,151 authentication 8372 126701813434048 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:58:35,156 views 8372 126701813434048 Creating message - User: None, Thread: 55, Data: {'message': 'hi', 'attachment_ids': []}
+INFO 2026-03-07 11:58:35,308 views 8372 126701813434048 Linked thread 55 to shadow client Client014
+INFO 2026-03-07 11:58:35,326 runserver 8372 126701949990592 [mHTTP POST /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 201 [0.18, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:35,330 authentication 8372 126701813434048 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:58:35,339 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.01, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:39,017 authentication 8372 126701821826752 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:39,024 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.03, 127.0.0.1:52290][0m
+INFO 2026-03-07 11:58:39,031 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.04, 127.0.0.1:52282][0m
+INFO 2026-03-07 11:58:39,056 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.06, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:58:39,061 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.07, 127.0.0.1:52278][0m
+INFO 2026-03-07 11:58:39,078 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.09, 127.0.0.1:52304][0m
+INFO 2026-03-07 11:58:39,115 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.04, 127.0.0.1:52278][0m
+INFO 2026-03-07 11:58:41,538 authentication 8372 126701736556224 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:41,548 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.03, 127.0.0.1:52282][0m
+INFO 2026-03-07 11:58:41,569 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.05, 127.0.0.1:52290][0m
+INFO 2026-03-07 11:58:41,587 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.08, 127.0.0.1:52264][0m
+INFO 2026-03-07 11:58:41,599 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.08, 127.0.0.1:52304][0m
+INFO 2026-03-07 11:58:41,601 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.08, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:58:41,606 runserver 8372 126701949990592 [mHTTP GET /api/users/me/ 200 [0.10, 127.0.0.1:52268][0m
+INFO 2026-03-07 11:58:41,621 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.11, 127.0.0.1:52278][0m
+INFO 2026-03-07 11:58:44,823 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/55/messages/ 200 [0.01, 127.0.0.1:52268][0m
+INFO 2026-03-07 11:58:44,826 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/55/ 200 [0.01, 127.0.0.1:52264][0m
+INFO 2026-03-07 11:58:44,836 authentication 8372 126701830219456 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:44,841 authentication 8372 126701821826752 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:44,861 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/ 200 [0.03, 127.0.0.1:52278][0m
+INFO 2026-03-07 11:58:44,869 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/ 200 [0.04, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:58:48,840 authentication 8372 126701821826752 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:48,843 views 8372 126701821826752 Creating message - User: Remy001 (FREELANCER), Thread: 55, Data: {'message': 'hi', 'attachment_ids': []}
+INFO 2026-03-07 11:58:48,851 runserver 8372 126701949990592 [mHTTP POST /api/chat/threads/55/messages/ 201 [0.02, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:58:48,857 authentication 8372 126701821826752 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 11:58:48,868 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/ 200 [0.01, 127.0.0.1:52274][0m
+INFO 2026-03-07 11:58:54,178 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:58:54,183 views 8372 126701821826752 Creating message - User: None, Thread: 55, Data: {'message': 'ukoje', 'attachment_ids': []}
+INFO 2026-03-07 11:58:54,204 runserver 8372 126701949990592 [mHTTP POST /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 201 [0.03, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:58:54,212 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+INFO 2026-03-07 11:58:54,226 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.02, 127.0.0.1:33582][0m
+INFO 2026-03-07 11:59:11,531 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:52264][0m
+INFO 2026-03-07 11:59:41,535 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:00:11,544 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:00:41,535 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:01:11,536 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:01:41,535 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:02:11,521 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:02:19,852 authentication 8372 126701821826752 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:02:19,855 views 8372 126701821826752 Creating message - User: Remy001 (FREELANCER), Thread: 55, Data: {'message': 'Fit. Yourself?', 'attachment_ids': []}
+INFO 2026-03-07 12:02:19,876 runserver 8372 126701949990592 [mHTTP POST /api/chat/threads/55/messages/ 201 [0.03, 127.0.0.1:34150][0m
+INFO 2026-03-07 12:02:19,884 authentication 8372 126701821826752 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:02:19,896 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/ 200 [0.02, 127.0.0.1:34150][0m
+INFO 2026-03-07 12:02:25,589 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+INFO 2026-03-07 12:02:25,592 views 8372 126701821826752 Creating message - User: None, Thread: 55, Data: {'message': 'Niko fiti', 'attachment_ids': []}
+INFO 2026-03-07 12:02:25,609 runserver 8372 126701949990592 [mHTTP POST /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 201 [0.02, 127.0.0.1:39262][0m
+INFO 2026-03-07 12:02:25,614 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+INFO 2026-03-07 12:02:25,648 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.03, 127.0.0.1:39262][0m
+INFO 2026-03-07 12:02:41,520 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:03:11,536 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:03:41,537 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:04:02,495 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/55/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.00, 127.0.0.1:39398][0m
+INFO 2026-03-07 12:04:02,524 runserver 8372 126701949990592 [mHTTP OPTIONS /api/chat/threads/55/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.02, 127.0.0.1:39398][0m
+INFO 2026-03-07 12:04:02,543 runserver 8372 126701949990592 [mHTTP GET /api/users/me/ 200 [0.06, 127.0.0.1:52264][0m
+INFO 2026-03-07 12:04:02,544 authentication 8372 126701736556224 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:04:02,544 authentication 8372 126701813434048 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:04:02,545 authentication 8372 126701711378112 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:04:02,550 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:39392][0m
+INFO 2026-03-07 12:04:02,553 authentication 8372 126701719770816 JWT auth successful for user: Remy001 (FREELANCER)
+ERROR 2026-03-07 12:04:02,581 services 8372 126701736556224 Error getting guest display name from database: database is locked
+INFO 2026-03-07 12:04:02,581 services 8372 126701736556224 Generated guest name (cache fallback): Client001 for session jgxdz3jf...
+ERROR 2026-03-07 12:04:02,593 services 8372 126701813434048 Error getting guest display name from database: database is locked
+INFO 2026-03-07 12:04:02,598 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/ 200 [0.08, 127.0.0.1:39422][0m
+ERROR 2026-03-07 12:04:02,602 services 8372 126701736556224 Error getting guest display name from database: database is locked
+INFO 2026-03-07 12:04:02,603 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.10, 127.0.0.1:39406][0m
+INFO 2026-03-07 12:04:02,605 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/ 200 [0.09, 127.0.0.1:39416][0m
+INFO 2026-03-07 12:04:02,618 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.08, 127.0.0.1:39438][0m
+INFO 2026-03-07 12:04:32,511 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:39392][0m
+INFO 2026-03-07 12:09:35,512 authentication 8372 126701736556224 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:09:35,526 authentication 8372 126701830219456 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:09:35,527 authentication 8372 126701821826752 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:09:35,527 authentication 8372 126701711378112 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:09:35,545 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:56140][0m
+ERROR 2026-03-07 12:09:35,550 services 8372 126701821826752 Error getting guest display name from database: database is locked
+INFO 2026-03-07 12:09:35,568 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.07, 127.0.0.1:56150][0m
+INFO 2026-03-07 12:09:35,581 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.07, 127.0.0.1:56166][0m
+INFO 2026-03-07 12:09:35,585 runserver 8372 126701949990592 [mHTTP GET /api/users/me/ 200 [0.09, 127.0.0.1:56132][0m
+ERROR 2026-03-07 12:09:35,590 services 8372 126701821826752 Error getting guest display name from database: database is locked
+INFO 2026-03-07 12:09:35,598 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/ 200 [0.09, 127.0.0.1:56180][0m
+INFO 2026-03-07 12:09:35,604 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/ 200 [0.09, 127.0.0.1:56192][0m
+INFO 2026-03-07 12:09:46,122 authentication 8372 126701821826752 JWT auth returned None (no auth header present)
+INFO 2026-03-07 12:09:46,147 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.03, 127.0.0.1:35944][0m
+INFO 2026-03-07 12:10:05,521 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:10:35,522 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:11:05,510 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:11:35,516 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:12:06,301 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:12:34,806 authentication 8372 126701719770816 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:12:34,827 authentication 8372 126701711378112 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:12:34,832 authentication 8372 126701736556224 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:12:34,833 authentication 8372 126701813434048 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:12:34,837 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:37782][0m
+ERROR 2026-03-07 12:12:34,854 services 8372 126701711378112 Error getting guest display name from database: database is locked
+ERROR 2026-03-07 12:12:34,854 services 8372 126701736556224 Error getting guest display name from database: database is locked
+INFO 2026-03-07 12:12:34,857 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.07, 127.0.0.1:37796][0m
+ERROR 2026-03-07 12:12:34,863 services 8372 126701711378112 Error getting guest display name from database: database is locked
+ERROR 2026-03-07 12:12:34,864 services 8372 126701813434048 Error getting guest display name from database: database is locked
+ERROR 2026-03-07 12:12:34,870 services 8372 126701736556224 Error getting guest display name from database: database is locked
+INFO 2026-03-07 12:12:34,875 runserver 8372 126701949990592 [mHTTP GET /api/users/me/ 200 [0.09, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:12:34,877 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/ 200 [0.06, 127.0.0.1:37802][0m
+INFO 2026-03-07 12:12:34,882 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/?session_key=h1loywggqzuogl6eakerqns0sxqmudsk 200 [0.07, 127.0.0.1:37800][0m
+INFO 2026-03-07 12:12:34,890 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/ 200 [0.07, 127.0.0.1:37818][0m
+INFO 2026-03-07 12:12:36,339 authentication 8372 126701736556224 JWT auth returned None (no auth header present)
+INFO 2026-03-07 12:12:36,363 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/55/messages/?session_key=jgxdz3jfulk82h34oxqteh2ug1npy1ab 200 [0.03, 127.0.0.1:37824][0m
+INFO 2026-03-07 12:13:05,306 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:13:35,294 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:14:05,297 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:14:29,604 runserver 8372 126701949990592 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:14:29,631 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:14:34,808 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:14:37,931 authentication 8372 126701711378112 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:14:37,941 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.03, 127.0.0.1:43376][0m
+INFO 2026-03-07 12:14:37,956 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.05, 127.0.0.1:43392][0m
+INFO 2026-03-07 12:14:37,972 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.06, 127.0.0.1:43360][0m
+INFO 2026-03-07 12:14:37,979 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.07, 127.0.0.1:43352][0m
+INFO 2026-03-07 12:14:37,996 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.09, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:14:38,027 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.03, 127.0.0.1:43352][0m
+INFO 2026-03-07 12:15:00,233 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.03, 127.0.0.1:43352][0m
+INFO 2026-03-07 12:15:00,271 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/summary/ 200 [0.04, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:15:04,802 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:15:30,212 authentication 8372 126701736556224 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:15:30,214 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.02, 127.0.0.1:43360][0m
+INFO 2026-03-07 12:15:30,227 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.03, 127.0.0.1:43392][0m
+INFO 2026-03-07 12:15:30,235 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.04, 127.0.0.1:43352][0m
+INFO 2026-03-07 12:15:30,236 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.04, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:15:34,800 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:16:00,234 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.01, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:16:00,254 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.02, 127.0.0.1:43352][0m
+INFO 2026-03-07 12:16:00,255 authentication 8372 126701830219456 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:16:00,273 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.03, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:16:00,275 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.03, 127.0.0.1:43392][0m
+INFO 2026-03-07 12:16:04,801 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:16:30,254 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.01, 127.0.0.1:43392][0m
+INFO 2026-03-07 12:16:30,271 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.01, 127.0.0.1:43392][0m
+INFO 2026-03-07 12:16:30,282 authentication 8372 126701736556224 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:16:30,300 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.02, 127.0.0.1:43392][0m
+INFO 2026-03-07 12:16:30,300 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.02, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:16:34,800 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:17:00,275 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.01, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:17:00,291 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.02, 127.0.0.1:43392][0m
+INFO 2026-03-07 12:17:00,315 authentication 8372 126701736556224 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:17:00,333 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.03, 127.0.0.1:43392][0m
+INFO 2026-03-07 12:17:00,334 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.03, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:17:04,810 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:56132][0m
+INFO 2026-03-07 12:17:30,294 runserver 8372 126701949990592 [mHTTP GET /api/chat/unread-count/ 200 [0.01, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:17:30,312 runserver 8372 126701949990592 [mHTTP GET /api/chat/pending-offers/ 200 [0.02, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:17:30,351 authentication 8372 126701830219456 JWT auth successful for user: Remy001 (FREELANCER)
+INFO 2026-03-07 12:17:30,375 runserver 8372 126701949990592 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.04, 127.0.0.1:45556][0m
+INFO 2026-03-07 12:17:30,375 runserver 8372 126701949990592 [mHTTP GET /api/chat/threads/ 200 [0.04, 127.0.0.1:43392][0m
+INFO 2026-03-07 12:17:34,811 runserver 8372 126701949990592 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:56132][0m

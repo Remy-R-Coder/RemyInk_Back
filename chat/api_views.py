@@ -13,7 +13,7 @@ from django.db.models import Q, Count, Exists, OuterRef, Prefetch
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 
-from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiResponse
+from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiResponse, OpenApiTypes
 
 from .models import ChatThread, ChatMessage, MessageReadStatus, ChatAttachment
 from .serializers import (
@@ -37,6 +37,8 @@ class UserMessagingViewSet(viewsets.ViewSet):
     Handles thread listing, message viewing, sending, and offer management.
     """
     permission_classes = [IsAuthenticated]
+    serializer_class = ChatThreadSerializer
+    queryset = ChatThread.objects.none()
 
     @extend_schema(
         summary="List all chat threads for current user",
@@ -80,6 +82,9 @@ class UserMessagingViewSet(viewsets.ViewSet):
     @extend_schema(
         summary="Get thread details with messages",
         description="Retrieve a specific thread with all messages. Marks messages as read.",
+        parameters=[
+            OpenApiParameter(name='id', location=OpenApiParameter.PATH, type=OpenApiTypes.INT),
+        ],
         responses={200: ChatThreadSerializer}
     )
     def retrieve(self, request, pk=None):
@@ -167,6 +172,10 @@ class UserMessagingViewSet(viewsets.ViewSet):
     @extend_schema(
         summary="Respond to an offer (accept/reject)",
         description="Accept or reject a pending offer. Accepting creates a Job.",
+        parameters=[
+            OpenApiParameter(name='id', location=OpenApiParameter.PATH, type=OpenApiTypes.INT),
+            OpenApiParameter(name='message_id', location=OpenApiParameter.PATH, type=OpenApiTypes.INT),
+        ],
         request={
             'application/json': {
                 'type': 'object',

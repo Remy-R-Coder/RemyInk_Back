@@ -12,7 +12,7 @@ from django.utils import timezone
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.http import FileResponse
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.exceptions import PermissionDenied, ValidationError, NotAuthenticated
@@ -28,6 +28,10 @@ from user_module.models import Role, Rating, GuestSession as ShadowGuestSession
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
+
+
+class EmptySerializer(serializers.Serializer):
+    pass
 
 
 def _is_guest_linked_client(user):
@@ -405,6 +409,7 @@ class InitializePaystackView(APIView):
 class PaystackWebhookView(APIView):
     authentication_classes = []
     permission_classes = []
+    serializer_class = EmptySerializer
 
     def post(self, request):
         payload = request.body.decode('utf-8')

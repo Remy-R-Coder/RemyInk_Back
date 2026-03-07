@@ -1,4 +1,4 @@
-from rest_framework import viewsets, permissions, status
+from rest_framework import viewsets, permissions, status, serializers
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, BasePermission
 from rest_framework.exceptions import PermissionDenied, NotFound, ValidationError
@@ -35,6 +35,10 @@ import logging
 
 User = get_user_model()
 logger = logging.getLogger(__name__)
+
+
+class EmptySerializer(serializers.Serializer):
+    pass
 
 
 class SessionKeyMixin:
@@ -101,6 +105,7 @@ class IsThreadParticipant(BasePermission):
         return False
 
 
+@extend_schema(responses={200: dict})
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def guest_threads(request):
@@ -381,6 +386,7 @@ class ChatThreadViewSet(viewsets.ModelViewSet):
 
 class GuestThreadCreateView(APIView, SessionKeyMixin):
     permission_classes = [AllowAny]
+    serializer_class = EmptySerializer
 
     def post(self, request):
         freelancer_username = request.data.get('freelancer_username')
@@ -445,8 +451,11 @@ class ChatMessageViewSet(viewsets.ModelViewSet, SessionKeyMixin):
     permission_classes = [AllowAny]
     throttle_classes = [ChatAnonRateThrottle, ChatUserRateThrottle]
     lookup_field = 'pk'
+    queryset = ChatMessage.objects.none()
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return ChatMessage.objects.none()
         thread_id = self.kwargs.get('thread_pk')
         thread = get_thread_or_404(thread_id)
         return thread.messages.select_related('sender').prefetch_related('attachments').all()
@@ -694,6 +703,7 @@ class ChatMessageViewSet(viewsets.ModelViewSet, SessionKeyMixin):
 
 class UploadAPIView(APIView, SessionKeyMixin):
     permission_classes = [AllowAny]
+    serializer_class = ChatAttachmentUploadSerializer
 
     @transaction.atomic
     def post(self, request):
@@ -721,6 +731,7 @@ class UploadAPIView(APIView, SessionKeyMixin):
 
 class UnreadCountView(APIView):
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def get(self, request):
         user = request.user
@@ -730,6 +741,7 @@ class UnreadCountView(APIView):
 
 class ThreadUnreadsView(APIView):
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def get(self, request):
         user = request.user
@@ -739,6 +751,7 @@ class ThreadUnreadsView(APIView):
 
 class PendingOffersView(APIView):
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = EmptySerializer
 
     def get(self, request):
         user = request.user

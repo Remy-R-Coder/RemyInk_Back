@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Any
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.db import transaction
@@ -140,20 +140,20 @@ class ChatMessageSerializer(serializers.ModelSerializer):
             
         return message
 
-    def get_sender_name(self, obj):
+    def get_sender_name(self, obj: ChatMessage) -> str:
         if obj.sender:
             return obj.sender.username
         if obj.thread.guest_session_key:
             return GuestNameService.get_guest_display_name(obj.thread.guest_session_key)
         return "Unknown"
 
-    def get_sender_user_id(self, obj):
+    def get_sender_user_id(self, obj: ChatMessage) -> Optional[str]:
         return obj.sender.id if obj.sender else None
 
-    def get_sender_guest_key(self, obj):
+    def get_sender_guest_key(self, obj: ChatMessage) -> Optional[str]:
         return None if obj.sender else obj.thread.guest_session_key
 
-    def get_offer(self, obj):
+    def get_offer(self, obj: ChatMessage) -> Optional[dict[str, Any]]:
         if obj.is_offer:
             offer_data = {
                 "id": obj.id,

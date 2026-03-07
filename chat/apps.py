@@ -7,3 +7,4 @@ class ChatConfig(AppConfig):
     
     def ready(self):
         import chat.signals
+        import chat.schema
