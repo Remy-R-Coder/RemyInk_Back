@@ -5,7 +5,7 @@ import string
 from decimal import Decimal
 
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.db import models, transaction
+from django.db import models, transaction, IntegrityError
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, RegexValidator, MinValueValidator
 from django.contrib.auth.base_user import BaseUserManager
@@ -71,7 +71,7 @@ class UserManager(BaseUserManager):
         if role == Role.CLIENT:
             username = f"Client{next_id_num:03d}"
         else:
-            username = f"Remy{next_id_num:03d}"
+            username = f"Remy{next_id_num:02d}"
         return username
 
     def _create_user(self, email, password, **extra_fields):
@@ -246,9 +246,24 @@ class User(AbstractBaseUser, PermissionsMixin):
         return f"{self.username or self.email} ({self.role})"
 
     def save(self, *args, **kwargs):
+        # Ensure admins always have ADMIN role
         if self.is_superuser:
             self.role = Role.ADMIN
-        super().save(*args, **kwargs)
+    
+        # AUTO-GENERATE USERNAME IF MISSING (fix admin + duplicates)
+        if not self.username:
+            for _ in range(5):  # retry protection
+                try:
+                    self.username = User.objects._generate_username_and_id(self.role)
+                    with transaction.atomic():
+                        return super().save(*args, **kwargs)
+                except IntegrityError:
+                    # retry if collision occurs
+                    self.username = None
+    
+            raise IntegrityError("Failed to generate unique username after retries")
+    
+        return super().save(*args, **kwargs)
 
     @property
     def is_suspended(self):
