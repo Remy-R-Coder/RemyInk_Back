@@ -53,13 +53,12 @@ class SessionKeyMixin:
             request.session.save()
         return self.get_session_key(request)
 
-
 def get_thread_or_404(thread_id: int) -> ChatThread:
     try:
-        return ChatThread.objects.select_related('freelancer', 'client').get(pk=thread_id)
+        # We fetch the thread simply. Related objects can be fetched later if needed.
+        return ChatThread.objects.get(pk=thread_id)
     except ChatThread.DoesNotExist:
         raise NotFound({'error': 'Chat thread does not exist.'})
-
 
 class IsThreadParticipant(BasePermission):
     def has_permission(self, request, view):
@@ -512,49 +511,56 @@ class ChatMessageViewSet(viewsets.ModelViewSet, SessionKeyMixin):
         serializer = self.get_serializer(queryset, many=True)
         return Response({'messages': serializer.data}, status=status.HTTP_200_OK)
 
-    @transaction.atomic
     def create(self, request, *args, **kwargs):
         thread_id = self.kwargs.get('thread_pk')
-        thread = get_thread_or_404(thread_id)
-
-        allowed, session_key = self._check_permission(request, thread)
-        if not allowed:
-            return Response({'error': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
-
-        sender = request.user if request.user.is_authenticated else None
-
-        logger.info(f"Creating message - User: {sender}, Thread: {thread_id}, Data: {request.data}")
-
-        serializer = self.get_serializer(data=request.data)
-        if not serializer.is_valid():
-            logger.error(f"Message validation failed: {serializer.errors}")
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-        guest_session = None
-        shadow_client = None
-
-        if not sender and session_key:
+        
+        with transaction.atomic():
+            # 1. LOCK the thread row to prevent simultaneous message/user creation issues
             try:
-                guest_session, _ = GuestSession.get_or_create_session(session_key)
-            except Exception as e:
-                logger.warning(f"Could not link guest session to message: {e}")
+                # We use of=('self',) to avoid the 500 error with Outer Joins on NULL clients
+                thread = ChatThread.objects.select_for_update(of=('self',)).get(pk=thread_id)
+            except ChatThread.DoesNotExist:
+                raise NotFound({'error': 'Chat thread does not exist.'})
 
-            # Create or get shadow client for guest when they send their first message/offer
-            shadow_client = User.objects.create_shadow_client(session_key)
+            # 2. Check permissions
+            allowed, session_key = self._check_permission(request, thread)
+            if not allowed:
+                return Response({'error': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
+    
+            sender = request.user if request.user.is_authenticated else None
+            
+            # 3. Validate the message data
+            serializer = self.get_serializer(data=request.data)
+            if not serializer.is_valid():
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-            # Link thread to shadow client if not already linked
-            if thread.is_guest_thread and not thread.client:
-                thread.client = shadow_client
-                thread.save(update_fields=['client'])
-                logger.info(f"Linked thread {thread.id} to shadow client {shadow_client.username}")
+            guest_session = None
+            
+            # 4. Handle Guest Identity (Inside the transaction)
+            if not sender and session_key:
+                try:
+                    # Link to GuestSession model for tracking
+                    guest_session, _ = GuestSession.get_or_create_session(session_key)
+                    
+                    # Create or get shadow client (Actual User object) for the guest
+                    shadow_client = User.objects.create_shadow_client(session_key)
 
-        message = serializer.save(
-            thread=thread,
-            sender=sender,
-            guest_session=guest_session,
-        )
+                    # Link thread to shadow client if it's the first time
+                    if thread.is_guest_thread and not thread.client:
+                        thread.client = shadow_client
+                        thread.save(update_fields=['client'])
+                        logger.info(f"Linked thread {thread.id} to shadow client {shadow_client.username}")
+                except Exception as e:
+                    logger.warning(f"Guest identity linking failed: {e}")
 
-        return Response(self.get_serializer(message).data, status=status.HTTP_201_CREATED)
+            # 5. Save the message
+            message = serializer.save(
+                thread=thread,
+                sender=sender,
+                guest_session=guest_session,
+            )
+
+            return Response(self.get_serializer(message).data, status=status.HTTP_201_CREATED)
 
     @action(detail=True, methods=['post'], url_path='update-offer-status')
     @transaction.atomic
