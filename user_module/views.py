@@ -257,10 +257,6 @@ class FreelancerListViewSet(viewsets.ReadOnlyModelViewSet):
                 'freelancerprofile__categories',
                 'freelancerprofile__subjects'
             ).distinct()
-            if category_id:
-                admin_queryset = admin_queryset.filter(freelancerprofile__categories=category_id)
-            if subject_id:
-                admin_queryset = admin_queryset.filter(freelancerprofile__subjects=subject_id)
             return admin_queryset.order_by('id')
 
         return filtered_queryset.order_by('id')
