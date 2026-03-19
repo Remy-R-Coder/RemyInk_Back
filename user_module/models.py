@@ -69,7 +69,7 @@ class UserManager(BaseUserManager):
     def _generate_username_and_id(self, role):
         next_id_num = RoleIDCounter.get_next_id(role)
         if role == Role.CLIENT:
-            username = f"Client{next_id_num:03d}"
+            username = f"Client{next_id_num:02d}"
         else:
             username = f"Remy{next_id_num:02d}"
         return username
