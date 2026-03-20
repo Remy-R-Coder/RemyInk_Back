@@ -208,6 +208,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField(validators=[phone_regex], max_length=20, blank=True, null=True)
     role = models.CharField(max_length=10, choices=Role.choices, default=Role.CLIENT)
     is_active = models.BooleanField(default=False)
+    is_guest = models.BooleanField(default=False, db_index=True)
+    guest_created_at = models.DateTimeField(null=True, blank=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
     warnings = models.PositiveIntegerField(default=0, validators=[MaxValueValidator(3)])
