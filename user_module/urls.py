@@ -35,6 +35,7 @@ from .views import (
     AccountSettingsView,
     PasswordChangeView,
     NotificationPreferencesView,
+    GuestTokenView,
 )
 
 router = DefaultRouter()
@@ -52,6 +53,7 @@ router.register(r'profile/skills', SkillViewSet, basename='skill')
 urlpatterns = [
     path('token/freelancer/', FreelancerTokenObtainPairView.as_view(), name='token_obtain_pair_freelancer'),
     path('token/client/', ClientTokenObtainPairView.as_view(), name='token_obtain_pair_client'),
+    path('token/guest/', GuestTokenView.as_view(), name='token_obtain_pair_guest'),
     path('password/setup/request/', SetupPasswordRequestView.as_view(), name='password-setup-request'),
     path('password/setup/confirm/', SetupPasswordConfirmView.as_view(), name='password-setup-confirm'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
