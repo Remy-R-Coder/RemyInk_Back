@@ -17,6 +17,7 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.utils import timezone
 from datetime import timedelta
+from user_module.services import create_guest_user
 
 from chat.models import ChatThread, ChatMessage, MessageReadStatus
 from chat.services import GuestNameService, ChatThreadService
@@ -382,7 +383,26 @@ class DashboardStatsView(APIView):
 
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+class GuestTokenView(APIView):
+    permission_classes = [AllowAny]
 
+    def post(self, request):
+        try:
+            # 1️⃣ Create a guest user in DB
+            guest_user = create_guest_user()
+
+            # 2️⃣ Generate JWT token
+            refresh = RefreshToken.for_user(guest_user)
+
+            # 3️⃣ Return token + username
+            return Response({
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+                'username': guest_user.username,
+            }, status=status.HTTP_201_CREATED)
+
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class DashboardJobsView(APIView):
     permission_classes = [IsAuthenticated]
