@@ -358,15 +358,25 @@ class ChatThreadViewSet(viewsets.ModelViewSet):
             'sent_pending_offers': offers_data,
             'count': len(offers_data)
         }, status=status.HTTP_200_OK)
-    
     @action(detail=True, methods=['put'], url_path='mark-as-read')
-    def mark_as_read(self, request, pk=None):
+    def mark_as_read(self, request, pk=None, **kwargs): # Added **kwargs to catch thread_pk
         thread = self.get_object()
         
-        allowed, session_key = self._check_permission(request, thread)
-        if not allowed:
+        # Manually verify permissions since this ViewSet lacks the helper method
+        session_key = request.query_params.get('session_key') or getattr(request.session, 'session_key', None)
+        is_participant = False
+
+        if request.user.is_authenticated:
+            if thread.client == request.user or thread.freelancer == request.user:
+                is_participant = True
+        elif thread.guest_session_key and session_key:
+            if str(thread.guest_session_key).strip() == str(session_key).strip():
+                is_participant = True
+
+        if not is_participant:
             raise PermissionDenied({'error': 'You are not a participant in this chat thread.'})
 
+        # Process marking messages as read
         if request.user.is_authenticated:
             messages_to_read = ChatMessage.objects.filter(thread=thread).exclude(sender=request.user)
             MessageReadStatus.objects.bulk_create(
@@ -374,6 +384,7 @@ class ChatThreadViewSet(viewsets.ModelViewSet):
                 ignore_conflicts=True
             )
         elif session_key:
+            # For guests, mark messages from the freelancer as read
             messages_to_read = ChatMessage.objects.filter(thread=thread, sender=thread.freelancer)
             MessageReadStatus.objects.bulk_create(
                 [MessageReadStatus(message=m, guest_session_key=session_key) for m in messages_to_read],
@@ -381,7 +392,6 @@ class ChatThreadViewSet(viewsets.ModelViewSet):
             )
 
         return Response({'status': 'messages marked as read'}, status=status.HTTP_200_OK)
-
 
 class GuestThreadCreateView(APIView, SessionKeyMixin):
     permission_classes = [AllowAny]
