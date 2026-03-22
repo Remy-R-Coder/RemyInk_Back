@@ -144,7 +144,7 @@ class UserManager(BaseUserManager):
         return user, password
 
     @transaction.atomic
-    def create_(self, session_key: str) -> "User":
+    def create_shadow_client(self, session_key: str) -> "User":
         from chat.models import ChatThread
 
         guest_session = (
