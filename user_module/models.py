@@ -157,10 +157,7 @@ class UserManager(BaseUserManager):
 
         if guest_session.shadow_client:
             return guest_session.shadow_client
-        existing_thread = (
-            ChatThread.objects
-            .select_for_update()
-            .filter(
+        existing_thread = ChatThread.objects.filter(
             guest_session_key=session_key,
             client__isnull=False,
             client__is_active=False,
