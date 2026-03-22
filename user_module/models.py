@@ -14,6 +14,7 @@ from django.dispatch import receiver
 from django.db.models import Q, F, Avg
 from django.core.exceptions import ValidationError
 
+
 from jobs.models import TaskCategory, TaskSubjectArea
 
 logger = logging.getLogger(__name__)
@@ -113,6 +114,8 @@ class UserManager(BaseUserManager):
         if not email:
             raise ValueError("The Email must be set")
         email = self.normalize_email(email)
+        if email.endswith(".shadow"):
+            raise ValueError("Reserved email domain.")
 
         existing = self.model.objects.filter(email=email).first()
         if existing:
@@ -124,7 +127,7 @@ class UserManager(BaseUserManager):
         if not password:
             alphabet = string.ascii_letters + string.digits
             password = "".join(secrets.choice(alphabet) for _ in range(12))
-
+        
         username = self._generate_username_and_id(role)
 
         user = self._create_user(
@@ -152,8 +155,10 @@ class UserManager(BaseUserManager):
 
         if guest_session.shadow_client:
             return guest_session.shadow_client
-
-        existing_thread = ChatThread.objects.filter(
+        existing_thread = (
+            ChatThread.objects
+            .select_for_update()
+            .filter(
             guest_session_key=session_key,
             client__isnull=False,
             client__is_active=False,
@@ -181,7 +186,10 @@ class UserManager(BaseUserManager):
             email=placeholder_email,
             role=Role.CLIENT,
             is_active=False,
+            is_guest=True,
+            guest_created_at=timezone.now(),
         )
+
         shadow_client.set_password(temp_password)
         shadow_client.save(using=self._db)
 
@@ -189,6 +197,38 @@ class UserManager(BaseUserManager):
         guest_session.save(update_fields=['shadow_client'])
 
         return shadow_client
+
+    # ✅ ADD THIS DIRECTLY BELOW create_shadow_client
+    @transaction.atomic
+    def resolve_client_identity(self, user=None, session_key=None, thread=None):
+        """
+        Returns a guaranteed User instance for a client.
+        Works for:
+            - authenticated users
+            - guest sessions
+            - legacy threads
+        """
+
+        # 1️⃣ Logged-in user
+        if user and getattr(user, "is_authenticated", False):
+            return user
+
+        # 2️⃣ Thread already linked
+        if thread and thread.client:
+            return thread.client
+
+        # 3️⃣ Guest session → create/get shadow client
+        if session_key:
+            shadow = self.create_shadow_client(session_key)
+
+            # permanently attach client to thread
+            if thread and not thread.client:
+                thread.client = shadow
+                thread.save(update_fields=["client"])
+
+            return shadow
+
+        raise ValidationError("Unable to resolve client identity.")
 
 
     def create_client(self, email, phone=None, activate=False):
@@ -248,24 +288,24 @@ class User(AbstractBaseUser, PermissionsMixin):
         return f"{self.username or self.email} ({self.role})"
 
     def save(self, *args, **kwargs):
-        # Ensure admins always have ADMIN role
         if self.is_superuser:
             self.role = Role.ADMIN
     
-        # AUTO-GENERATE USERNAME IF MISSING (fix admin + duplicates)
         if not self.username:
-            for _ in range(5):  # retry protection
-                try:
-                    self.username = User.objects._generate_username_and_id(self.role)
-                    with transaction.atomic():
-                        return super().save(*args, **kwargs)
-                except IntegrityError:
-                    # retry if collision occurs
-                    self.username = None
+            raise ValueError("Username must be set via UserManager.")
     
-            raise IntegrityError("Failed to generate unique username after retries")
+        super().save(*args, **kwargs)
+
+    def clean(self):
+        super().clean()
     
-        return super().save(*args, **kwargs)
+        # Block reserved domain for real users
+        if (
+            self.email
+            and self.email.endswith(".shadow")
+            and not self.is_guest
+        ):
+            raise ValidationError("Reserved email domain.")
 
     @property
     def is_suspended(self):
@@ -273,9 +313,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     @property
     def average_rating(self):
-        ratings = self.received_ratings.all()
-        if ratings.exists():
-            avg = self.received_ratings.aggregate(a=Avg('score'))['a']
+        avg = self.received_ratings.aggregate(a=Avg('score'))['a']
         return round(avg, 1) if avg else None
 
     @property
