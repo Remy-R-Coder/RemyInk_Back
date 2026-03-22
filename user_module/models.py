@@ -7,7 +7,7 @@ from decimal import Decimal
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models, transaction, IntegrityError
 from django.utils import timezone
-from django.core.validators import MaxValueValidator, RegexValidator, MinValueValidator
+from django.core.validators import MaxValueValidator, RegexValidator, MinValueValidator 
 from django.contrib.auth.base_user import BaseUserManager
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -29,6 +29,7 @@ class GuestSession(models.Model):
         null=True,
         blank=True,
     )
+    
 
     created_at = models.DateTimeField(auto_now_add=True)
     
@@ -143,15 +144,16 @@ class UserManager(BaseUserManager):
         return user, password
 
     @transaction.atomic
-    def create_shadow_client(self, session_key: str) -> "User":
+    def create_(self, session_key: str) -> "User":
         from chat.models import ChatThread
 
         guest_session = (
             GuestSession.objects
             .select_for_update()
-            .select_related('shadow_client')
             .get_or_create(session_key=session_key)[0]
         )
+        # Access shadow_client separately
+        shadow_client = guest_session.shadow_client
 
         if guest_session.shadow_client:
             return guest_session.shadow_client
