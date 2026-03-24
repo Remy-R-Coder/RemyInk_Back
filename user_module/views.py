@@ -383,27 +383,44 @@ class DashboardStatsView(APIView):
 
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 class GuestTokenView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
         try:
-            # 1️⃣ Create a guest user in DB
-            guest_user = create_guest_user()
+            # Ensure session exists
+            session_key = request.session.session_key
+            if not session_key:
+                request.session.create()
+                session_key = request.session.session_key
 
-            # 2️⃣ Generate JWT token
+            # Get EXISTING guest session (DO NOT create new user)
+            guest_session = GuestNameService.get_guest_by_session(session_key)
+
+            if not guest_session or not guest_session.user:
+                return Response(
+                    {"error": "Guest session not found"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            guest_user = guest_session.user
+
+            # Generate JWT token for SAME user
             refresh = RefreshToken.for_user(guest_user)
 
-            # 3️⃣ Return token + username
             return Response({
-                'refresh': str(refresh),
-                'access': str(refresh.access_token),
-                'username': guest_user.username,
-            }, status=status.HTTP_201_CREATED)
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+                "username": guest_user.username,
+            }, status=status.HTTP_200_OK)
 
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
+            logger.exception("Guest token creation failed")
+            return Response(
+                {"error": "Guest token failed"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 class DashboardJobsView(APIView):
     permission_classes = [IsAuthenticated]
     serializer_class = EmptySerializer
