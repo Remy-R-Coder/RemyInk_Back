@@ -29,16 +29,17 @@ def generate_guest_username():
 
         username = f"Guest{next_number:02d}"
         return username
-
-
+        
 def create_guest_user():
     """
-    Create a guest user in the database with timestamp
+    Create a guest user in the database with a unique dummy email to satisfy constraints.
     """
     username = generate_guest_username()
 
     user = User.objects.create(
         username=username,
+        # ADD THIS LINE:
+        email=f"{username.lower()}@temporary.remyink.com", 
         is_guest=True,
         guest_created_at=timezone.now(),
     )
