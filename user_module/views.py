@@ -404,7 +404,7 @@ class GuestTokenView(APIView):
                 ip_address=ip_address
             )
 
-            guest_user = guest_session.user
+            guest_user = guest_session.shadow_client
             refresh = RefreshToken.for_user(guest_user)
 
             return Response({
