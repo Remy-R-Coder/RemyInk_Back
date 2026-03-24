@@ -383,30 +383,28 @@ class DashboardStatsView(APIView):
 
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
 class GuestTokenView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
         try:
-            # Ensure session exists
             session_key = request.session.session_key
             if not session_key:
                 request.session.create()
                 session_key = request.session.session_key
 
-            # Get EXISTING guest session (DO NOT create new user)
-            guest_session = GuestNameService.get_guest_by_session(session_key)
-
-            if not guest_session or not guest_session.user:
-                return Response(
-                    {"error": "Guest session not found"},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
+            # FIX: Use get_or_create logic instead of just "get"
+            user_agent = request.META.get('HTTP_USER_AGENT', '')
+            ip_address = request.META.get('HTTP_X_FORWARDED_FOR', '').split(',')[0].strip() or request.META.get('REMOTE_ADDR', '')
+            
+            # Use the service that actually creates the user if missing
+            guest_session, created = GuestNameService.get_or_create_guest_session(
+                session_key=session_key,
+                user_agent=user_agent[:500],
+                ip_address=ip_address
+            )
 
             guest_user = guest_session.user
-
-            # Generate JWT token for SAME user
             refresh = RefreshToken.for_user(guest_user)
 
             return Response({
@@ -418,7 +416,7 @@ class GuestTokenView(APIView):
         except Exception as e:
             logger.exception("Guest token creation failed")
             return Response(
-                {"error": "Guest token failed"},
+                {"error": f"Guest token failed: {str(e)}"}, # Added str(e) to see the real error
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 class DashboardJobsView(APIView):
