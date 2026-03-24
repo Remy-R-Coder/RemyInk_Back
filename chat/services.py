@@ -231,7 +231,7 @@ class ChatMessageService:
         guest_session = None
         if not sender and guest_session_key:
             try:
-                from .models import GuestSession
+                from user_module.models import GuestSession
                 guest_session, _ = GuestSession.get_or_create_session(guest_session_key)
             except Exception as e:
                 logger.warning(f"Could not link guest session to message: {e}")
@@ -425,72 +425,59 @@ class AttachmentService:
             logger.info(f"Linked {updated} attachments to message {message.id}")
         
         return updated
-
-
+        
 class GuestNameService:
     """
-    Service for managing guest display names.
-    Now uses database-backed GuestSession model for persistence.
+    Service for managing guest display names and session lifecycle.
+    Points to user_module.models.GuestSession for data persistence.
     """
 
     @staticmethod
     def get_guest_display_name(session_key: str) -> str:
-        """
-        Get display name for a guest session.
-        Uses database-backed storage with cache fallback.
-        """
         if not session_key:
             return "Guest"
 
         try:
-            from .models import GuestSession
-            session, _ = GuestSession.get_or_create_session(session_key)
-            return session.display_name
+            # Consistently import from user_module
+            from user_module.models import GuestSession
+            session, _ = GuestSession.objects.get_or_create(session_key=session_key)
+            return getattr(session, 'display_name', "Guest")
         except Exception as e:
-            logger.error(f"Error getting guest display name from database: {e}")
-            # Fallback to cache-based approach
+            logger.error(f"Error getting guest display name: {e}")
+            
+            # Cache fallback logic
             cache_key = f"{GUEST_DISPLAY_NAME_PREFIX}{session_key}"
             name = cache.get(cache_key)
-
             if not name:
                 if cache.get(GUEST_DISPLAY_COUNTER_KEY) is None:
                     cache.set(GUEST_DISPLAY_COUNTER_KEY, 0)
-
                 counter = cache.incr(GUEST_DISPLAY_COUNTER_KEY)
                 name = f"Client{counter:03d}"
                 cache.set(cache_key, name, timeout=60 * 60 * 24 * 7)
-
-                logger.info(f"Generated guest name (cache fallback): {name} for session {session_key[:8]}...")
-
             return name
 
     @staticmethod
-    def get_or_create_guest_session(session_key: str, user_agent=None, ip_address=None, referrer=None):
-        """
-        Get or create a GuestSession object with metadata tracking.
-        Returns tuple of (GuestSession, created)
-        """
+    def get_or_create_guest_session(session_key: str, **kwargs):
         try:
-            from .models import GuestSession
-            return GuestSession.get_or_create_session(
-                session_key=session_key,
-                user_agent=user_agent,
-                ip_address=ip_address,
-                referrer=referrer
-            )
+            from user_module.models import GuestSession
+            return GuestSession.objects.get_or_create(session_key=session_key)
         except Exception as e:
             logger.error(f"Error creating guest session: {e}")
             raise
 
     @staticmethod
-    def mark_session_converted(session_key: str, user):
-        """Mark a guest session as converted to a registered user"""
+    @transaction.atomic
+    def mark_session_converted(session_key: str, user: User):
+        """Link a guest session to a newly registered user account."""
         try:
-            from .models import GuestSession
+            from user_module.models import GuestSession
             session = GuestSession.objects.get(session_key=session_key)
-            session.mark_converted(user)
-            logger.info(f"Marked session {session_key[:8]}... as converted to {user.username}")
+            
+            # Using the logic from your user_module
+            session.shadow_client = user
+            session.is_converted = True
+            session.save()
+            
+            logger.info(f"Marked session {session_key[:8]}... converted to {user.username}")
         except GuestSession.DoesNotExist:
-            logger.warning(f"Attempted to mark non-existent session {session_key[:8]}... as converted")
-        except Exception as e:
-            logger.error(f"Error marking session as converted: {e}")
+            logger.warning(f"Non-existent session {session_key[:8]}...")
