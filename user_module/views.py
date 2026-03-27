@@ -384,6 +384,7 @@ class DashboardStatsView(APIView):
 
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 class GuestTokenView(APIView):
     permission_classes = [AllowAny]
 
@@ -394,18 +395,27 @@ class GuestTokenView(APIView):
                 request.session.create()
                 session_key = request.session.session_key
 
-            # FIX: Use get_or_create logic instead of just "get"
             user_agent = request.META.get('HTTP_USER_AGENT', '')
-            ip_address = request.META.get('HTTP_X_FORWARDED_FOR', '').split(',')[0].strip() or request.META.get('REMOTE_ADDR', '')
+            ip_address = request.META.get('HTTP_X_FORWARDED_FOR', '').split(',')[0].strip() or \
+                         request.META.get('REMOTE_ADDR', '')
             
-            # Use the service that actually creates the user if missing
+            # 1. Ensure the GuestSession object exists
             guest_session, created = GuestNameService.get_or_create_guest_session(
                 session_key=session_key,
                 user_agent=user_agent[:500],
                 ip_address=ip_address
             )
 
+            # 2. Safety Check: Ensure the shadow_client (User) is linked
             guest_user = guest_session.shadow_client
+            
+            if not guest_user:
+                # Fallback: Create the shadow client if the session exists but user is missing
+                guest_user = User.objects.create_shadow_client(session_key)
+                guest_session.shadow_client = guest_user
+                guest_session.save()
+
+            # 3. Generate Token
             refresh = RefreshToken.for_user(guest_user)
 
             return Response({
@@ -417,9 +427,10 @@ class GuestTokenView(APIView):
         except Exception as e:
             logger.exception("Guest token creation failed")
             return Response(
-                {"error": f"Guest token failed: {str(e)}"}, # Added str(e) to see the real error
+                {"error": "Internal server error during guest authentication"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
 class DashboardJobsView(APIView):
     permission_classes = [IsAuthenticated]
     serializer_class = EmptySerializer
