@@ -82,7 +82,8 @@ def get_csrf_and_session(request):
             ip_address=ip_address or None,
             referrer=referrer[:500] if referrer else None
         )
-        guest_label = guest_session.display_name
+        shadow_client = User.objects.create_shadow_client(session_key)
+        guest_label = shadow_client.username
 
         if created:
             logger.info(f"Created new guest session: {guest_label} ({session_key[:8]}...)")
