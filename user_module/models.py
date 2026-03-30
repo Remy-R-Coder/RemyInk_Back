@@ -286,6 +286,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return f"{self.username or self.email} ({self.role})"
 
+    def get_full_name(self):
+        return self.username or self.email
+
+    def get_short_name(self):
+        return self.username or self.email
+
     def save(self, *args, **kwargs):
         if self.is_superuser:
             self.role = Role.ADMIN
