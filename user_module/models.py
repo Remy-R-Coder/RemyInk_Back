@@ -67,15 +67,25 @@ class RoleIDCounter(models.Model):
 
 class UserManager(BaseUserManager):
     use_in_migrations = True
-
     def _generate_username_and_id(self, role):
-        next_id_num = RoleIDCounter.get_next_id(role)
-        if role == Role.CLIENT:
-            username = f"Client{next_id_num:02d}"
-        else:
-            username = f"Remy{next_id_num:02d}"
-        return username
 
+        # Decide counter + prefix FIRST
+        if role == Role.CLIENT:
+            counter_role = Role.CLIENT
+            prefix = "Client"
+    
+        elif role in [Role.ADMIN, Role.FREELANCER]:
+            counter_role = Role.ADMIN   # shared Remy counter
+            prefix = "Remy"
+    
+        else:
+            raise ValueError("Unsupported role")
+    
+        # Increment counter ONLY ONCE
+        next_id_num = RoleIDCounter.get_next_id(counter_role)
+    
+        return f"{prefix}{next_id_num:02d}"
+ 
     def _create_user(self, email, password, **extra_fields):
         if email:
             email = self.normalize_email(email)
@@ -229,12 +239,43 @@ class UserManager(BaseUserManager):
 
         raise ValidationError("Unable to resolve client identity.")
 
-
     def create_client(self, email, phone=None, activate=False):
         return self.create_user_by_role(Role.CLIENT, email, None, phone, activate)
 
     def create_freelancer(self, email, password=None, phone=None, activate=False):
         return self.create_user_by_role(Role.FREELANCER, email, password, phone, activate)
+
+    @transaction.atomic
+    def upgrade_shadow_client(self, shadow_user, email, password):
+        if not shadow_user.is_guest:
+            raise ValidationError("User already registered.")
+    
+        if not email or email.endswith(".shadow"):
+            raise ValidationError("Invalid email.")
+    
+        email = self.normalize_email(email)
+    
+        if User.objects.filter(email=email).exclude(pk=shadow_user.pk).exists():
+            raise ValidationError("Email already in use.")
+    
+        shadow_user.email = email
+        shadow_user.is_guest = False
+        shadow_user.is_active = True
+        shadow_user.guest_created_at = None
+    
+        shadow_user.set_password(password)
+    
+        shadow_user.save(update_fields=[
+            "email",
+            "is_guest",
+            "is_active",
+            "guest_created_at",
+            "password",
+        ])
+    
+        logger.info(f"Shadow client upgraded → {shadow_user.username}")
+    
+        return shadow_user
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
