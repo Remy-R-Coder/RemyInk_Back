@@ -62,6 +62,13 @@ class FreelancerCreationForm(forms.ModelForm):
         self.instance = user
         return self.instance
 
+    def save_m2m(self):
+        """
+        Required by Django Admin when using custom save logic 
+        in a ModelForm with related many-to-many fields.
+        """
+        pass
+
 
 class AdminCreationForm(forms.ModelForm):
     password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
@@ -195,8 +202,8 @@ class AdminAdmin(RoleScopedAdminMixin, BaseUserAdmin):
 
     add_fieldsets = (
         (None, {
-            'classes': ('wide',),
-            'fields': ('username', 'email', 'password1', 'password2'),
+            'classes': ('wide',), 
+            'fields': ('username', 'email', 'password', 'password2'),
         }),
     )
 
