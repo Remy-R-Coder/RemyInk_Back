@@ -1,10 +1,11 @@
 from pathlib import Path
 import os
+from decimal import Decimal  # Add this
 import environ
 from django.core.exceptions import ImproperlyConfigured
 from celery.schedules import crontab
 from datetime import timedelta
-
+ 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
@@ -328,3 +329,5 @@ SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=not DEBUG)
 SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', default=31536000 if not DEBUG else 0)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=not DEBUG)
 SECURE_HSTS_PRELOAD = env.bool('SECURE_HSTS_PRELOAD', default=not DEBUG)
+# Exchange rate: 1 USD to KES
+KES_USD_EXCHANGE_RATE = Decimal('130.00')

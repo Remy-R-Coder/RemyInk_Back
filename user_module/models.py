@@ -353,6 +353,20 @@ class User(AbstractBaseUser, PermissionsMixin):
         ):
             raise ValidationError("Reserved email domain.")
 
+    # Inside class User(AbstractBaseUser, PermissionsMixin):
+
+    @property
+    def current_balance_usd(self):
+        """Converts KES balance to USD for client-side display."""
+        rate = Decimal('130.00') # Define this in settings.py later
+        return (self.current_balance / rate).quantize(Decimal('0.01'))
+
+    @property
+    def total_earnings_usd(self):
+        """Converts total KES earnings to USD."""
+        rate = Decimal('130.00')
+        return (self.total_earnings / rate).quantize(Decimal('0.01'))
+
     @property
     def is_suspended(self):
         return self.suspended_until and self.suspended_until > timezone.now()
@@ -466,7 +480,7 @@ class FreelancerProfile(models.Model):
         return self.is_available and self.active_jobs_count < self.max_jobs_concurrent
 
     @property
-    def has_payout_method(self):
+    def has_payout_method(self): 
         if self.payout_preference == 'MPESA':
             return bool(self.mpesa_number)
         return False
@@ -481,6 +495,31 @@ class FreelancerProfile(models.Model):
                 }
             }
         return None
+
+    @property
+    def display_avg_price_usd(self):
+        """
+        Calculates a display price in USD.
+        Uses hourly_rate or historical earnings, with a $50 floor.
+        """
+        from django.conf import settings
+        # Default to 130.00 if KES_USD_EXCHANGE_RATE isn't in settings
+        rate = getattr(settings, 'KES_USD_EXCHANGE_RATE', Decimal('130.00'))
+        MINIMUM_DISPLAY = Decimal('50.00')
+        
+        # 1. Use manual hourly_rate if set
+        if self.hourly_rate and self.hourly_rate > 0:
+            converted = (self.hourly_rate / rate).quantize(Decimal('0.01'))
+            return max(converted, MINIMUM_DISPLAY)
+        
+        # 2. Otherwise calculate based on history (earnings / jobs)
+        if self.completed_jobs > 0 and self.user.total_earnings > 0:
+            avg_kes = self.user.total_earnings / self.completed_jobs
+            converted = (avg_kes / rate).quantize(Decimal('0.01'))
+            return max(converted, MINIMUM_DISPLAY)
+
+        # 3. Fallback for new profiles
+        return MINIMUM_DISPLAY
 
     def update_payout_preference(self, preference, **kwargs):
         self.payout_preference = preference
