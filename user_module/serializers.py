@@ -135,18 +135,29 @@ class FreelancerProfileSerializer(serializers.ModelSerializer):
             'is_admin': obj.user.role == Role.ADMIN,
         }
 
+
     def get_avg_price(self, obj: FreelancerProfile) -> float:
         subject_id = self.context.get('subject_id')
+        
+        # 1. Try to get average from job history
         avg_price = Job.objects.filter(
             freelancer__id=obj.user.id,
             subject_area__id=subject_id
         ).aggregate(Avg('price'))['price__avg']
-        return round(avg_price, 2) if avg_price is not None else 50.00
+        
+        if avg_price is not None:
+            return round(float(avg_price), 2)
+        
+        # 2. Fallback to the freelancer's set hourly_rate if no jobs exist
+        if obj.hourly_rate:
+            return float(obj.hourly_rate)
+        # 3. No fallback to 50.00; returns None if no data is found
+        return None
 
     def get_avg_delivery_time(self, obj: FreelancerProfile) -> int:
         subject_id = self.context.get('subject_id')
         avg_time = Job.objects.filter(
-            freelancer__id=obj.user.id,
+            freelancer__id=obj.user.id, 
             subject_area__id=subject_id
         ).aggregate(Avg('delivery_time_days'))['delivery_time_days__avg']
         return round(avg_time) if avg_time is not None else 3

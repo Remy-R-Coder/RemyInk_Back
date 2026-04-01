@@ -887,7 +887,7 @@ class Escrow(BaseModel):
     platform_fee_percentage = models.DecimalField(
         max_digits=5,
         decimal_places=2,
-        default=Decimal('10.00'),
+        default=Decimal('30.00'),
         validators=[MinValueValidator(Decimal('0')), MaxValueValidator(Decimal('100'))]
     )
     platform_fee_amount = models.DecimalField(max_digits=18, decimal_places=2, default=Decimal('0'))
@@ -921,6 +921,26 @@ class Escrow(BaseModel):
             models.Index(fields=['auto_release_at']),
             models.Index(fields=['funded_at']),
         ]
+
+    def save(self, *args, **kwargs):
+        """
+        Freeze financial terms and ensure platform fee
+        is always calculated correctly.
+        """
+
+        # 1️⃣ When escrow is first created
+        if self.order_id and not self.pk:
+            # Copy financial terms from Order (single source of truth)
+            self.platform_fee_percentage = self.order.platform_fee_percentage
+            self.currency = self.order.currency
+
+        # 2️⃣ Always calculate platform fee automatically
+        if self.amount and self.platform_fee_percentage:
+            self.platform_fee_amount = (
+                self.amount * self.platform_fee_percentage / Decimal("100")
+            ).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"Escrow for Order {self.order_id} - {self.amount} {self.currency} ({self.status})"
@@ -1086,7 +1106,7 @@ class Order(BaseModel, AuditMixin):
     description = models.TextField()
     amount = models.DecimalField(max_digits=18, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
     currency = models.CharField(max_length=3, choices=Currency.choices, default=Currency.KES)
-    platform_fee_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=Decimal('10.00'))
+    platform_fee_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=Decimal('30.00'))
     status = models.CharField(max_length=20, choices=OrderStatus.choices, default=OrderStatus.DRAFT, db_index=True)
     delivery_days = models.PositiveIntegerField(default=7, validators=[MinValueValidator(1), MaxValueValidator(365)])
     max_revisions = models.PositiveIntegerField(default=2, validators=[MaxValueValidator(10)])
