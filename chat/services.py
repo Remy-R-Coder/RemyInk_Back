@@ -234,10 +234,6 @@ class ChatMessageService:
                 guest_session, _ = GuestSession.objects.get_or_create(session_key=guest_session_key)
             except Exception as e:
                 logger.warning(f"Could not link guest session to message: {e}")        
-
-                  # -------------------------------
-        # BACKEND OFFER PERMISSION CHECK
-        # -------------------------------
         if is_offer:
             # Guests can NEVER send offers
             if not sender or not sender.is_authenticated:
