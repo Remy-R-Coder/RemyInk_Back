@@ -7,10 +7,10 @@ from django.db import transaction
 from django.utils import timezone
 from django.core.cache import cache
 from django.db.models import Q, Prefetch
-
+from django.core.exceptions import PermissionDenied
 from .models import ChatThread, ChatMessage, MessageReadStatus, ChatAttachment
 from .constants import OfferStatus, GUEST_DISPLAY_NAME_PREFIX, GUEST_DISPLAY_COUNTER_KEY
-from user_module.models import Role
+from user_module.models import Role, GuestSession  
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
@@ -231,10 +231,45 @@ class ChatMessageService:
         guest_session = None
         if not sender and guest_session_key:
             try:
-                from user_module.models import GuestSession
-                guest_session, _ = GuestSession.get_or_create_session(guest_session_key)
+                guest_session, _ = GuestSession.objects.get_or_create(session_key=guest_session_key)
             except Exception as e:
-                logger.warning(f"Could not link guest session to message: {e}")
+                logger.warning(f"Could not link guest session to message: {e}")        
+
+                  # -------------------------------
+        # BACKEND OFFER PERMISSION CHECK
+        # -------------------------------
+        if is_offer:
+            # Guests can NEVER send offers
+            if not sender or not sender.is_authenticated:
+                logger.warning(
+                    f"Blocked offer attempt from guest session {guest_session_key}"
+                )
+                raise PermissionDenied("Guests cannot send offers.")
+
+            # Only freelancers can send offers
+            if sender.role != Role.FREELANCER:
+                logger.warning(
+                    f"Blocked offer attempt by non-freelancer: {sender.username}"
+                )
+                raise PermissionDenied(
+                    "Only freelancers are allowed to send offers."
+                )
+
+            # Freelancer must be active
+            if not sender.is_active:
+                logger.warning(
+                    f"Blocked offer attempt by inactive freelancer: {sender.username}"
+                )
+                raise PermissionDenied(
+                    "Inactive freelancers cannot send offers."
+                )
+                
+            # MUST own the thread
+            if thread.freelancer_id != sender.id:
+                raise PermissionDenied(
+                    "You cannot send offers in threads you do not participate in."
+                )
+    
 
         message = ChatMessage.objects.create(
             thread=thread,
@@ -261,7 +296,7 @@ class ChatMessageService:
         )
 
         return message
-    
+      
     @staticmethod
     def get_thread_messages(
         thread: ChatThread,
