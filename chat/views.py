@@ -728,24 +728,27 @@ class UploadAPIView(APIView, SessionKeyMixin):
         serializer = ChatAttachmentUploadSerializer(data=request.data)
         if serializer.is_valid():
             file = serializer.validated_data['file']
+            # Retrieve the thread ID from the frontend request
+            thread_id = request.data.get('message_thread_id') # [cite: 588, 591, 594]
 
-            file_path = default_storage.save(f'chat_attachments/{file.name}', file)
-            file_url = default_storage.url(file_path)
+            file_path = default_storage.save(f'chat_attachments/{file.name}', file) # [cite: 597]
+            file_url = default_storage.url(file_path) # [cite: 598]
 
+            # Link the attachment to the THREAD immediately
             attachment = ChatAttachment.objects.create(
                 file_url=file_url,
                 name=file.name,
                 mime_type=file.content_type,
                 size=file.size,
-                uploaded_by=request.user if request.user.is_authenticated else None,
+                thread_id=thread_id,  # <--- Use the thread_id here
+                uploaded_by=request.user if request.user.is_authenticated else None, # [cite: 599-604]
             )
 
             return Response(
                 ChatAttachmentSerializer(attachment).data,
                 status=status.HTTP_201_CREATED
-            )
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+            ) # [cite: 606-609]
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) # [cite: 610]
 
 class UnreadCountView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -757,7 +760,7 @@ class UnreadCountView(APIView):
         return Response({'unread_count': unread_count}, status=status.HTTP_200_OK)
 
 
-class ThreadUnreadsView(APIView):
+class ThreadUnreadsView(APIView): 
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = EmptySerializer
 

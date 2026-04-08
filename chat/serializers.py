@@ -79,14 +79,17 @@ class OfferSerializer(serializers.Serializer):
             raise serializers.ValidationError("Price must be greater than 0")
         return value
 
-
 class ChatMessageSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(source='timestamp', format=None, read_only=True)
-
     sender_name = serializers.SerializerMethodField()
     sender_user_id = serializers.SerializerMethodField()
     sender_guest_key = serializers.SerializerMethodField()
     offer = serializers.SerializerMethodField()
+    message = serializers.CharField(
+        required=False, 
+        allow_blank=True, 
+        allow_null=True
+    )
 
     offer_title = serializers.CharField(required=False)
     offer_price = serializers.DecimalField(max_digits=10, decimal_places=2, required=False)
@@ -114,7 +117,37 @@ class ChatMessageSerializer(serializers.ModelSerializer):
             'id', 'thread', 'created_at', 'updated_at', 'sender_name', 'sender_user_id', 'sender_guest_key'
         ]
 
+
     def validate(self, attrs):
+        # CHANGE 2: Content Validation Logic
+        message_text = attrs.get('message')
+        is_offer = attrs.get('is_offer', False)
+        attachment_ids = attrs.get('attachment_ids', [])
+
+        # Logic: A message is valid IF it has text OR it is an offer OR it has attachments
+        if not message_text and not is_offer and not attachment_ids:
+            raise serializers.ValidationError(
+                "Cannot send an empty message. Provide text, an offer, or an attachment."
+            )
+        
+        if attachment_ids:
+            # Get the thread from context (passed by ViewSet)
+            thread_id = self.context.get('view').kwargs.get('thread_pk')
+            
+            # Ensure these attachments aren't already linked to another message
+            # and (ideally) belong to this thread or were uploaded by this user
+            for attachment in attachment_ids:
+                if attachment.message_id is not None:
+                    raise serializers.ValidationError(
+                        f"Attachment {attachment.id} is already linked to another message."
+                    )
+                # SECURITY ADDITION: Ensure attachment belongs to this thread
+                # This assumes your ChatAttachment model has a 'thread' field
+                if attachment.thread_id and str(attachment.thread_id) != str(thread_id):
+                     raise serializers.ValidationError(
+                        f"Attachment {attachment.id} does not belong to this conversation."
+                    )
+
         if attrs.get("is_offer"):
             missing = [
                 f for f in ("offer_title", "offer_price", "offer_timeline")
@@ -136,7 +169,8 @@ class ChatMessageSerializer(serializers.ModelSerializer):
             
             for attachment in attachment_ids:
                 attachment.message = message
-                attachment.save(update_fields=['message'])
+                attachment.thread = message.thread 
+                attachment.save(update_fields=['message', 'thread'])
             
         return message
 

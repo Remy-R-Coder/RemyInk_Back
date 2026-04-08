@@ -370,9 +370,18 @@ class MessageReadStatus(models.Model):
 
 
 class ChatAttachment(models.Model):
+    # Keep the message link for when they are sent together
     message = models.ForeignKey(
         ChatMessage,
         on_delete=models.SET_NULL,
+        related_name='attachments',
+        null=True,
+        blank=True
+    )
+    # NEW: Add a direct link to the thread
+    thread = models.ForeignKey(
+        ChatThread,
+        on_delete=models.CASCADE,
         related_name='attachments',
         null=True,
         blank=True
