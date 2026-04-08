@@ -159,6 +159,7 @@ class ChatMessageSerializer(serializers.ModelSerializer):
                 "id": obj.id,
                 "title": obj.offer_title,
                 "price": obj.offer_price,
+                "currency": "USD",  # Add this line explicitly
                 "timeline": obj.offer_timeline,
                 "revisions": obj.offer_revisions,
                 "description": obj.offer_description,
@@ -188,7 +189,7 @@ class ChatMessageSerializer(serializers.ModelSerializer):
 class ChatThreadListSerializer(serializers.ModelSerializer):
 
     freelancer_username = serializers.CharField(source='freelancer.username', read_only=True)
-    freelancer_id = serializers.UUIDField(source='freelancer.id', read_only=True)
+    freelancer_id = serializers.UUIDField(source='freelancer.id', read_only=True) 
     client_username = serializers.CharField(source='client.username', read_only=True, allow_null=True)
     client_id = serializers.UUIDField(source='client.id', read_only=True, allow_null=True)
     other_party_name = serializers.SerializerMethodField()
@@ -242,6 +243,7 @@ class ChatThreadListSerializer(serializers.ModelSerializer):
                 'sender_username': last_msg.sender.username if last_msg.sender else 'Guest',
                 'is_offer': last_msg.is_offer,
                 'offer_title': last_msg.offer_title if last_msg.is_offer else None,
+                'offer_currency': "USD", # Add this here as well
                 'offer_status': last_msg.offer_status if last_msg.is_offer else None,
             }
         return None

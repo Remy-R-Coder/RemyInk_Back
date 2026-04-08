@@ -1,65 +1,54 @@
 import os
 import django
-from collections import OrderedDict
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+# 1. Setup Django environment
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings') 
 django.setup()
 
-from user_module.models import Category, SubjectArea 
+from django.db import transaction
+# Using the names found in your user_module imports
+from jobs.models import TaskCategory, TaskSubjectArea 
 
-def create_initial_data():
-    """
-    Populates the database with a specialized IB focus and 
-    compact professional categories.
-    """
-    data = OrderedDict([
-        # --- PRIMARY FOCUS: IB DIPLOMA ---
-        ('IB Diploma Program', [
-            'IB Mathematics (AA/AI)', 
-            'IB Sciences (Physics, Chem, Bio)', 
-            'IB Humanities (Econ, Hist, Psych)',
-            'IB Theory of Knowledge (TOK)',
-            'IB Extended Essay (EE) Support',
-            'IB Languages & Literature'
-        ]),
-        
-        # --- SECONDARY: UNIVERSITY & RESEARCH ---
-        ('University & Academic', [
-            'Thesis & Dissertation Support', 
-            'Admissions & Personal Statements',
-            'Advanced STEM & Data Analysis',
-            'General Humanities & Arts'
-        ]),
+def seed():
+    print("--- Starting Database Clean & Seed ---")
+    
+    try:
+        with transaction.atomic():
+            # 2. Clear existing data
+            TaskSubjectArea.objects.all().delete()
+            TaskCategory.objects.all().delete()
+            print("Successfully cleared old TaskCategories and TaskSubjectAreas.")
+            
+            # 3. Define Categories
+            categories_to_create = [
+                "Business & Content",
+                "IB Diploma Program",
+                "Software & Design",
+                "University & Academic"
+            ]
+            
+            category_objs = {}
+            for cat_name in categories_to_create:
+                # Use TaskCategory here
+                obj = TaskCategory.objects.create(name=cat_name)
+                category_objs[cat_name] = obj
+                print(f"Created Category: {cat_name}")
 
-        # --- TERTIARY: TECH & DESIGN ---
-        ('Software & Design', [
-            'Web & Mobile Development', 
-            'Graphic & UI/UX Design',
-            'Software Engineering',
-            'Video & Animation'
-        ]),
+            # 4. Define Subjects for IB Diploma
+            ib_subjects = ["Economics HL", "Physics SL", "English A", "Psychology"]
+            for sub_name in ib_subjects:
+                # Use TaskSubjectArea here
+                TaskSubjectArea.objects.create(
+                    category=category_objs["IB Diploma Program"], 
+                    name=sub_name
+                )
+                print(f"Added IB Subject: {sub_name}")
 
-        # --- QUATERNARY: BUSINESS & WRITING ---
-        ('Business & Content', [
-            'Copywriting & SEO', 
-            'Business Strategy & Marketing',
-            'Finance & Accounting',
-            'Technical & Grant Writing'
-        ]),
-    ])
+        print("--- Seed Complete ---")
 
-    print("Cleaning up old categories (optional)...")
-    # Uncomment the next line if you want to wipe the slate clean first:
-    # Category.objects.all().delete()
-
-    for cat_name, sub_names in data.items():
-        category, _ = Category.objects.get_or_create(name=cat_name)
-        print(f"Adding Category: {cat_name}")
-        for sub_name in sub_names:
-            SubjectArea.objects.get_or_create(name=sub_name, category=category)
-            print(f"  - Added Subject: {sub_name}")
-
-    print("\nDatabase populated successfully! ✅")
+    except Exception as e:
+        print(f"Error during seeding: {e}")
+        print("\nDouble check: Do 'TaskCategory' and 'TaskSubjectArea' exist in jobs/models.py?")
 
 if __name__ == '__main__':
-    create_initial_data()
+    seed()

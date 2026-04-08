@@ -4,6 +4,7 @@ from rest_framework.permissions import AllowAny, BasePermission
 from rest_framework.exceptions import PermissionDenied, NotFound, ValidationError
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser, FormParser
 
 from django.db.models import Q
 from django.db import transaction
@@ -718,6 +719,7 @@ class ChatMessageViewSet(viewsets.ModelViewSet, SessionKeyMixin):
 
 
 class UploadAPIView(APIView, SessionKeyMixin):
+    parser_classes = [MultiPartParser, FormParser]   # ← ADD THIS LINE
     permission_classes = [AllowAny]
     serializer_class = ChatAttachmentUploadSerializer
 
@@ -801,3 +803,4 @@ class PendingOffersView(APIView):
             'pending_offers': offers_data,
             'count': len(offers_data)
         }, status=status.HTTP_200_OK)
+
