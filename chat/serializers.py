@@ -96,6 +96,7 @@ class ChatMessageSerializer(serializers.ModelSerializer):
     offer_timeline = serializers.IntegerField(required=False)
     offer_revisions = serializers.IntegerField(required=False, min_value=0)
     offer_description = serializers.CharField(required=False, allow_blank=True)
+    is_mine = serializers.SerializerMethodField() # Add this field
 
     attachments = ChatAttachmentSerializer(many=True, read_only=True)
     attachment_ids = serializers.PrimaryKeyRelatedField(
@@ -104,18 +105,37 @@ class ChatMessageSerializer(serializers.ModelSerializer):
         required=False,
         queryset=ChatAttachment.objects.all()
     )
+    
 
     class Meta:
         model = ChatMessage
         fields = [
             'id', 'thread', 'message', 'created_at', 'updated_at',
             'is_offer', 'sender_name', 'sender_user_id', 'sender_guest_key',
-            'offer', 'offer_title', 'offer_price', 'offer_timeline', 'offer_revisions', 'offer_description',
+            'offer', 'is_mine', 'offer_title', 'offer_price', 'offer_timeline', 'offer_revisions', 'offer_description',
             'attachments', 'attachment_ids'
         ]
         read_only_fields = [
             'id', 'thread', 'created_at', 'updated_at', 'sender_name', 'sender_user_id', 'sender_guest_key'
         ]
+
+    def get_is_mine(self, obj: ChatMessage) -> bool:
+        request = self.context.get('request')
+        if not request:
+            return False
+
+        # 1. If user is authenticated, check if they are the sender
+        if request.user.is_authenticated:
+            return obj.sender == request.user
+
+        # 2. If guest, check session key and ensure they aren't the freelancer
+        # (This identifies the message as coming from the guest/client side)
+        session_key = request.query_params.get('session_key') or getattr(request.session, 'session_key', None)
+        
+        if session_key and str(obj.thread.guest_session_key) == str(session_key):
+            return obj.sender is None
+            
+        return False
 
 
     def validate(self, attrs):
