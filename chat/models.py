@@ -255,7 +255,7 @@ class ChatMessage(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name='messages',
+        related_name='messages', 
         help_text="Guest session if message was sent by a guest"
     )
 

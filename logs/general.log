@@ -6415,3 +6415,509 @@ INFO 2026-04-09 15:31:51,279 autoreload 22792 852 Watching for file changes with
 INFO 2026-04-09 15:31:51,845 server 22792 19768 HTTP/2 support enabled
 INFO 2026-04-09 15:31:51,846 server 22792 19768 Configuring endpoint tcp:port=8000:interface=127.0.0.1
 INFO 2026-04-09 15:31:51,847 server 22792 19768 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-09 16:50:10,715 autoreload 4296 21428 Watching for file changes with StatReloader
+INFO 2026-04-09 16:50:11,132 server 4296 16640 HTTP/2 support enabled
+INFO 2026-04-09 16:50:11,133 server 4296 16640 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-09 16:50:11,135 server 4296 16640 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-09 16:51:13,233 runserver 4296 16640 [mHTTP OPTIONS /api/users/token/freelancer/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.02, 127.0.0.1:59630][0m
+WARNING 2026-04-09 16:51:14,760 log 4296 17556 Unauthorized: /api/users/token/freelancer/
+WARNING 2026-04-09 16:51:14,763 runserver 4296 16640 [31;1mHTTP POST /api/users/token/freelancer/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 401 [1.21, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:33,806 runserver 4296 16640 [mHTTP POST /api/users/token/client/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [1.00, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:33,818 runserver 4296 16640 [mHTTP OPTIONS /api/users/me/ 200 [0.00, 127.0.0.1:59630][0m
+INFO 2026-04-09 16:51:33,870 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.05, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:33,886 runserver 4296 16640 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:59630][0m
+INFO 2026-04-09 16:51:33,926 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:59630][0m
+INFO 2026-04-09 16:51:34,438 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/ 200 [0.01, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:51:34,439 runserver 4296 16640 [mHTTP OPTIONS /api/users/dashboard/summary/ 200 [0.01, 127.0.0.1:59630][0m
+INFO 2026-04-09 16:51:34,460 runserver 4296 16640 [mHTTP OPTIONS /api/orders/jobs/?page=1&page_size=100 200 [0.01, 127.0.0.1:59630][0m
+INFO 2026-04-09 16:51:34,461 runserver 4296 16640 [mHTTP OPTIONS /api/chat/unread-count/ 200 [0.01, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:51:34,474 runserver 4296 16640 [mHTTP OPTIONS /api/chat/pending-offers/ 200 [0.01, 127.0.0.1:59630][0m
+INFO 2026-04-09 16:51:34,476 runserver 4296 16640 [mHTTP OPTIONS /api/users/dashboard/summary/ 200 [0.01, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:51:34,478 authentication 4296 23252 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:51:34,538 runserver 4296 16640 [mHTTP GET /api/chat/threads/ 200 [0.09, 127.0.0.1:54701][0m
+INFO 2026-04-09 16:51:34,623 runserver 4296 16640 [mHTTP GET /api/users/dashboard/summary/ 200 [0.18, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:34,632 runserver 4296 16640 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.09, 127.0.0.1:54701][0m
+INFO 2026-04-09 16:51:34,717 runserver 4296 16640 [mHTTP GET /api/chat/unread-count/ 200 [0.08, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:34,727 runserver 4296 16640 [mHTTP GET /api/chat/pending-offers/ 200 [0.09, 127.0.0.1:54701][0m
+INFO 2026-04-09 16:51:34,908 runserver 4296 16640 [mHTTP GET /api/users/dashboard/summary/ 200 [0.19, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:40,570 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:51:48,350 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/1/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:51:48,370 authentication 4296 20940 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:51:48,433 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.08, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:48,477 runserver 4296 16640 [mHTTP OPTIONS /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:59630][0m
+INFO 2026-04-09 16:51:48,478 runserver 4296 16640 [mHTTP OPTIONS /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:51:48,504 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:48,523 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:55,165 authentication 4296 14064 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:51:55,422 runserver 4296 16640 [mHTTP POST /api/chat/threads/1/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 201 [0.26, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:55,436 authentication 4296 17000 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:51:55,462 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:51:56,498 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:52:04,514 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:52:10,552 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:52:12,490 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:52:20,889 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:52:28,880 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:52:36,875 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:52:40,880 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:52:44,874 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:52:52,979 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:53:00,870 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:53:08,871 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:53:10,884 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:53:40,873 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:53:47,894 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:53:53,422 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:53:56,885 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:54:04,867 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:54:10,883 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:54:12,878 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:54:20,984 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:54:28,883 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:54:36,870 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:54:40,877 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:55192][0m
+INFO 2026-04-09 16:54:44,878 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:54:52,867 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:55:47,890 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:55:48,213 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:56:47,931 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.05, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:56:47,938 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:57:39,807 authentication 4296 4984 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:57:39,868 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.07, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:57:47,911 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.05, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:57:47,945 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.09, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:57:49,693 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:57:56,502 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:57:57,023 authentication 4296 21404 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:57:57,070 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.10, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:57:57,136 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.15, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:57:57,170 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.09, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:57:57,182 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/1/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:57:57,193 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/1/messages/ 200 [0.01, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:57:57,209 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/1/ 200 [0.01, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:57:57,212 authentication 4296 21104 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:57:57,285 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.10, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:57:57,303 authentication 4296 22412 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:57:57,354 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/ 200 [0.07, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:57:57,368 authentication 4296 20452 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:57:57,489 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/ 200 [0.13, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:57:59,792 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.08, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:57:59,806 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.09, 127.0.0.1:51115][0m
+INFO 2026-04-09 16:57:59,809 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.10, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:57:59,878 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:51115][0m
+INFO 2026-04-09 16:57:59,882 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.07, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:58:05,821 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:51115][0m
+INFO 2026-04-09 16:58:05,825 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.06, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:58:09,457 authentication 4296 18424 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:58:09,489 runserver 4296 16640 [mHTTP GET /api/chat/threads/ 200 [0.04, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:58:11,428 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/2/read/ 200 [0.00, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:58:11,441 authentication 4296 15184 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:58:11,635 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/2/ 200 [0.01, 127.0.0.1:51115][0m
+INFO 2026-04-09 16:58:11,644 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/2/messages/ 200 [0.02, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:58:11,683 authentication 4296 18052 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:58:11,695 authentication 4296 20864 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:58:11,744 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/ 200 [0.10, 127.0.0.1:61290][0m
+INFO 2026-04-09 16:58:11,770 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/messages/ 200 [0.12, 127.0.0.1:50597][0m
+ERROR 2026-04-09 16:58:13,637 log 4296 17556 Internal Server Error: /api/chat/threads/2/read/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 364, in mark_as_read
+    thread = self.get_object()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\generics.py", line 92, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ChatThreadViewSet to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2026-04-09 16:58:13,747 runserver 4296 16640 [35;1mHTTP PUT /api/chat/threads/2/read/ 500 [2.32, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:58:14,776 authentication 4296 15924 JWT auth successful for user: Remy01 (ADMIN)
+ERROR 2026-04-09 16:58:14,834 log 4296 17556 Internal Server Error: /api/chat/threads/2/read/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 364, in mark_as_read
+    thread = self.get_object()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\generics.py", line 92, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ChatThreadViewSet to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2026-04-09 16:58:14,848 runserver 4296 16640 [35;1mHTTP PUT /api/chat/threads/2/read/ 500 [0.09, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:58:16,854 authentication 4296 3380 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:58:16,878 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.10, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:58:16,903 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.12, 127.0.0.1:51115][0m
+INFO 2026-04-09 16:58:16,945 runserver 4296 16640 [mHTTP GET /api/chat/threads/ 200 [0.14, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:58:17,026 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.14, 127.0.0.1:59329][0m
+INFO 2026-04-09 16:58:17,027 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.11, 127.0.0.1:51115][0m
+INFO 2026-04-09 16:58:18,538 authentication 4296 16308 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:58:18,546 authentication 4296 21780 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 16:58:18,640 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/ 200 [0.13, 127.0.0.1:55559][0m
+INFO 2026-04-09 16:58:18,662 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/ 200 [0.15, 127.0.0.1:50597][0m
+INFO 2026-04-09 17:00:24,528 authentication 4296 8248 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:00:24,529 authentication 4296 14892 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:00:24,536 authentication 4296 15232 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:00:24,536 authentication 4296 23832 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:00:24,640 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.21, 127.0.0.1:54446][0m
+INFO 2026-04-09 17:00:24,650 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.22, 127.0.0.1:63708][0m
+INFO 2026-04-09 17:00:24,720 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/ 200 [0.26, 127.0.0.1:61213][0m
+INFO 2026-04-09 17:00:24,731 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.30, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:00:24,764 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/ 200 [0.30, 127.0.0.1:61941][0m
+INFO 2026-04-09 17:00:24,769 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.32, 127.0.0.1:51507][0m
+INFO 2026-04-09 17:00:24,810 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.04, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:00:24,847 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:00:24,912 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.06, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:00:32,785 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:00:40,785 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:00:48,777 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:00:54,892 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:63708][0m
+INFO 2026-04-09 17:00:56,873 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:04,876 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:12,907 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:20,868 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:24,872 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:63708][0m
+INFO 2026-04-09 17:01:28,788 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:36,787 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:44,791 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:52,781 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:53,460 authentication 4296 23228 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:01:53,511 runserver 4296 16640 [mHTTP POST /api/chat/threads/1/messages/ 201 [0.06, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:53,522 authentication 4296 19104 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:01:53,546 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/ 200 [0.03, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:01:54,150 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:63708][0m
+INFO 2026-04-09 17:02:00,795 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:02:08,872 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:02:16,879 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:02:24,890 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:02:24,896 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:63708][0m
+INFO 2026-04-09 17:02:32,878 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:02:40,881 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:02:48,881 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:02:54,871 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:63708][0m
+INFO 2026-04-09 17:02:56,892 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:03:24,890 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:63708][0m
+INFO 2026-04-09 17:03:47,904 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:04:28,668 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:04:28,976 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:53912][0m
+INFO 2026-04-09 17:04:32,879 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:04:40,871 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:04:48,899 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:04:54,657 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:53912][0m
+INFO 2026-04-09 17:04:56,803 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:05:04,878 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:05:12,881 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:05:20,868 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:05:24,924 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:53912][0m
+INFO 2026-04-09 17:05:28,873 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:05:36,789 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:05:44,783 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:05:52,884 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:05:54,869 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:53912][0m
+INFO 2026-04-09 17:06:00,873 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:06:08,870 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:06:16,883 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:06:24,890 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.02, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:06:24,893 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:53912][0m
+INFO 2026-04-09 17:06:32,869 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:06:40,878 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.01, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:06:48,889 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:07:47,906 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:07:48,211 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:08:48,068 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.18, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:08:48,095 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.21, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:09:48,095 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.19, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:09:48,109 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.20, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:10:48,060 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.16, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:10:48,093 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.19, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:11:48,066 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.17, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:11:48,084 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.17, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:12:47,997 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.10, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:12:48,014 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.11, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:13:48,058 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.18, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:13:48,075 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.19, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:14:48,074 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.17, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:14:48,087 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.18, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:15:48,081 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.18, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:15:48,091 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.18, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:16:48,067 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.16, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:16:48,100 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.19, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:17:48,056 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.17, 127.0.0.1:51867][0m
+INFO 2026-04-09 17:17:48,067 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.18, 127.0.0.1:63740][0m
+INFO 2026-04-09 17:27:48,156 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.04, 127.0.0.1:50143][0m
+INFO 2026-04-09 17:27:48,164 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:58433][0m
+INFO 2026-04-09 17:28:21,276 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.08, 127.0.0.1:50143][0m
+INFO 2026-04-09 17:28:21,286 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.08, 127.0.0.1:58433][0m
+ERROR 2026-04-09 17:28:24,143 base_events 4296 16640 CancelledError exception in shielded future
+future: <Future finished exception=CancelledError()>
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 120, in __call__
+    response = response or self.get_response(request)
+                           ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\whitenoise\middleware.py", line 123, in __call__
+    return self.get_response(request)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\corsheaders\middleware.py", line 64, in __acall__
+    response = await result
+               ^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 521, in __call__
+    ret = await exec_coro
+          ^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+INFO 2026-04-09 17:28:25,443 authentication 4296 13164 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:28:25,443 authentication 4296 22984 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:28:25,473 authentication 4296 21408 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:28:25,483 authentication 4296 18888 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:28:25,558 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.79, 127.0.0.1:60274][0m
+INFO 2026-04-09 17:28:25,570 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.16, 127.0.0.1:52073][0m
+INFO 2026-04-09 17:28:25,684 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.92, 127.0.0.1:50143][0m
+INFO 2026-04-09 17:28:25,711 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/messages/ 200 [0.30, 127.0.0.1:53401][0m
+INFO 2026-04-09 17:28:25,732 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/ 200 [0.32, 127.0.0.1:64112][0m
+INFO 2026-04-09 17:28:25,735 runserver 4296 16640 [mHTTP GET /api/chat/threads/1/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.97, 127.0.0.1:58683][0m
+INFO 2026-04-09 17:28:25,799 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:58683][0m
+INFO 2026-04-09 17:28:25,873 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.07, 127.0.0.1:58683][0m
+INFO 2026-04-09 17:28:25,933 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.05, 127.0.0.1:58683][0m
+INFO 2026-04-09 17:28:28,064 authentication 4296 18320 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:28:28,109 runserver 4296 16640 [mHTTP GET /api/chat/threads/ 200 [0.06, 127.0.0.1:58683][0m
+INFO 2026-04-09 17:28:29,856 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:58683][0m
+INFO 2026-04-09 17:28:29,888 runserver 4296 16640 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/ 200 [0.03, 127.0.0.1:58683][0m
+INFO 2026-04-09 17:28:33,113 authentication 4296 24552 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:28:33,121 authentication 4296 22440 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:28:33,168 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/messages/ 200 [0.07, 127.0.0.1:58683][0m
+INFO 2026-04-09 17:28:33,171 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/ 200 [0.07, 127.0.0.1:64112][0m
+INFO 2026-04-09 17:28:54,830 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:52073][0m
+INFO 2026-04-09 17:29:24,844 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:52073][0m
+INFO 2026-04-09 17:29:55,153 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:49291][0m
+INFO 2026-04-09 17:30:24,870 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:49291][0m
+INFO 2026-04-09 17:30:54,841 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:49291][0m
+INFO 2026-04-09 17:31:24,838 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:49291][0m
+INFO 2026-04-09 17:32:48,140 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:33:47,852 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:34:40,735 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:34:49,179 authentication 4296 18716 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:34:49,251 runserver 4296 16640 [mHTTP POST /api/chat/threads/2/messages/ 201 [0.09, 127.0.0.1:63342][0m
+INFO 2026-04-09 17:34:49,267 authentication 4296 22276 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:34:49,297 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/messages/ 200 [0.04, 127.0.0.1:63342][0m
+INFO 2026-04-09 17:34:52,551 authentication 4296 9576 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:34:52,577 runserver 4296 16640 [mHTTP GET /api/chat/threads/ 200 [0.03, 127.0.0.1:63342][0m
+INFO 2026-04-09 17:34:54,398 authentication 4296 16852 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:34:54,433 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/ 200 [0.05, 127.0.0.1:63342][0m
+INFO 2026-04-09 17:34:54,651 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:35:24,897 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:35:54,825 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:36:47,847 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:37:47,848 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:38:47,872 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:38:54,665 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:38:58,251 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.08, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:38:58,292 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:38:58,310 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/2/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:38:58,326 runserver 4296 16640 [mHTTP OPTIONS /api/chat/threads/2/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:38:58,572 authentication 4296 10288 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:38:58,584 authentication 4296 10756 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:38:58,711 authentication 4296 11704 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:38:58,712 authentication 4296 3444 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:38:58,716 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/messages/ 200 [0.21, 127.0.0.1:61813][0m
+INFO 2026-04-09 17:38:58,735 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/ 200 [0.23, 127.0.0.1:57416][0m
+INFO 2026-04-09 17:38:58,781 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.14, 127.0.0.1:56668][0m
+INFO 2026-04-09 17:38:58,783 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.14, 127.0.0.1:61136][0m
+INFO 2026-04-09 17:39:28,830 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:39:58,848 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:40:28,848 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:40:36,436 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.04, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:40:36,471 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:40:36,714 authentication 4296 17516 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:40:36,765 authentication 4296 21368 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:40:36,768 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.07, 127.0.0.1:49950][0m
+INFO 2026-04-09 17:40:36,777 authentication 4296 18340 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:40:36,782 authentication 4296 7460 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:40:36,851 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/messages/ 200 [0.12, 127.0.0.1:58998][0m
+INFO 2026-04-09 17:40:36,860 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.14, 127.0.0.1:59195][0m
+INFO 2026-04-09 17:40:36,862 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/ 200 [0.13, 127.0.0.1:64081][0m
+INFO 2026-04-09 17:41:06,846 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:41:36,849 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:42:06,542 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:42:36,834 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:42:56,805 runserver 4296 16640 [mHTTP GET /api/users/me/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:42:56,839 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:42:59,818 authentication 4296 18348 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:42:59,847 runserver 4296 16640 [mHTTP GET /api/chat/threads/ 200 [0.04, 127.0.0.1:53792][0m
+INFO 2026-04-09 17:43:02,339 authentication 4296 21960 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:43:02,340 authentication 4296 6032 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 17:43:02,392 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/messages/ 200 [0.08, 127.0.0.1:53792][0m
+INFO 2026-04-09 17:43:02,395 runserver 4296 16640 [mHTTP GET /api/chat/threads/2/ 200 [0.08, 127.0.0.1:53471][0m
+INFO 2026-04-09 17:43:26,833 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:43:56,846 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:44:26,835 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:44:56,832 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:64440][0m
+INFO 2026-04-09 17:45:27,132 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:52551][0m
+INFO 2026-04-09 17:45:56,850 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:52551][0m
+INFO 2026-04-09 17:46:26,829 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:52551][0m
+INFO 2026-04-09 17:47:48,162 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:57647][0m
+INFO 2026-04-09 17:48:03,136 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:57647][0m
+INFO 2026-04-09 17:48:26,843 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:57647][0m
+INFO 2026-04-09 17:48:56,847 runserver 4296 16640 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:57647][0m
+INFO 2026-04-09 18:00:17,054 autoreload 3756 20248 Watching for file changes with StatReloader
+INFO 2026-04-09 18:00:18,630 server 3756 7324 HTTP/2 support enabled
+INFO 2026-04-09 18:00:18,631 server 3756 7324 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-09 18:00:18,634 server 3756 7324 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-09 18:00:31,441 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.31, 127.0.0.1:54807][0m
+INFO 2026-04-09 18:00:42,348 runserver 3756 7324 [mHTTP GET /api/users/me/ 200 [0.19, 127.0.0.1:54807][0m
+INFO 2026-04-09 18:00:42,362 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.20, 127.0.0.1:54663][0m
+INFO 2026-04-09 18:00:42,575 authentication 3756 8948 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 18:00:42,649 authentication 3756 19432 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 18:00:42,715 authentication 3756 23960 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 18:00:42,720 authentication 3756 13816 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-09 18:00:42,753 runserver 3756 7324 [mHTTP GET /api/chat/threads/2/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.25, 127.0.0.1:64904][0m
+INFO 2026-04-09 18:00:43,005 runserver 3756 7324 [mHTTP GET /api/chat/threads/2/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.46, 127.0.0.1:53859][0m
+INFO 2026-04-09 18:00:43,016 runserver 3756 7324 [mHTTP GET /api/chat/threads/2/messages/ 200 [0.41, 127.0.0.1:59351][0m
+INFO 2026-04-09 18:00:43,178 runserver 3756 7324 [mHTTP GET /api/chat/threads/2/ 200 [0.57, 127.0.0.1:61056][0m
+INFO 2026-04-09 18:01:12,978 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.15, 127.0.0.1:54663][0m
+INFO 2026-04-09 18:01:42,850 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:54663][0m
+INFO 2026-04-09 18:02:12,904 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.09, 127.0.0.1:54663][0m
+INFO 2026-04-09 18:02:42,919 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.10, 127.0.0.1:54663][0m
+INFO 2026-04-09 18:03:12,840 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:54663][0m
+INFO 2026-04-09 18:03:42,894 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.08, 127.0.0.1:54663][0m
+INFO 2026-04-09 18:04:48,340 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.13, 127.0.0.1:57972][0m
+INFO 2026-04-09 18:05:04,296 runserver 3756 7324 [mHTTP GET /api/users/csrf-and-session/ 200 [0.12, 127.0.0.1:51431][0m
+INFO 2026-04-09 18:05:04,389 runserver 3756 7324 [mHTTP GET /api/users/csrf-and-session/ 200 [0.08, 127.0.0.1:51431][0m
