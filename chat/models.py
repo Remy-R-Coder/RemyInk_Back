@@ -241,6 +241,7 @@ class ChatMessage(models.Model):
         on_delete=models.CASCADE,
         related_name='messages',
         db_index=True
+
     )
     sender = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -257,6 +258,16 @@ class ChatMessage(models.Model):
         related_name='messages',
         help_text="Guest session if message was sent by a guest"
     )
+
+    offer_currency = models.CharField(
+        max_length=3, 
+        default='USD', 
+        editable=False # Enforces USD at the database level
+    )
+
+
+
+
     message = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
