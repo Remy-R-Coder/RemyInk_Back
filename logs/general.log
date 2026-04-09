@@ -6112,3 +6112,46 @@ INFO 2026-04-08 08:32:29,191 server 19460 13152 Listening on TCP address 127.0.0
 INFO 2026-04-08 08:32:48,494 runserver 19460 13152 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:52644][0m
 INFO 2026-04-08 08:33:48,189 runserver 19460 13152 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.04, 127.0.0.1:52644][0m
 INFO 2026-04-08 08:34:48,177 runserver 19460 13152 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:52644][0m
+INFO 2026-04-08 13:34:36,790 autoreload 1908 20820 Watching for file changes with StatReloader
+INFO 2026-04-08 13:34:37,480 server 1908 22000 HTTP/2 support enabled
+INFO 2026-04-08 13:34:37,480 server 1908 22000 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-08 13:34:37,481 server 1908 22000 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-08 13:34:46,309 runserver 1908 22000 [mHTTP OPTIONS /api/jobs/categories?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.02, 127.0.0.1:60629][0m
+INFO 2026-04-08 13:34:46,311 runserver 1908 22000 [mHTTP OPTIONS /api/jobs/categories?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.02, 127.0.0.1:58531][0m
+INFO 2026-04-08 13:34:46,329 runserver 1908 22000 [mHTTP OPTIONS /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:58531][0m
+INFO 2026-04-08 13:34:46,330 runserver 1908 22000 [mHTTP OPTIONS /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:60629][0m
+INFO 2026-04-08 13:34:46,755 runserver 1908 22000 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.11, 127.0.0.1:60904][0m
+INFO 2026-04-08 13:34:46,783 runserver 1908 22000 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.02, 127.0.0.1:60904][0m
+INFO 2026-04-08 13:34:48,942 runserver 1908 22000 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:58531][0m
+INFO 2026-04-08 13:34:48,977 runserver 1908 22000 [mHTTP GET /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.02, 127.0.0.1:60904][0m
+INFO 2026-04-08 13:34:51,124 runserver 1908 22000 [mHTTP OPTIONS /api/users/freelancers/?subject_id=3348bf7d-7f2f-448e-acd9-834f45e8ab56&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:58531][0m
+INFO 2026-04-08 13:34:51,168 runserver 1908 22000 [mHTTP GET /api/users/freelancers/?subject_id=3348bf7d-7f2f-448e-acd9-834f45e8ab56&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:60904][0m
+INFO 2026-04-08 13:34:54,641 runserver 1908 22000 [mHTTP OPTIONS /api/chat/threads/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:58531][0m
+INFO 2026-04-08 13:34:54,649 authentication 1908 19160 JWT auth returned None (no auth header present)
+INFO 2026-04-08 13:34:54,650 views 1908 19160 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-08 13:34:54,688 runserver 1908 22000 [mHTTP POST /api/chat/threads/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:60904][0m
+INFO 2026-04-08 13:34:55,651 runserver 1908 22000 [mHTTP OPTIONS /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:58531][0m
+INFO 2026-04-08 13:34:55,660 authentication 1908 4920 JWT auth returned None (no auth header present)
+INFO 2026-04-08 13:34:55,686 runserver 1908 22000 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:60904][0m
+INFO 2026-04-08 13:45:08,449 runserver 1908 22000 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.41, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:08,508 runserver 1908 22000 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:09,662 runserver 1908 22000 [mHTTP GET /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:11,954 runserver 1908 22000 [mHTTP OPTIONS /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:62112][0m
+INFO 2026-04-08 13:45:12,031 runserver 1908 22000 [mHTTP GET /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.07, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:14,546 authentication 1908 16308 JWT auth returned None (no auth header present)
+INFO 2026-04-08 13:45:14,547 views 1908 16308 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-08 13:45:14,591 runserver 1908 22000 [mHTTP POST /api/chat/threads/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.05, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:14,780 authentication 1908 5560 JWT auth returned None (no auth header present)
+INFO 2026-04-08 13:45:14,833 runserver 1908 22000 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.07, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:22,042 authentication 1908 19404 JWT auth returned None (no auth header present)
+INFO 2026-04-08 13:45:22,550 runserver 1908 22000 [mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.51, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:22,557 authentication 1908 18172 JWT auth returned None (no auth header present)
+INFO 2026-04-08 13:45:22,580 runserver 1908 22000 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:30,093 runserver 1908 22000 [mHTTP OPTIONS /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:62112][0m
+INFO 2026-04-08 13:45:30,149 runserver 1908 22000 [mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.04, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:32,464 authentication 1908 19284 JWT auth returned None (no auth header present)
+INFO 2026-04-08 13:45:32,491 runserver 1908 22000 [mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.03, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:32,503 authentication 1908 19212 JWT auth returned None (no auth header present)
+INFO 2026-04-08 13:45:32,524 runserver 1908 22000 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:53577][0m
+INFO 2026-04-08 13:45:52,865 runserver 1908 22000 [mHTTP GET /media/chat_attachments/Untitled%20document%20(28)%20(1).docx 200 [0.41, 127.0.0.1:53577][0m
+INFO 2026-04-09 09:20:17,126 autoreload 1908 20820 C:\Users\USER\RemyInk_Back\pay_freelancer\models.py changed, reloading.
