@@ -41,8 +41,19 @@ class PayoutManager(models.Manager):
 # =========================
 # Payout Model
 # =========================
+class PaymentGateway(models.TextChoices):
+    PAYSTACK = "PAYSTACK", "Paystack"
+    PAYD = "PAYD", "Payd"
+
 class Payout(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    # NEW: The Gateway selector must be INSIDE the class
+    gateway = models.CharField(
+        max_length=20, 
+        choices=PaymentGateway.choices, 
+        default=PaymentGateway.PAYSTACK
+    )
 
     job = models.ForeignKey(
         Job,
@@ -57,43 +68,57 @@ class Payout(models.Model):
         related_name="initiated_payouts",
     )
 
-    # ---- Constants ----
-    EXCHANGE_RATE = Decimal("110.00")  # 1 USD = 110 KES
+    # ---- Constants & Exchange ----
+    EXCHANGE_RATE = Decimal("110.00")  
+    MARKET_SPREAD = Decimal("25.00") # Put it here!
     MINIMUM_PAYOUT_KES = Decimal("1000.00")
+
+    # NEW: Better to store the rate used for this specific transaction
+    # in case rates change in the future.
+    # Change the default here if you want, but keep the decimal places
+
+    applied_rate = models.DecimalField(
+        max_digits=10, decimal_places=2, editable=False, null=True
+    )
+
+    # ADD THIS: To track the actual market rate (e.g., 135.00)
+    market_rate_at_request = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True, blank=True
+    )
 
     currency = models.CharField(max_length=3, default="KES", editable=False)
 
-    # USD withdrawn from earnings
     usd_amount = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         validators=[MinValueValidator(Decimal("0.01"))],
-        null=True,  # Add this
-        blank=True, # Add this
-        help_text="Amount in USD to withdraw",
+        null=True,
+        blank=True,
     )
 
-    # Calculated KES sent via Paystack
     payout_amount = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         editable=False,
-        null=True,  # Add this
-        blank=True, # Add this
-        help_text="Calculated amount in KES",
-    )
-
-    fee_amount = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        default=Decimal("0.00"),
-        blank=True,
         null=True,
+        blank=True,
     )
 
+    # ---- Gateway Identifiers ----
+    # Set null=True because Payd won't use a Paystack recipient_code
     recipient_code = models.CharField(
         max_length=255,
+        null=True, 
+        blank=True,
         help_text="Paystack Recipient Code",
+    )
+
+    # NEW: Added for Payd (Phone number or Payd Wallet ID)
+    destination_id = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        help_text="Payd Destination (Phone or Wallet ID)"
     )
 
     transfer_code = models.CharField(
@@ -149,56 +174,52 @@ class Payout(models.Model):
     # Validation
     # =========================
     def clean(self):
-        # Calculate payout amount
+        # 1. Determine the dynamic rate using your class constant
+        if self.market_rate_at_request:
+            self.applied_rate = self.market_rate_at_request - self.MARKET_SPREAD
+        else:
+            # Fallback to baseline (110)
+            self.applied_rate = self.EXCHANGE_RATE
+
+        # 2. Calculate payout amount
         if self.usd_amount:
             self.payout_amount = (
-                self.usd_amount * self.EXCHANGE_RATE
+                self.usd_amount * self.applied_rate
             ).quantize(Decimal("0.01"))
 
-        # Minimum payout validation
-        if (
-            self.payout_amount is not None
-            and self.payout_amount < self.MINIMUM_PAYOUT_KES
-        ):
-            raise ValidationError(
-                {
-                    "usd_amount": (
-                        f"At {self.EXCHANGE_RATE} KES/$, this equals "
-                        f"{self.payout_amount} KES. Minimum payout is "
-                        f"{self.MINIMUM_PAYOUT_KES} KES."
-                    )
-                }
-            )
+        # 3. Minimum payout validation
+        if self.payout_amount and self.payout_amount < self.MINIMUM_PAYOUT_KES:
+            raise ValidationError({
+                "usd_amount": (
+                    f"At {self.applied_rate} KES/$, this equals "
+                    f"{self.payout_amount} KES. Minimum is {self.MINIMUM_PAYOUT_KES} KES."
+                )
+            })
 
         # Freelancer ownership validation
         if self.job and self.freelancer != self.job.freelancer:
-            raise ValidationError(
-                {"freelancer": "Freelancer must match the job owner."}
-            )
+            raise ValidationError({"freelancer": "Freelancer must match the job owner."})
 
-    # =========================
-    # Save Override
-    # =========================
     def save(self, *args, **kwargs):
-        # Ensure ID is generated for reference segment
         if not self.id:
             self.id = uuid.uuid4()
 
-        # Generate unique reference
         if not self.reference:
             self.reference = f"PAY-{str(self.id).split('-')[0].upper()}"
 
-        # Ensure conversion always happens
+
+        # FIX: Use self.MARKET_SPREAD instead of hardcoding 25.00 again
+        if self.market_rate_at_request:
+            self.applied_rate = self.market_rate_at_request - self.MARKET_SPREAD
+        else:
+            self.applied_rate = self.EXCHANGE_RATE
+
         if self.usd_amount:
-            self.payout_amount = (
-                self.usd_amount * self.EXCHANGE_RATE
-            ).quantize(Decimal("0.01"))
+            self.payout_amount = (self.usd_amount * self.applied_rate).quantize(Decimal("0.01"))
 
-        # Run validations (business logic)
         self.full_clean()
-
         super().save(*args, **kwargs)
-
+        
     # =========================
     # Status Transitions
     # =========================

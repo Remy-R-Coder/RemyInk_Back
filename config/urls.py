@@ -42,6 +42,7 @@ urlpatterns = [
     path('api/jobs/', include('jobs.urls')),
     path('api/payment/', include('pay_freelancer.urls')),
     path('api/payments/', include('payment_gateway.urls')),
+    path('api/payments-mpesa/', include('payments.urls')),
     
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),

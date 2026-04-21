@@ -6921,3 +6921,2054 @@ INFO 2026-04-09 18:03:42,894 runserver 3756 7324 [mHTTP GET /api/users/dashboar
 INFO 2026-04-09 18:04:48,340 runserver 3756 7324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.13, 127.0.0.1:57972][0m
 INFO 2026-04-09 18:05:04,296 runserver 3756 7324 [mHTTP GET /api/users/csrf-and-session/ 200 [0.12, 127.0.0.1:51431][0m
 INFO 2026-04-09 18:05:04,389 runserver 3756 7324 [mHTTP GET /api/users/csrf-and-session/ 200 [0.08, 127.0.0.1:51431][0m
+INFO 2026-04-09 18:21:11,674 autoreload 18660 996 Watching for file changes with StatReloader
+INFO 2026-04-09 18:21:12,900 server 18660 24044 HTTP/2 support enabled
+INFO 2026-04-09 18:21:12,901 server 18660 24044 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-09 18:21:12,903 server 18660 24044 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-09 18:25:45,972 autoreload 6660 368 Watching for file changes with StatReloader
+INFO 2026-04-09 18:25:47,353 server 6660 21912 HTTP/2 support enabled
+INFO 2026-04-09 18:25:47,357 server 6660 21912 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-09 18:25:47,361 server 6660 21912 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-09 18:44:07,239 runserver 6660 21912 [mHTTP OPTIONS /api/jobs/categories?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.22, 127.0.0.1:57044][0m
+INFO 2026-04-09 18:44:07,258 runserver 6660 21912 [mHTTP OPTIONS /api/jobs/categories?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.32, 127.0.0.1:64231][0m
+INFO 2026-04-09 18:44:07,309 runserver 6660 21912 [mHTTP OPTIONS /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:57044][0m
+INFO 2026-04-09 18:44:07,311 runserver 6660 21912 [mHTTP OPTIONS /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:64231][0m
+INFO 2026-04-09 18:44:08,457 runserver 6660 21912 [mHTTP GET /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.82, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:08,520 runserver 6660 21912 [mHTTP GET /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.05, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:09,815 runserver 6660 21912 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:64231][0m
+INFO 2026-04-09 18:44:09,888 runserver 6660 21912 [mHTTP GET /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.07, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:11,995 runserver 6660 21912 [mHTTP OPTIONS /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.07, 127.0.0.1:64231][0m
+INFO 2026-04-09 18:44:12,306 runserver 6660 21912 [mHTTP GET /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.29, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:14,673 runserver 6660 21912 [mHTTP OPTIONS /api/chat/threads/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.02, 127.0.0.1:64231][0m
+INFO 2026-04-09 18:44:14,739 authentication 6660 18108 JWT auth returned None (no auth header present)
+INFO 2026-04-09 18:44:14,743 views 6660 18108 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-09 18:44:14,934 runserver 6660 21912 [mHTTP POST /api/chat/threads/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.23, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:17,123 authentication 6660 21048 JWT auth returned None (no auth header present)
+INFO 2026-04-09 18:44:17,321 runserver 6660 21912 [mHTTP GET /api/chat/threads/1/messages/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.22, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:17,573 runserver 6660 21912 [mHTTP OPTIONS /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:64231][0m
+INFO 2026-04-09 18:44:17,586 runserver 6660 21912 [mHTTP OPTIONS /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.02, 127.0.0.1:57044][0m
+INFO 2026-04-09 18:44:17,673 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.09, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:17,758 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.07, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:25,673 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.09, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:28,046 runserver 6660 21912 [mHTTP OPTIONS /api/chat/upload/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:57044][0m
+WARNING 2026-04-09 18:44:28,174 log 6660 20372 Unsupported Media Type: /api/chat/upload/
+WARNING 2026-04-09 18:44:28,176 runserver 6660 21912 [31;1mHTTP POST /api/chat/upload/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 415 [0.12, 127.0.0.1:63892][0m
+WARNING 2026-04-09 18:44:29,260 log 6660 20372 Unsupported Media Type: /api/chat/upload/
+WARNING 2026-04-09 18:44:29,263 runserver 6660 21912 [31;1mHTTP POST /api/chat/upload/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 415 [0.04, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:33,661 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.08, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:41,632 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.06, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:49,918 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.09, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:44:57,878 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.06, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:45:05,873 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.04, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:45:13,841 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.02, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:45:21,886 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.06, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:45:29,862 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.04, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:45:37,849 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:45:45,854 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:63892][0m
+INFO 2026-04-09 18:46:47,186 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.05, 127.0.0.1:62835][0m
+INFO 2026-04-09 18:47:48,082 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:59399][0m
+INFO 2026-04-09 18:47:53,953 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.07, 127.0.0.1:59399][0m
+INFO 2026-04-09 18:48:01,841 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:59399][0m
+INFO 2026-04-09 18:48:09,837 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.03, 127.0.0.1:59399][0m
+INFO 2026-04-09 18:48:17,860 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.04, 127.0.0.1:59399][0m
+INFO 2026-04-09 18:48:25,836 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.02, 127.0.0.1:59399][0m
+INFO 2026-04-09 18:48:33,902 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.08, 127.0.0.1:59399][0m
+INFO 2026-04-09 18:48:41,862 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.04, 127.0.0.1:59399][0m
+INFO 2026-04-09 18:49:45,186 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.05, 127.0.0.1:64081][0m
+INFO 2026-04-09 18:49:47,893 runserver 6660 21912 [mHTTP GET /api/orders/jobs/94915b9e-57fe-4dc8-9205-4a7534570162/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.04, 127.0.0.1:64081][0m
+INFO 2026-04-12 13:29:04,398 autoreload 10092 6664 Watching for file changes with StatReloader
+INFO 2026-04-12 13:29:05,230 server 10092 13112 HTTP/2 support enabled
+INFO 2026-04-12 13:29:05,231 server 10092 13112 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-12 13:29:05,232 server 10092 13112 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-12 13:29:11,187 runserver 10092 13112 [mHTTP OPTIONS /api/jobs/categories?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:64234][0m
+INFO 2026-04-12 13:29:11,188 runserver 10092 13112 [mHTTP OPTIONS /api/jobs/categories?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.02, 127.0.0.1:60456][0m
+INFO 2026-04-12 13:29:11,207 runserver 10092 13112 [mHTTP OPTIONS /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:64234][0m
+INFO 2026-04-12 13:29:11,208 runserver 10092 13112 [mHTTP OPTIONS /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.02, 127.0.0.1:60456][0m
+INFO 2026-04-12 13:29:11,603 runserver 10092 13112 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.07, 127.0.0.1:53365][0m
+INFO 2026-04-12 13:29:11,668 runserver 10092 13112 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.06, 127.0.0.1:53365][0m
+INFO 2026-04-12 13:29:14,993 runserver 10092 13112 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=903f78d8-234c-48bc-8b21-c233fb006fcf&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:64234][0m
+INFO 2026-04-12 13:29:15,025 runserver 10092 13112 [mHTTP GET /api/jobs/subject-areas/?category_id=903f78d8-234c-48bc-8b21-c233fb006fcf&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:53365][0m
+INFO 2026-04-12 13:29:28,720 runserver 10092 13112 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:53365][0m
+INFO 2026-04-12 13:29:28,750 runserver 10092 13112 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:53365][0m
+INFO 2026-04-12 13:29:30,521 runserver 10092 13112 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=3c8ce6cb-08f6-4445-ad0f-d14f792ecd31&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:64234][0m
+INFO 2026-04-12 13:29:30,537 runserver 10092 13112 [mHTTP GET /api/jobs/subject-areas/?category_id=3c8ce6cb-08f6-4445-ad0f-d14f792ecd31&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:53365][0m
+INFO 2026-04-12 13:31:17,119 autoreload 18580 6960 Watching for file changes with StatReloader
+INFO 2026-04-12 13:31:17,542 server 18580 13700 HTTP/2 support enabled
+INFO 2026-04-12 13:31:17,543 server 18580 13700 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-12 13:31:17,544 server 18580 13700 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-12 13:31:20,674 runserver 18580 13700 [mHTTP OPTIONS /api/users/token/freelancer/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:31:22,176 runserver 18580 13700 [mHTTP POST /api/users/token/freelancer/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [1.19, 127.0.0.1:50554][0m
+INFO 2026-04-12 13:31:22,183 runserver 18580 13700 [mHTTP OPTIONS /api/users/me/ 200 [0.00, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:31:22,223 runserver 18580 13700 [mHTTP GET /api/users/me/ 200 [0.04, 127.0.0.1:50554][0m
+INFO 2026-04-12 13:31:22,233 runserver 18580 13700 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.00, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:31:22,285 runserver 18580 13700 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:31:23,717 runserver 18580 13700 [mHTTP GET /api/users/me/ 200 [0.13, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:31:23,726 runserver 18580 13700 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.14, 127.0.0.1:54301][0m
+INFO 2026-04-12 13:31:23,762 runserver 18580 13700 [mHTTP OPTIONS /api/users/dashboard/summary/ 200 [0.04, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:31:23,815 runserver 18580 13700 [mHTTP OPTIONS /api/chat/threads/ 200 [0.07, 127.0.0.1:54301][0m
+INFO 2026-04-12 13:31:23,868 runserver 18580 13700 [mHTTP OPTIONS /api/orders/jobs/?page=1&page_size=100 200 [0.09, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:31:23,916 runserver 18580 13700 [mHTTP OPTIONS /api/chat/unread-count/ 200 [0.09, 127.0.0.1:54301][0m
+INFO 2026-04-12 13:31:23,976 runserver 18580 13700 [mHTTP OPTIONS /api/chat/pending-offers/ 200 [0.09, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:31:24,026 authentication 18580 18688 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-12 13:31:24,235 runserver 18580 13700 [mHTTP GET /api/chat/threads/ 200 [0.40, 127.0.0.1:56965][0m
+INFO 2026-04-12 13:31:24,278 runserver 18580 13700 [mHTTP GET /api/users/dashboard/summary/ 200 [0.50, 127.0.0.1:50554][0m
+INFO 2026-04-12 13:31:24,394 runserver 18580 13700 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.19, 127.0.0.1:60030][0m
+INFO 2026-04-12 13:31:24,449 runserver 18580 13700 [mHTTP GET /api/chat/pending-offers/ 200 [0.20, 127.0.0.1:56965][0m
+INFO 2026-04-12 13:31:24,461 runserver 18580 13700 [mHTTP GET /api/chat/unread-count/ 200 [0.21, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:31:52,717 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/categories?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:57749][0m
+INFO 2026-04-12 13:31:52,720 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/categories?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:54251][0m
+INFO 2026-04-12 13:31:52,740 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.02, 127.0.0.1:54251][0m
+INFO 2026-04-12 13:31:52,744 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.02, 127.0.0.1:57749][0m
+INFO 2026-04-12 13:31:53,106 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.04, 127.0.0.1:65335][0m
+INFO 2026-04-12 13:31:53,201 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.07, 127.0.0.1:65335][0m
+INFO 2026-04-12 13:31:54,531 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:57749][0m
+INFO 2026-04-12 13:31:54,570 runserver 18580 13700 [mHTTP GET /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.04, 127.0.0.1:65335][0m
+INFO 2026-04-12 13:31:54,640 runserver 18580 13700 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:31:56,536 runserver 18580 13700 [mHTTP OPTIONS /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.00, 127.0.0.1:57749][0m
+INFO 2026-04-12 13:31:56,604 runserver 18580 13700 [mHTTP GET /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.07, 127.0.0.1:65335][0m
+INFO 2026-04-12 13:32:17,490 runserver 18580 13700 [mHTTP GET /api/users/csrf-and-session/ 200 [0.02, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:32:17,520 runserver 18580 13700 [mHTTP GET /api/users/csrf-and-session/ 200 [0.03, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:32:22,564 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.02, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:32:22,601 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:32:23,713 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:32:23,742 runserver 18580 13700 [mHTTP GET /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:32:25,598 runserver 18580 13700 [mHTTP OPTIONS /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:32:25,660 runserver 18580 13700 [mHTTP GET /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.05, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:32:27,811 runserver 18580 13700 [mHTTP OPTIONS /api/chat/threads/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:32:27,826 authentication 18580 11824 JWT auth returned None (no auth header present)
+INFO 2026-04-12 13:32:27,827 views 18580 11824 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-12 13:32:27,875 runserver 18580 13700 [mHTTP POST /api/chat/threads/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.06, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:32:28,792 runserver 18580 13700 [mHTTP OPTIONS /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:60007][0m
+INFO 2026-04-12 13:32:28,806 authentication 18580 18212 JWT auth returned None (no auth header present)
+INFO 2026-04-12 13:32:28,869 runserver 18580 13700 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.07, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:32:35,168 runserver 18580 13700 [mHTTP OPTIONS /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.00, 127.0.0.1:60007][0m
+WARNING 2026-04-12 13:32:35,221 log 18580 18000 Unsupported Media Type: /api/chat/upload/
+WARNING 2026-04-12 13:32:35,221 runserver 18580 13700 [31;1mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 415 [0.05, 127.0.0.1:52590][0m
+WARNING 2026-04-12 13:32:36,237 log 18580 18000 Unsupported Media Type: /api/chat/upload/
+WARNING 2026-04-12 13:32:36,238 runserver 18580 13700 [31;1mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 415 [0.01, 127.0.0.1:52590][0m
+INFO 2026-04-12 13:34:27,323 runserver 18580 13700 [mHTTP OPTIONS /api/chat/threads/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.00, 127.0.0.1:55052][0m
+INFO 2026-04-12 13:34:27,639 authentication 18580 15972 JWT auth returned None (no auth header present)
+INFO 2026-04-12 13:34:27,640 views 18580 15972 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-12 13:34:27,716 runserver 18580 13700 [mHTTP POST /api/chat/threads/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.08, 127.0.0.1:64908][0m
+INFO 2026-04-12 13:35:48,746 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.06, 127.0.0.1:60688][0m
+INFO 2026-04-12 13:35:48,839 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.09, 127.0.0.1:60688][0m
+INFO 2026-04-12 13:35:50,080 runserver 18580 13700 [mHTTP GET /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:60688][0m
+INFO 2026-04-12 13:35:52,157 runserver 18580 13700 [mHTTP GET /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.15, 127.0.0.1:60688][0m
+INFO 2026-04-12 13:35:54,523 authentication 18580 3824 JWT auth returned None (no auth header present)
+INFO 2026-04-12 13:35:54,523 views 18580 3824 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-12 13:35:54,553 runserver 18580 13700 [mHTTP POST /api/chat/threads/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:60688][0m
+INFO 2026-04-12 13:35:55,385 authentication 18580 5088 JWT auth returned None (no auth header present)
+INFO 2026-04-12 13:35:55,419 runserver 18580 13700 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:60688][0m
+WARNING 2026-04-12 13:36:01,948 log 18580 18000 Unsupported Media Type: /api/chat/upload/
+WARNING 2026-04-12 13:36:01,950 runserver 18580 13700 [31;1mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 415 [0.02, 127.0.0.1:60688][0m
+WARNING 2026-04-12 13:36:02,987 log 18580 18000 Unsupported Media Type: /api/chat/upload/
+WARNING 2026-04-12 13:36:02,989 runserver 18580 13700 [31;1mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 415 [0.03, 127.0.0.1:60688][0m
+INFO 2026-04-12 13:36:07,168 authentication 18580 17868 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 13:36:09,998 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 13:36:10,022 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.86, 127.0.0.1:60688][0m
+INFO 2026-04-12 13:40:27,309 authentication 18580 18720 JWT auth returned None (no auth header present)
+INFO 2026-04-12 13:40:27,344 runserver 18580 13700 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:57104][0m
+INFO 2026-04-12 13:40:39,471 runserver 18580 13700 [mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.19, 127.0.0.1:57104][0m
+INFO 2026-04-12 13:40:42,172 authentication 18580 10560 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 13:40:44,447 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 13:40:44,457 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.29, 127.0.0.1:57104][0m
+INFO 2026-04-12 13:40:45,478 authentication 18580 2996 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 13:40:47,719 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 13:40:47,732 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.26, 127.0.0.1:57104][0m
+INFO 2026-04-12 13:40:55,743 authentication 18580 9568 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 13:40:57,988 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 13:40:58,000 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.26, 127.0.0.1:57104][0m
+INFO 2026-04-12 13:40:59,020 authentication 18580 3360 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 13:41:00,457 base_events 18580 13700 CancelledError exception in shielded future
+future: <Future finished exception=CancelledError()>
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+asyncio.exceptions.CancelledError
+ERROR 2026-04-12 13:41:00,478 base_events 18580 13700 CancelledError exception in shielded future
+future: <Future finished exception=CancelledError()>
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 120, in __call__
+    response = response or self.get_response(request)
+                           ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\whitenoise\middleware.py", line 123, in __call__
+    return self.get_response(request)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\corsheaders\middleware.py", line 64, in __acall__
+    response = await result
+               ^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __acall__
+    response = response or await self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 521, in __call__
+    ret = await exec_coro
+          ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+asyncio.exceptions.CancelledError
+INFO 2026-04-12 13:41:00,749 authentication 18580 19436 JWT auth returned None (no auth header present)
+INFO 2026-04-12 13:41:00,785 runserver 18580 13700 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:49345][0m
+INFO 2026-04-12 13:41:07,126 runserver 18580 13700 [mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.09, 127.0.0.1:49345][0m
+INFO 2026-04-12 13:41:09,130 authentication 18580 1580 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 13:41:11,375 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 13:41:11,386 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.26, 127.0.0.1:49345][0m
+INFO 2026-04-12 13:41:12,425 authentication 18580 18256 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 13:41:14,709 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 13:41:14,719 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.31, 127.0.0.1:49345][0m
+INFO 2026-04-12 13:48:24,768 authentication 18580 13092 JWT auth returned None (no auth header present)
+INFO 2026-04-12 13:48:24,830 runserver 18580 13700 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.08, 127.0.0.1:55010][0m
+INFO 2026-04-12 14:07:59,869 authentication 18580 5436 JWT auth returned None (no auth header present)
+INFO 2026-04-12 14:07:59,906 runserver 18580 13700 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.06, 127.0.0.1:52607][0m
+INFO 2026-04-12 14:08:27,277 authentication 18580 3392 JWT auth returned None (no auth header present)
+INFO 2026-04-12 14:08:27,314 runserver 18580 13700 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:52607][0m
+INFO 2026-04-12 14:08:35,629 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.04, 127.0.0.1:52607][0m
+INFO 2026-04-12 14:08:35,663 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:52607][0m
+INFO 2026-04-12 14:08:36,838 runserver 18580 13700 [mHTTP GET /api/jobs/subject-areas/?category_id=241daff0-d466-4c89-9f59-f0b6afc7025c&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.02, 127.0.0.1:52607][0m
+INFO 2026-04-12 14:08:38,559 runserver 18580 13700 [mHTTP GET /api/users/freelancers/?subject_id=641e88c7-f238-41fa-8018-dc16632531aa&session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.06, 127.0.0.1:52607][0m
+INFO 2026-04-12 14:08:41,657 authentication 18580 9248 JWT auth returned None (no auth header present)
+INFO 2026-04-12 14:08:41,658 views 18580 9248 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-12 14:08:41,701 runserver 18580 13700 [mHTTP POST /api/chat/threads/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.05, 127.0.0.1:52607][0m
+INFO 2026-04-12 14:09:56,052 runserver 18580 13700 [mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.08, 127.0.0.1:54910][0m
+INFO 2026-04-12 14:09:57,600 authentication 18580 14504 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 14:09:59,904 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 14:09:59,919 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.32, 127.0.0.1:54910][0m
+INFO 2026-04-12 14:10:00,960 authentication 18580 16744 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 14:10:03,248 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 14:10:03,258 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.32, 127.0.0.1:54910][0m
+INFO 2026-04-12 14:50:01,234 authentication 18580 3788 JWT auth returned None (no auth header present)
+INFO 2026-04-12 14:50:01,384 runserver 18580 13700 [mHTTP GET /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.26, 127.0.0.1:63630][0m
+INFO 2026-04-12 14:50:11,969 runserver 18580 13700 [mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.06, 127.0.0.1:57783][0m
+INFO 2026-04-12 14:50:12,407 runserver 18580 13700 [mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.43, 127.0.0.1:57783][0m
+INFO 2026-04-12 14:50:12,452 runserver 18580 13700 [mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.05, 127.0.0.1:61001][0m
+INFO 2026-04-12 14:50:12,459 runserver 18580 13700 [mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.07, 127.0.0.1:54972][0m
+INFO 2026-04-12 14:50:12,523 runserver 18580 13700 [mHTTP POST /api/chat/upload/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 201 [0.16, 127.0.0.1:63630][0m
+INFO 2026-04-12 14:50:15,278 authentication 18580 12204 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 14:50:17,565 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 14:50:17,585 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.31, 127.0.0.1:63630][0m
+INFO 2026-04-12 14:50:18,618 authentication 18580 11316 JWT auth returned None (no auth header present)
+ERROR 2026-04-12 14:50:20,901 log 18580 18000 Internal Server Error: /api/chat/threads/2/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-12 14:50:20,915 runserver 18580 13700 [35;1mHTTP POST /api/chat/threads/2/messages/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 500 [2.30, 127.0.0.1:63630][0m
+INFO 2026-04-12 20:00:30,193 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/categories?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.16, 127.0.0.1:65152][0m
+INFO 2026-04-12 20:00:30,229 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.02, 127.0.0.1:65152][0m
+INFO 2026-04-12 20:00:30,740 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.19, 127.0.0.1:61662][0m

@@ -784,7 +784,7 @@ class PendingOffersView(APIView):
         thread_ids = [thread.id for thread in threads]
 
         pending_offers = ChatMessage.objects.filter(
-            thread_id__in=thread_ids,
+            thread_id__in=thread_ids,    
             is_offer=True,
             offer_status='pending'
         ).exclude(sender=user).select_related('thread', 'sender', 'thread__freelancer', 'thread__client')
