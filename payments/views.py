@@ -16,6 +16,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 class PaydInitiateView(APIView):
+    permission_classes = [AllowAny]  # <--- ADD THIS LINE HERE
     def post(self, request):
         job_id = request.data.get('job_id')
         
