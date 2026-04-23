@@ -8,16 +8,21 @@ class PaydService:
         self.password = os.getenv('PAYD_PASSWORD')
         self.base_url = os.getenv('PAYD_API_URL', 'https://api.payd.money/api/v2')
 
-    def initiate_payment(self, amount, phone, job_id):
-        url = f"{self.base_url}/payments"
+    def initiate_card_checkout(self, amount, job_id, client_email=""):
+        """
+        Generates a hosted checkout link for UAE card payments.
+        """
+        url = f"{self.base_url}/checkout" # Note the endpoint change
         auth = HTTPBasicAuth(self.username, self.password)
         
         payload = {
-            "amount": float(amount), # Ensure it's a float for JSON
-            "phone_number": phone,
-            "narration": f"RemyInk Job payment: {job_id}",
+            "amount": float(amount),
+            "currency": "USD", # Or AED if your Payd account supports it
+            "narration": f"RemyInk Order: {job_id}",
             "callback_url": "https://remyink-9gqjd.ondigitalocean.app/api/payments/payd-callback/",
-            "external_id": str(job_id) # Send the Job UUID as a string
+            "return_url": "https://remyink.co.ke/payment-success", # Where client goes after paying
+            "external_id": str(job_id),
+            "email": client_email
         }
         
         response = requests.post(url, json=payload, auth=auth)

@@ -10,6 +10,8 @@ from django.conf import settings
 import logging
 import json
 
+from decimal import Decimal
+from pay_freelancer.models import Payout, PayoutStatus, PaymentGateway
 from .models import Payment, PaymentWebhookLog, PaymentStatus
 from .serializers import (
     PaymentSerializer,
@@ -220,48 +222,58 @@ class PaystackWebhookView(APIView):
             payment.mark_as_failed(reason=gateway_response)
         except Payment.DoesNotExist:
             raise
-        
+
 class PaydWebhookView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
         data = request.data
-        # Payd 'result_code' 0 means success
-        if str(data.get('result_code')) == '0':
-            job_id = data.get('external_id') # You must pass job.id as external_id when initiating
+        # Payd 'result_code' 0 or status 'success' means payment landed
+        if str(data.get('result_code')) == '0' or data.get('status') == 'success':
+            job_id = data.get('external_id') 
             
             try:
                 with transaction.atomic():
+                    # select_for_update prevents duplicate webhook processing
                     job = Job.objects.select_for_update().get(id=job_id)
 
                     if job.status == JobStatus.PAID:
                         return Response({"message": "Already processed"}, status=status.HTTP_200_OK)
 
+                    # 1. Update the Job Status
                     job.status = JobStatus.PAID
                     job.save()
 
-                    # ADD THE PAYOUT LOGIC HERE
+                    # 2. Handle the Freelancer Payout
                     if job.freelancer:
-                        from decimal import Decimal
-                        from .models import Payout, PayoutStatus
                         
-                        freelancer_share = job.total_amount * Decimal('0.70')
+                        # Calculate the 70% share in USD
+                        freelancer_share_usd = job.total_amount * Decimal('0.70')
                         
+                        # CRITICAL: Get freelancer's M-Pesa number from their profile
+                        # Defaulting to data.get('phone_number') only as a last resort
+                        target_phone = getattr(job.freelancer, 'phone_number', data.get('phone_number'))
+
                         Payout.objects.get_or_create(
                             job=job,
                             freelancer=job.freelancer,
                             defaults={
-                                'amount': freelancer_share,
-                                'status': PayoutStatus.PENDING,
-                                'currency': 'KES', 
-                                'narration': f"70% freelancer share for Job #{job.id}"
+                                'usd_amount': freelancer_share_usd, # Matches your model
+                                'gateway': PaymentGateway.PAYD,    # Matches your Enum
+                                'status': PayoutStatus.PENDING,     # Matches your Enum
+                                'destination_id': target_phone,    # The M-Pesa number
+                                'narration': f"Share for Job #{job.id}"
                             }
                         )
+                
                 return Response({"status": "success"}, status=status.HTTP_200_OK)
+            
             except Job.DoesNotExist:
+                logger.error(f"Webhook received for unknown job ID: {job_id}")
                 return Response({"error": "Job not found"}, status=status.HTTP_404_NOT_FOUND)
 
         return Response({"status": "failed"}, status=status.HTTP_200_OK)
+
 
 class PaymentViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = PaymentSerializer
