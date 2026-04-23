@@ -12,7 +12,7 @@ class PaydService:
         """
         Generates a hosted checkout link for UAE card payments.
         """
-        url = f"{self.base_url}/checkout" # Note the endpoint change
+        url = f"{self.base_url}/checkout/"
         auth = HTTPBasicAuth(self.username, self.password)
         
         payload = {
