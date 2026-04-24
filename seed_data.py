@@ -61,7 +61,7 @@ def seed():
                 )
                 print(f"Added Career Service: {sub_name}")
 
-        print("--- Seed Complete: RemyInk is now a Professional Writing Agency ---")
+        print("--- Seed Complete: RemyInk is now a Professional Writing Platform ---")
 
     except Exception as e:
         print(f"Error during seeding: {e}")
