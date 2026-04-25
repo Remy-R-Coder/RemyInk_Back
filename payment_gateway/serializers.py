@@ -39,7 +39,12 @@ class PaymentInitializeSerializer(serializers.Serializer):
         except Job.DoesNotExist:
             raise serializers.ValidationError({"job_id": "Job not found"})
 
-        if job.client != user:
+        # Updated: Allow access if user is authenticated client OR if it's a valid guest session
+        # This prevents the 400 error for unauthenticated guest checkouts
+        is_authenticated_client = user.is_authenticated and job.client == user
+        is_guest_checkout = not user.is_authenticated and request.query_params.get('session_key')
+
+        if not (is_authenticated_client or is_guest_checkout):
             raise serializers.ValidationError({"job_id": "Not authorized for this job"})
 
         from orders.models import JobStatus
