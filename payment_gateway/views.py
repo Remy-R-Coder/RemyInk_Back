@@ -29,11 +29,18 @@ class EmptySerializer(serializers.Serializer):
     pass
 
 
+
 class InitializePaymentView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     serializer_class = PaymentInitializeSerializer
 
     def post(self, request):
+        session_key = request.GET.get("session_key")
+        user = request.user if request.user.is_authenticated else None
+
+        if not user and not session_key:
+            return Response({"error": "Authentication required"}, status=401)
+        
         serializer = PaymentInitializeSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
 
@@ -44,7 +51,7 @@ class InitializePaymentView(APIView):
         try:
             payment = Payment.objects.create(
                 job=job,
-                user=request.user,
+                user=user,
                 amount=job.total_amount,
                 currency='USD',
                 reference=paystack.generate_reference(),
@@ -53,15 +60,24 @@ class InitializePaymentView(APIView):
                 user_agent=request.META.get('HTTP_USER_AGENT', '')
             )
 
+            email = request.user.email if user and request.user.email else serializer.validated_data.get("client_email")
+
+            if not email:
+                return Response(
+                    {"error": "Email is required for guest payment"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
             response_data = paystack.initialize_payment(
-                email=request.user.email,
+                email=email,
                 amount=job.total_amount,
                 reference=payment.reference,
                 callback_url=callback_url,
                 metadata={
                     'job_id': str(job.id),
                     'job_title': job.title,
-                    'user_id': str(request.user.id),
+                    'user_id': str(user.id) if user else None,
+                    'session_key': session_key,
                     'payment_id': str(payment.id)
                 }
             )
