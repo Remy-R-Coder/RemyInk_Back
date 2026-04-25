@@ -16,17 +16,7 @@ class PaymentStatus(models.TextChoices):
 class Payment(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     job = models.ForeignKey('orders.Job', on_delete=models.PROTECT, related_name='payments')
-    
-    # FIXED: Added null=True and blank=True to support Guest Checkouts
-    # FIXED: Changed on_delete to SET_NULL to preserve financial records if a user is deleted
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, 
-        on_delete=models.SET_NULL, 
-        null=True, 
-        blank=True, 
-        related_name='payments_made'
-    )
-    
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='payments_made')
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     currency = models.CharField(max_length=3, default='USD')
     reference = models.CharField(max_length=255, unique=True, db_index=True)

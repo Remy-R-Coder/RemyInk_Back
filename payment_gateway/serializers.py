@@ -24,47 +24,37 @@ class PaymentSerializer(serializers.ModelSerializer):
             'verified_at', 'paid_at', 'created_at', 'updated_at'
         ]
 
+
 class PaymentInitializeSerializer(serializers.Serializer):
+    """Serializer for payment initialization request"""
+
     job_id = serializers.UUIDField(required=True)
     callback_url = serializers.URLField(required=False, allow_blank=True)
 
-    def validate(self, attrs):
-        request = self.context['request']
-        user = request.user
-
-        job_id = attrs.get('job_id')
-
+    def validate_job_id(self, value):
+        """Validate that job exists and belongs to the user"""
         try:
-            job = Job.objects.get(id=job_id)
+            job = Job.objects.get(id=value)
         except Job.DoesNotExist:
-            raise serializers.ValidationError({"job_id": "Job not found"})
+            raise serializers.ValidationError("Job not found")
 
-        # Updated: Allow access if user is authenticated client OR if it's a valid guest session
-        # This prevents the 400 error for unauthenticated guest checkouts
-        is_authenticated_client = user.is_authenticated and job.client == user
-        is_guest_checkout = not user.is_authenticated and request.query_params.get('session_key')
+        # Check if user is the client for this job
+        user = self.context['request'].user
+        if job.client != user:
+            raise serializers.ValidationError("You are not authorized to pay for this job")
 
-        if not (is_authenticated_client or is_guest_checkout):
-            raise serializers.ValidationError({"job_id": "Not authorized for this job"})
-
+        # Check if job is in PROVISIONAL or PAYMENT_FAILED status
         from orders.models import JobStatus
+        if job.status not in [JobStatus.PROVISIONAL, JobStatus.PAYMENT_FAILED, JobStatus.PENDING_PAYMENT]:
+            raise serializers.ValidationError(
+                f"Job is not awaiting payment. Current status: {job.get_status_display()}"
+            )
 
-        if job.status not in [
-            JobStatus.PROVISIONAL,
-            JobStatus.PAYMENT_FAILED,
-            JobStatus.PENDING_PAYMENT
-        ]:
-            raise serializers.ValidationError({
-                "job_id": f"Invalid job status: {job.get_status_display()}"
-            })
-
+        # Check if there's already a successful payment
         if job.payments.filter(status=PaymentStatus.SUCCESS).exists():
-            raise serializers.ValidationError({
-                "job_id": "Job already paid"
-            })
+            raise serializers.ValidationError("This job has already been paid for")
 
-        attrs["job"] = job  # attach job object (important optimization)
-        return attrs
+        return value
 
 
 class PaymentVerifySerializer(serializers.Serializer):
