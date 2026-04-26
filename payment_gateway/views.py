@@ -137,7 +137,7 @@ class VerifyPaymentView(APIView):
             return Response(
                 {'error': 'You are not authorized to verify this payment'},
                 status=status.HTTP_403_FORBIDDEN
-            )
+            ) 
 
         if payment.is_successful:
             return Response({
