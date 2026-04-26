@@ -14,7 +14,7 @@ def resolve_actor_context(request):
         
     # 1. Standard Auth (Highest Priority)
     if request.user and request.user.is_authenticated:
-        return {"user": request.user, "type": "auth"}
+        return {"user": request.user, "type": "auth", "id": request.user.pk}
 
     # 2. Extract Session Key from multiple possible sources
     session_key = (
@@ -28,7 +28,6 @@ def resolve_actor_context(request):
         from django.contrib.auth import get_user_model
         User = get_user_model()
         try:
-            # Query the session table
             session = Session.objects.get(session_key=session_key)
             session_data = session.get_decoded()
             
@@ -36,18 +35,16 @@ def resolve_actor_context(request):
             uid = session_data.get('_auth_user_id')
             if uid:
                 user = User.objects.get(pk=uid)
-                return {"user": user, "type": "session"}
+                return {"user": user, "type": "session", "id": user.pk}
             
-            # IMPORTANT: If the user isn't logged in, they are a 'Guest'.
-            # If RemyInk allows Guest payments, you may need a fallback 
-            # to associate the payment with the session string itself.
+            # --- GUEST FALLBACK ---
+            # If there's no user ID, treat the session_key string as the identifier.
+            # This allows unauthenticated users to pay for jobs linked to their session.
+            return {"user": None, "type": "guest", "id": session_key}
             
-        except Session.DoesNotExist:
+        except (Session.DoesNotExist, User.DoesNotExist):
             import logging
-            logging.getLogger(__name__).error(f"Session {session_key} not found in DB.")
-        except Exception as e:
-            import logging
-            logging.getLogger(__name__).exception("Session resolution error")
+            logging.getLogger(__name__).warning(f"Session {session_key} not found or user missing.")
             
     return None
 
