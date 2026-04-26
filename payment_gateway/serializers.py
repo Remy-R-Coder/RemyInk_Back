@@ -86,71 +86,80 @@ class PaymentInitializeSerializer(serializers.Serializer):
     callback_url = serializers.URLField(required=False, allow_blank=True)
     idempotency_key = serializers.CharField(required=False, allow_blank=True)
 
+
+
     def validate(self, attrs):
-        request = self.context.get('request')
-        
-        # Identity Check
-        actor_context = resolve_actor_context(request)
+            request = self.context.get('request')
+            
+            # 1. Identity Check
+            actor_context = resolve_actor_context(request)
 
-        if not actor_context:
-            raise serializers.ValidationError(
-                "Identity verification failed. Invalid session or authentication."
-            )
+            if not actor_context:
+                raise serializers.ValidationError(
+                    "Identity verification failed. Invalid session or authentication."
+                )
 
-        actor_user = actor_context["user"]
-        job_id = attrs.get("job_id")
+            # Use the 'id' key (can be User PK or Session String)
+            actor_id = actor_context["id"]
+            actor_user = actor_context["user"] # Might be None for guests
+            job_id = attrs.get("job_id")
 
-        try:
-            job = Job.objects.only("id", "client_id", "status").get(id=job_id)
-        except Job.DoesNotExist:
-            raise serializers.ValidationError("Job not found")
+            try:
+                job = Job.objects.only("id", "client_id", "status").get(id=job_id)
+            except Job.DoesNotExist:
+                raise serializers.ValidationError("Job not found")
 
-        # Ownership Check
-        if job.client_id != actor_user.pk:
-            raise serializers.ValidationError(
-                "You are not authorized to pay for this job."
-            )
+            # -----------------------------
+            # 2. OWNERSHIP CHECK (Guest Safe)
+            # -----------------------------
+            # Convert both to strings to ensure UUIDs and Session Strings match correctly
+            if str(job.client_id) != str(actor_id):
+                raise serializers.ValidationError(
+                    "You are not authorized to pay for this job."
+                )
 
-        # Valid Job State Check
-        if job.status not in [
-            JobStatus.PROVISIONAL,
-            JobStatus.PENDING_PAYMENT,
-            JobStatus.PAYMENT_FAILED
-        ]:
-            raise serializers.ValidationError(
-                f"Job is not awaiting payment. Current status: {job.get_status_display()}"
-            )
+            # 3. Valid Job State Check
+            if job.status not in [
+                JobStatus.PROVISIONAL,
+                JobStatus.PENDING_PAYMENT,
+                JobStatus.PAYMENT_FAILED
+            ]:
+                raise serializers.ValidationError(
+                    f"Job is not awaiting payment. Current status: {job.get_status_display()}"
+                )
 
-        # Success Payment Guard
-        if job.payments.filter(status=PaymentStatus.SUCCESS).exists():
-            raise serializers.ValidationError(
-                "This job has already been paid for."
-            )
+            # 4. Success Payment Guard
+            if job.payments.filter(status=PaymentStatus.SUCCESS).exists():
+                raise serializers.ValidationError(
+                    "This job has already been paid for."
+                )
 
-        # Idempotency Safety Check
-        idempotency_key = attrs.get("idempotency_key")
+            # 5. Idempotency Safety Check
+            idempotency_key = attrs.get("idempotency_key")
 
-        if idempotency_key:
-            existing_payment = job.payments.filter(
-                idempotency_key=idempotency_key
-            ).exclude(
-                status__in=[PaymentStatus.SUCCESS, PaymentStatus.FAILED]
-            ).select_related("job", "user").first()
+            if idempotency_key:
+                existing_payment = job.payments.filter(
+                    idempotency_key=idempotency_key
+                ).exclude(
+                    status__in=[PaymentStatus.SUCCESS, PaymentStatus.FAILED]
+                ).select_related("job", "user").first()
 
-            if existing_payment:
-                if existing_payment.user_id != actor_user.pk:
-                    raise serializers.ValidationError(
-                        "Invalid payment session ownership."
-                    )
+                if existing_payment:
+                    # Compare stored user/session against current actor
+                    # Using getattr to avoid errors if actor_user is None
+                    existing_user_id = existing_payment.user_id or existing_payment.session_key
+                    if str(existing_user_id) != str(actor_id):
+                        raise serializers.ValidationError(
+                            "Invalid payment session ownership."
+                        )
 
-                attrs["existing_payment"] = existing_payment
+                    attrs["existing_payment"] = existing_payment
 
-        # Attach for View
-        attrs["job"] = job
-        attrs["actor_user"] = actor_user
+            # Attach validated objects for the view layer
+            attrs["job"] = job
+            attrs["actor_user"] = actor_user # View handles if this is None
 
-        return attrs
-
+            return attrs
 
 class PaymentVerifySerializer(serializers.Serializer):
     """Serializer for payment verification request"""
