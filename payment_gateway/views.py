@@ -16,15 +16,14 @@ from .serializers import (
     PaymentStatusSerializer,
     PaymentWebhookLogSerializer
 )
-from .services import PaystackService
+# FIXED: Using the specific filename we found in your VS Code
+from .paystack_service import PaystackService 
 from orders.models import Job, JobStatus
 
 logger = logging.getLogger(__name__)
 
-
 class EmptySerializer(serializers.Serializer):
     pass
-
 
 # =========================
 # INITIALIZE PAYMENT
@@ -48,9 +47,7 @@ class InitializePaymentView(APIView):
         paystack = PaystackService()
 
         try:
-            # -------------------------
-            # RESUME PAYMENT
-            # -------------------------
+            # Resume existing session if it exists
             if existing_payment:
                 return Response({
                     "message": "Existing payment session resumed",
@@ -59,9 +56,6 @@ class InitializePaymentView(APIView):
                     "reference": existing_payment.reference
                 }, status=status.HTTP_200_OK)
 
-            # -------------------------
-            # EMAIL CHECK
-            # -------------------------
             email = email or getattr(actor.get("user"), "email", None)
 
             if not email:
@@ -70,9 +64,6 @@ class InitializePaymentView(APIView):
                     status=status.HTTP_400_BAD_REQUEST
                 )
             
-            # -------------------------
-            # CREATE PAYMENT
-            # -------------------------
             with transaction.atomic():
                 payment = Payment.objects.create(
                     job=job,
@@ -85,10 +76,7 @@ class InitializePaymentView(APIView):
                     user_agent=request.META.get("HTTP_USER_AGENT", ""),
                 )
 
-            # -------------------------
-            # PAYSTACK INIT (FIXED METHOD NAME 🔥)
-            # -------------------------
-            # Your PaystackService uses 'initialize_transaction'
+            # FIXED: Calling the correct method name found in your Service class
             response = paystack.initialize_transaction(
                 email=email,
                 amount=job.total_amount,
@@ -114,9 +102,8 @@ class InitializePaymentView(APIView):
             payment.paystack_response = response
             payment.save()
 
-            # Update Job
+            # Update Job Status Safely
             job.status = JobStatus.PENDING_PAYMENT
-            # Using hasattr to prevent crashes if fields aren't on Job model
             if hasattr(job, 'paystack_reference'):
                 job.paystack_reference = payment.reference
             if hasattr(job, 'paystack_authorization_url'):
@@ -132,7 +119,6 @@ class InitializePaymentView(APIView):
             }, status=status.HTTP_201_CREATED)
 
         except Exception as e:
-            # Adding exc_info=True will print the full traceback to your server logs
             logger.error(f"Payment initialization failed: {str(e)}", exc_info=True)
             return Response(
                 {"error": "Payment initialization failed", "detail": str(e)},
@@ -160,10 +146,7 @@ class VerifyPaymentView(APIView):
         )
 
         if payment.user:
-            if not request.user.is_authenticated:
-                return Response({"error": "Unauthorized"}, status=status.HTTP_403_FORBIDDEN)
-
-            if payment.user != request.user:
+            if not request.user.is_authenticated or payment.user != request.user:
                 return Response({"error": "Unauthorized"}, status=status.HTTP_403_FORBIDDEN)
 
         if payment.is_successful:
@@ -264,7 +247,6 @@ class PaystackWebhookView(APIView):
 
                 if event == "charge.success":
                     payment.mark_as_successful(payload)
-
                 elif event == "charge.failed":
                     payment.mark_as_failed(reason="Webhook failure")
 
