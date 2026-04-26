@@ -17,7 +17,7 @@ from .serializers import (
     PaymentWebhookLogSerializer
 )
 # FIXED: Using the specific filename we found in your VS Code
-from .paystack_service import PaystackService 
+from payments.paystack_service import PaystackService
 from orders.models import Job, JobStatus
 
 logger = logging.getLogger(__name__)
