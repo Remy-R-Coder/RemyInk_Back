@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'chat.apps.ChatConfig',
     'pay_freelancer.apps.PayFreelancerConfig',
     'payment_gateway',
+    'payments',
     'notifications',
 ]
 if DEBUG:
