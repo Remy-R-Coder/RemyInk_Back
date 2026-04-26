@@ -8976,3 +8976,836 @@ INFO 2026-04-26 11:05:14,071 autoreload 17328 17188 Watching for file changes wi
 INFO 2026-04-26 11:05:14,464 server 17328 2856 HTTP/2 support enabled
 INFO 2026-04-26 11:05:14,465 server 17328 2856 Configuring endpoint tcp:port=8000:interface=127.0.0.1
 INFO 2026-04-26 11:05:14,466 server 17328 2856 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:11:08,625 autoreload 19148 21456 Watching for file changes with StatReloader
+INFO 2026-04-26 12:11:09,309 server 19148 20324 HTTP/2 support enabled
+INFO 2026-04-26 12:11:09,310 server 19148 20324 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:11:09,311 server 19148 20324 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:11:19,963 runserver 19148 20324 [mHTTP OPTIONS /api/users/csrf-and-session/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:56405][0m
+INFO 2026-04-26 12:11:21,115 runserver 19148 20324 [mHTTP OPTIONS /api/jobs/categories?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:65126][0m
+INFO 2026-04-26 12:11:21,116 runserver 19148 20324 [mHTTP OPTIONS /api/jobs/categories?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:56405][0m
+INFO 2026-04-26 12:11:21,135 runserver 19148 20324 [mHTTP OPTIONS /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:65126][0m
+INFO 2026-04-26 12:11:21,136 runserver 19148 20324 [mHTTP OPTIONS /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.01, 127.0.0.1:56405][0m
+INFO 2026-04-26 12:11:21,172 runserver 19148 20324 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.03, 127.0.0.1:60430][0m
+INFO 2026-04-26 12:11:21,205 runserver 19148 20324 [mHTTP GET /api/jobs/categories/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [0.02, 127.0.0.1:60430][0m
+INFO 2026-04-26 12:11:21,750 views 19148 21460 Created new guest session: Client05 (aasch8se...)
+INFO 2026-04-26 12:11:21,763 runserver 19148 20324 [mHTTP GET /api/users/csrf-and-session/?session_key=lpalg21dbn8uob4f5kqt4zf8wpxqa70c 200 [1.49, 127.0.0.1:63475][0m
+INFO 2026-04-26 12:11:22,483 runserver 19148 20324 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=e288e1a6-3bbf-48da-9b94-7ea61618956b&session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.00, 127.0.0.1:65126][0m
+INFO 2026-04-26 12:11:22,512 runserver 19148 20324 [mHTTP GET /api/jobs/subject-areas/?category_id=e288e1a6-3bbf-48da-9b94-7ea61618956b&session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:63475][0m
+INFO 2026-04-26 12:11:24,133 runserver 19148 20324 [mHTTP OPTIONS /api/users/freelancers/?subject_id=2788ccb1-0deb-4be5-82e8-eb7b72aee2bb&session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.00, 127.0.0.1:65126][0m
+INFO 2026-04-26 12:11:24,204 runserver 19148 20324 [mHTTP GET /api/users/freelancers/?subject_id=2788ccb1-0deb-4be5-82e8-eb7b72aee2bb&session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.07, 127.0.0.1:63475][0m
+INFO 2026-04-26 12:11:26,610 runserver 19148 20324 [mHTTP OPTIONS /api/chat/threads/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.00, 127.0.0.1:65126][0m
+INFO 2026-04-26 12:11:26,618 authentication 19148 18228 JWT auth returned None (no auth header present)
+INFO 2026-04-26 12:11:26,618 views 19148 18228 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-26 12:11:26,661 runserver 19148 20324 [mHTTP POST /api/chat/threads/?session_key=aasch8sequst57r6q7pveku9grne1czo 201 [0.05, 127.0.0.1:63475][0m
+INFO 2026-04-26 12:11:27,582 runserver 19148 20324 [mHTTP OPTIONS /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:65126][0m
+INFO 2026-04-26 12:11:27,598 authentication 19148 20792 JWT auth returned None (no auth header present)
+INFO 2026-04-26 12:11:27,639 runserver 19148 20324 [mHTTP GET /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.05, 127.0.0.1:63475][0m
+INFO 2026-04-26 12:11:31,600 authentication 19148 20128 JWT auth returned None (no auth header present)
+INFO 2026-04-26 12:11:31,618 views 19148 20128 Linked thread 3 to shadow client Client05
+ERROR 2026-04-26 12:11:34,154 log 19148 16724 Internal Server Error: /api/chat/threads/3/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-26 12:11:34,194 runserver 19148 20324 [35;1mHTTP POST /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [2.60, 127.0.0.1:63475][0m
+INFO 2026-04-26 12:11:35,217 authentication 19148 16004 JWT auth returned None (no auth header present)
+INFO 2026-04-26 12:11:35,225 views 19148 16004 Linked thread 3 to shadow client Client05
+ERROR 2026-04-26 12:11:37,566 log 19148 16724 Internal Server Error: /api/chat/threads/3/messages/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1168, in create_connection
+    raise exceptions[0]
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1143, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1042, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 645, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\selector_events.py", line 685, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 10061] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 568, in create
+    message = serializer.save(
+        thread=thread,
+        sender=sender,
+        guest_session=guest_session,
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\USER\RemyInk_Back\chat\serializers.py", line 186, in create
+    message = ChatMessage.objects.create(**validated_data)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\USER\RemyInk_Back\chat\signals.py", line 37, in broadcast_new_message
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        room_group_name,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        }
+        ^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\channels_redis\core.py", line 518, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\redis\asyncio\connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Connect call failed ('127.0.0.1', 6379).
+ERROR 2026-04-26 12:11:37,580 runserver 19148 20324 [35;1mHTTP POST /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [2.37, 127.0.0.1:63475][0m
+INFO 2026-04-26 12:12:27,470 authentication 19148 21828 JWT auth returned None (no auth header present)
+INFO 2026-04-26 12:12:27,539 views 19148 21828 Linked thread 3 to shadow client Client05
+INFO 2026-04-26 12:12:27,593 runserver 19148 20324 [mHTTP POST /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 201 [0.17, 127.0.0.1:58379][0m
+INFO 2026-04-26 12:12:27,607 authentication 19148 8580 JWT auth returned None (no auth header present)
+INFO 2026-04-26 12:12:27,643 runserver 19148 20324 [mHTTP GET /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.04, 127.0.0.1:58379][0m
+INFO 2026-04-26 12:12:43,228 runserver 19148 20324 [mHTTP OPTIONS /api/users/csrf-and-session/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.01, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:12:44,964 views 19148 22212 Created new guest session: Client06 (7ik9cnbr...)
+INFO 2026-04-26 12:12:44,981 runserver 19148 20324 [mHTTP GET /api/users/csrf-and-session/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [1.44, 127.0.0.1:62526][0m
+INFO 2026-04-26 12:12:54,725 runserver 19148 20324 [mHTTP OPTIONS /api/users/token/freelancer/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.00, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:12:56,484 runserver 19148 20324 [mHTTP POST /api/users/token/freelancer/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [1.76, 127.0.0.1:62526][0m
+INFO 2026-04-26 12:12:56,501 runserver 19148 20324 [mHTTP OPTIONS /api/users/me/ 200 [0.01, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:12:56,710 runserver 19148 20324 [mHTTP GET /api/users/me/ 200 [0.21, 127.0.0.1:62526][0m
+INFO 2026-04-26 12:12:56,725 runserver 19148 20324 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:12:56,830 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.10, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:12:58,690 runserver 19148 20324 [mHTTP OPTIONS /api/users/dashboard/summary/ 200 [0.03, 127.0.0.1:56118][0m
+INFO 2026-04-26 12:12:58,767 runserver 19148 20324 [mHTTP OPTIONS /api/chat/threads/ 200 [0.06, 127.0.0.1:56118][0m
+INFO 2026-04-26 12:12:59,135 runserver 19148 20324 [mHTTP OPTIONS /api/orders/jobs/?page=1&page_size=100 200 [0.33, 127.0.0.1:56118][0m
+INFO 2026-04-26 12:12:59,206 runserver 19148 20324 [mHTTP OPTIONS /api/chat/pending-offers/ 200 [0.17, 127.0.0.1:53355][0m
+INFO 2026-04-26 12:12:59,230 runserver 19148 20324 [mHTTP OPTIONS /api/chat/unread-count/ 200 [0.18, 127.0.0.1:58226][0m
+INFO 2026-04-26 12:12:59,336 runserver 19148 20324 [mHTTP GET /api/users/me/ 200 [0.69, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:12:59,380 authentication 19148 17664 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-26 12:13:00,362 runserver 19148 20324 [mHTTP GET /api/chat/threads/ 200 [1.55, 127.0.0.1:62963][0m
+INFO 2026-04-26 12:13:00,398 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [1.40, 127.0.0.1:64593][0m
+INFO 2026-04-26 12:13:00,451 runserver 19148 20324 [mHTTP GET /api/orders/jobs/?page=1&page_size=100 200 [0.98, 127.0.0.1:54722][0m
+INFO 2026-04-26 12:13:00,631 runserver 19148 20324 [mHTTP GET /api/chat/unread-count/ 200 [1.00, 127.0.0.1:59000][0m
+INFO 2026-04-26 12:13:01,134 runserver 19148 20324 [mHTTP GET /api/chat/pending-offers/ 200 [1.50, 127.0.0.1:60877][0m
+INFO 2026-04-26 12:13:01,753 runserver 19148 20324 [mHTTP GET /api/users/dashboard/summary/ 200 [3.04, 127.0.0.1:62526][0m
+INFO 2026-04-26 12:13:05,649 authentication 19148 7864 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-26 12:13:05,687 runserver 19148 20324 [mHTTP GET /api/chat/threads/ 200 [0.06, 127.0.0.1:62526][0m
+INFO 2026-04-26 12:13:07,480 runserver 19148 20324 [mHTTP OPTIONS /api/chat/threads/3/read/ 200 [0.01, 127.0.0.1:64593][0m
+INFO 2026-04-26 12:13:07,498 authentication 19148 12972 JWT auth successful for user: Remy01 (ADMIN)
+ERROR 2026-04-26 12:13:07,610 log 19148 16724 Internal Server Error: /api/chat/threads/3/read/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 364, in mark_as_read
+    thread = self.get_object()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\generics.py", line 92, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ChatThreadViewSet to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2026-04-26 12:13:07,637 runserver 19148 20324 [35;1mHTTP PUT /api/chat/threads/3/read/ 500 [0.15, 127.0.0.1:62526][0m
+INFO 2026-04-26 12:13:08,661 authentication 19148 19276 JWT auth successful for user: Remy01 (ADMIN)
+ERROR 2026-04-26 12:13:08,708 log 19148 16724 Internal Server Error: /api/chat/threads/3/read/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\chat\views.py", line 364, in mark_as_read
+    thread = self.get_object()
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\generics.py", line 92, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ChatThreadViewSet to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2026-04-26 12:13:08,717 runserver 19148 20324 [35;1mHTTP PUT /api/chat/threads/3/read/ 500 [0.06, 127.0.0.1:62526][0m
+INFO 2026-04-26 12:13:08,743 authentication 19148 17044 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-26 12:13:08,806 runserver 19148 20324 [mHTTP GET /api/chat/threads/ 200 [0.08, 127.0.0.1:62526][0m
+INFO 2026-04-26 12:13:08,925 runserver 19148 20324 [mHTTP OPTIONS /api/chat/threads/3/messages/ 200 [0.01, 127.0.0.1:64593][0m
+INFO 2026-04-26 12:13:08,928 runserver 19148 20324 [mHTTP OPTIONS /api/chat/threads/3/ 200 [0.01, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:13:08,955 authentication 19148 6968 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-26 12:13:08,957 authentication 19148 3328 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-26 12:13:08,997 runserver 19148 20324 [mHTTP GET /api/chat/threads/3/messages/ 200 [0.07, 127.0.0.1:62526][0m
+INFO 2026-04-26 12:13:09,005 runserver 19148 20324 [mHTTP GET /api/chat/threads/3/ 200 [0.07, 127.0.0.1:60877][0m
+INFO 2026-04-26 12:13:23,930 authentication 19148 13560 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-26 12:13:23,984 runserver 19148 20324 [mHTTP POST /api/chat/threads/3/messages/ 201 [0.07, 127.0.0.1:60877][0m
+INFO 2026-04-26 12:13:24,019 authentication 19148 16264 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-26 12:13:24,062 runserver 19148 20324 [mHTTP GET /api/chat/threads/3/messages/ 200 [0.07, 127.0.0.1:60877][0m
+INFO 2026-04-26 12:13:28,456 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:13:34,336 authentication 19148 8488 JWT auth returned None (no auth header present)
+INFO 2026-04-26 12:13:34,364 runserver 19148 20324 [mHTTP GET /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:13:45,794 runserver 19148 20324 [mHTTP OPTIONS /api/chat/threads/3/messages/18/update-offer/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:62389][0m
+INFO 2026-04-26 12:13:45,808 authentication 19148 1980 JWT auth returned None (no auth header present)
+INFO 2026-04-26 12:13:45,865 runserver 19148 20324 [mHTTP POST /api/chat/threads/3/messages/18/update-offer/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.07, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:13:58,366 runserver 19148 20324 [mHTTP OPTIONS /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:62389][0m
+INFO 2026-04-26 12:13:58,375 authentication 19148 21288 JWT auth returned None (no auth header present)
+WARNING 2026-04-26 12:13:58,426 log 19148 16724 Bad Request: /api/payments/initialize/
+WARNING 2026-04-26 12:13:58,429 runserver 19148 20324 [31;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 400 [0.06, 127.0.0.1:61772][0m
+INFO 2026-04-26 12:13:58,433 runserver 19148 20324 [mHTTP GET /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.08, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:13:59,452 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:14:00,933 runserver 19148 20324 [mHTTP OPTIONS /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.00, 127.0.0.1:62389][0m
+INFO 2026-04-26 12:14:01,004 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.07, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:14:08,961 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:14:16,957 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:14:24,951 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:14:29,469 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:54717][0m
+WARNING 2026-04-26 12:14:30,585 log 19148 16724 Bad Request: /api/payments/initialize/
+WARNING 2026-04-26 12:14:30,586 runserver 19148 20324 [31;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 400 [0.02, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:14:32,950 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:54889][0m
+WARNING 2026-04-26 12:14:33,494 log 19148 16724 Bad Request: /api/payments/initialize/
+WARNING 2026-04-26 12:14:33,494 runserver 19148 20324 [31;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 400 [0.01, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:14:40,953 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:14:48,956 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:14:56,948 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:14:59,476 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:15:05,467 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:15:13,462 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:15:21,461 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:15:29,470 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:15:29,477 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:54717][0m
+INFO 2026-04-26 12:15:37,445 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:15:45,457 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:15:53,465 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:15:59,757 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:16:53,514 runserver 19148 20324 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.07, 127.0.0.1:54889][0m
+INFO 2026-04-26 12:16:53,523 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.09, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:17:53,477 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:18:53,497 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:19:53,486 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:20:53,509 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:21:53,493 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:22:53,490 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:23:53,515 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:24:53,492 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:25:53,471 runserver 19148 20324 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:64070][0m
+INFO 2026-04-26 12:26:34,694 autoreload 19148 21456 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:26:49,605 autoreload 13836 7680 Watching for file changes with StatReloader
+INFO 2026-04-26 12:26:51,215 server 13836 12092 HTTP/2 support enabled
+INFO 2026-04-26 12:26:51,216 server 13836 12092 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:26:51,218 server 13836 12092 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:26:53,901 runserver 13836 12092 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.14, 127.0.0.1:58230][0m
+INFO 2026-04-26 12:27:08,218 autoreload 13836 7680 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:27:12,702 autoreload 4968 18564 Watching for file changes with StatReloader
+INFO 2026-04-26 12:27:13,264 server 4968 21552 HTTP/2 support enabled
+INFO 2026-04-26 12:27:13,265 server 4968 21552 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:27:13,266 server 4968 21552 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:27:22,588 autoreload 4968 18564 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:27:25,664 autoreload 21784 15076 Watching for file changes with StatReloader
+INFO 2026-04-26 12:27:26,191 server 21784 11448 HTTP/2 support enabled
+INFO 2026-04-26 12:27:26,192 server 21784 11448 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:27:26,193 server 21784 11448 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:27:53,847 runserver 21784 11448 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.09, 127.0.0.1:53968][0m
+INFO 2026-04-26 12:28:20,301 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:56098][0m
+WARNING 2026-04-26 12:28:24,928 log 21784 17868 Bad Request: /api/payments/initialize/
+WARNING 2026-04-26 12:28:24,930 runserver 21784 11448 [31;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 400 [0.03, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:28:24,977 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.04, 127.0.0.1:56098][0m
+WARNING 2026-04-26 12:28:27,699 log 21784 17868 Bad Request: /api/payments/initialize/
+WARNING 2026-04-26 12:28:27,700 runserver 21784 11448 [31;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 400 [0.03, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:28:32,965 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:28:41,469 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:28:49,454 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:28:53,496 runserver 21784 11448 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:53968][0m
+INFO 2026-04-26 12:28:57,463 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:29:05,452 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:29:13,469 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:29:21,459 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:29:29,447 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:29:53,541 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.09, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:29:53,597 runserver 21784 11448 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.14, 127.0.0.1:53968][0m
+INFO 2026-04-26 12:30:53,602 runserver 21784 11448 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.13, 127.0.0.1:56098][0m
+INFO 2026-04-26 12:30:53,633 runserver 21784 11448 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.18, 127.0.0.1:53968][0m
+INFO 2026-04-26 12:31:33,190 autoreload 21784 15076 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:31:39,085 autoreload 21240 19984 Watching for file changes with StatReloader
+INFO 2026-04-26 12:31:42,150 autoreload 21240 19984 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:31:45,640 autoreload 19896 19756 Watching for file changes with StatReloader
+INFO 2026-04-26 12:31:46,310 server 19896 19128 HTTP/2 support enabled
+INFO 2026-04-26 12:31:46,311 server 19896 19128 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:31:46,313 server 19896 19128 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:31:49,243 autoreload 19896 19756 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:31:52,423 autoreload 5780 7612 Watching for file changes with StatReloader
+INFO 2026-04-26 12:31:52,928 server 5780 20792 HTTP/2 support enabled
+INFO 2026-04-26 12:31:52,929 server 5780 20792 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:31:52,930 server 5780 20792 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:31:53,783 runserver 5780 20792 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.04, 127.0.0.1:55519][0m
+INFO 2026-04-26 12:31:53,827 runserver 5780 20792 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:60937][0m
+INFO 2026-04-26 12:32:46,858 autoreload 5780 7612 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:32:49,852 autoreload 21388 21420 Watching for file changes with StatReloader
+INFO 2026-04-26 12:32:50,292 server 21388 5028 HTTP/2 support enabled
+INFO 2026-04-26 12:32:50,293 server 21388 5028 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:32:50,294 server 21388 5028 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:32:53,051 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.05, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:32:53,935 runserver 21388 5028 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.09, 127.0.0.1:59039][0m
+WARNING 2026-04-26 12:32:54,152 log 21388 20980 Bad Request: /api/payments/initialize/
+WARNING 2026-04-26 12:32:54,154 runserver 21388 5028 [31;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 400 [0.05, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:32:56,959 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:65399][0m
+WARNING 2026-04-26 12:32:59,061 log 21388 20980 Bad Request: /api/payments/initialize/
+WARNING 2026-04-26 12:32:59,062 runserver 21388 5028 [31;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 400 [0.03, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:33:05,461 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:33:13,453 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:33:21,461 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:33:29,450 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:33:37,472 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:33:45,460 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:33:53,509 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.08, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:33:53,683 runserver 21388 5028 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.25, 127.0.0.1:59039][0m
+INFO 2026-04-26 12:34:01,476 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:34:53,494 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.05, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:34:53,523 runserver 21388 5028 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:59039][0m
+INFO 2026-04-26 12:35:53,491 runserver 21388 5028 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.05, 127.0.0.1:65399][0m
+INFO 2026-04-26 12:35:53,510 runserver 21388 5028 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:59039][0m
+INFO 2026-04-26 12:36:01,761 autoreload 21388 21420 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:36:05,207 autoreload 9788 20608 Watching for file changes with StatReloader
+INFO 2026-04-26 12:36:06,874 autoreload 9788 20608 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:36:09,890 autoreload 12416 21208 Watching for file changes with StatReloader
+INFO 2026-04-26 12:36:10,360 server 12416 19864 HTTP/2 support enabled
+INFO 2026-04-26 12:36:10,361 server 12416 19864 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:36:10,362 server 12416 19864 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:36:17,534 autoreload 12416 21208 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:36:20,730 autoreload 12164 10796 Watching for file changes with StatReloader
+INFO 2026-04-26 12:36:21,184 server 12164 15976 HTTP/2 support enabled
+INFO 2026-04-26 12:36:21,185 server 12164 15976 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:36:21,186 server 12164 15976 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:36:53,215 autoreload 12164 10796 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 12:36:56,338 autoreload 16864 12808 Watching for file changes with StatReloader
+INFO 2026-04-26 12:36:56,812 server 16864 15716 HTTP/2 support enabled
+INFO 2026-04-26 12:36:56,813 server 16864 15716 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:36:56,814 server 16864 15716 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:37:06,238 autoreload 16864 12808 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:37:09,287 autoreload 19032 12608 Watching for file changes with StatReloader
+INFO 2026-04-26 12:37:09,798 server 19032 21760 HTTP/2 support enabled
+INFO 2026-04-26 12:37:09,798 server 19032 21760 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:37:09,800 server 19032 21760 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:37:16,838 autoreload 19032 12608 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:37:19,907 autoreload 15580 11448 Watching for file changes with StatReloader
+INFO 2026-04-26 12:37:25,916 autoreload 15580 11448 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:37:28,798 autoreload 21948 5084 Watching for file changes with StatReloader
+INFO 2026-04-26 12:37:33,599 autoreload 21948 5084 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:37:36,816 autoreload 20976 18256 Watching for file changes with StatReloader
+INFO 2026-04-26 12:37:37,296 server 20976 8664 HTTP/2 support enabled
+INFO 2026-04-26 12:37:37,296 server 20976 8664 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:37:37,298 server 20976 8664 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:37:42,208 autoreload 20976 18256 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:37:45,286 autoreload 19372 8492 Watching for file changes with StatReloader
+INFO 2026-04-26 12:37:45,803 server 19372 6584 HTTP/2 support enabled
+INFO 2026-04-26 12:37:45,804 server 19372 6584 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:37:45,805 server 19372 6584 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:37:53,805 runserver 19372 6584 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:62264][0m
+INFO 2026-04-26 12:38:52,974 autoreload 19372 8492 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:38:56,606 autoreload 6560 18000 Watching for file changes with StatReloader
+INFO 2026-04-26 12:38:57,076 server 6560 22148 HTTP/2 support enabled
+INFO 2026-04-26 12:38:57,077 server 6560 22148 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:38:57,079 server 6560 22148 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:39:53,114 autoreload 6560 18000 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:39:56,611 autoreload 19748 8488 Watching for file changes with StatReloader
+INFO 2026-04-26 12:40:10,258 autoreload 19748 8488 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:40:13,367 autoreload 6104 16764 Watching for file changes with StatReloader
+INFO 2026-04-26 12:40:13,840 server 6104 13560 HTTP/2 support enabled
+INFO 2026-04-26 12:40:13,841 server 6104 13560 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:40:13,842 server 6104 13560 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:40:18,901 autoreload 6104 16764 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:40:21,985 autoreload 12680 4376 Watching for file changes with StatReloader
+INFO 2026-04-26 12:40:22,542 server 12680 21948 HTTP/2 support enabled
+INFO 2026-04-26 12:40:22,546 server 12680 21948 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:40:22,547 server 12680 21948 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:40:53,864 runserver 12680 21948 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.11, 127.0.0.1:55869][0m
+INFO 2026-04-26 12:41:53,499 runserver 12680 21948 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:55869][0m
+INFO 2026-04-26 12:42:53,504 runserver 12680 21948 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:55869][0m
+INFO 2026-04-26 12:43:18,281 autoreload 12680 4376 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:43:21,664 autoreload 6588 6348 Watching for file changes with StatReloader
+INFO 2026-04-26 12:43:22,293 server 6588 324 HTTP/2 support enabled
+INFO 2026-04-26 12:43:22,293 server 6588 324 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:43:22,294 server 6588 324 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:43:24,139 autoreload 6588 6348 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:43:29,226 autoreload 22004 12164 Watching for file changes with StatReloader
+INFO 2026-04-26 12:43:29,829 server 22004 5228 HTTP/2 support enabled
+INFO 2026-04-26 12:43:29,830 server 22004 5228 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:43:29,831 server 22004 5228 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:43:53,844 runserver 22004 5228 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.09, 127.0.0.1:61437][0m
+INFO 2026-04-26 12:44:53,497 runserver 22004 5228 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:61437][0m
+INFO 2026-04-26 12:45:11,649 autoreload 22004 12164 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:45:15,015 autoreload 19852 8488 Watching for file changes with StatReloader
+INFO 2026-04-26 12:45:15,498 server 19852 18936 HTTP/2 support enabled
+INFO 2026-04-26 12:45:15,498 server 19852 18936 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:45:15,500 server 19852 18936 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:45:53,970 runserver 19852 18936 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.22, 127.0.0.1:61301][0m
+INFO 2026-04-26 12:46:09,850 autoreload 19852 8488 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 12:46:12,990 autoreload 20804 6364 Watching for file changes with StatReloader
+INFO 2026-04-26 12:46:13,525 server 20804 20032 HTTP/2 support enabled
+INFO 2026-04-26 12:46:13,526 server 20804 20032 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 12:46:13,528 server 20804 20032 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 12:46:53,792 runserver 20804 20032 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:50662][0m
+INFO 2026-04-26 13:05:53,213 autoreload 8492 16612 Watching for file changes with StatReloader
+INFO 2026-04-26 13:05:53,834 server 8492 6564 HTTP/2 support enabled
+INFO 2026-04-26 13:05:53,834 server 8492 6564 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 13:05:53,835 server 8492 6564 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 13:05:54,055 runserver 8492 6564 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:50350][0m
+INFO 2026-04-26 13:05:57,756 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.04, 127.0.0.1:51652][0m
+ERROR 2026-04-26 13:05:59,497 log 8492 836 Internal Server Error: /api/payments/initialize/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\payment_gateway\views.py", line 45, in post
+    callback_url = serializer.validated_data.get("callback_url") or settings.PAYSTACK_CALLBACK_URL
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'PAYSTACK_CALLBACK_URL'
+ERROR 2026-04-26 13:05:59,509 runserver 8492 6564 [35;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [0.18, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:00,954 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:06,995 authentication 8492 20368 JWT auth returned None (no auth header present)
+INFO 2026-04-26 13:06:07,032 runserver 8492 6564 [mHTTP GET /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.04, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:07,231 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.06, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:07,350 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.11, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:15,188 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+ERROR 2026-04-26 13:06:19,681 log 8492 836 Internal Server Error: /api/payments/initialize/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\payment_gateway\views.py", line 45, in post
+    callback_url = serializer.validated_data.get("callback_url") or settings.PAYSTACK_CALLBACK_URL
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'PAYSTACK_CALLBACK_URL'
+ERROR 2026-04-26 13:06:19,689 runserver 8492 6564 [35;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [0.06, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:23,195 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:31,216 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:39,184 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:47,468 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:06:53,502 runserver 8492 6564 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:50350][0m
+INFO 2026-04-26 13:06:55,460 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:07:03,450 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:07:11,465 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:07:19,462 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:07:27,454 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:07:35,452 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:07:43,445 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:07:53,499 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.06, 127.0.0.1:51652][0m
+INFO 2026-04-26 13:07:53,523 runserver 8492 6564 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.08, 127.0.0.1:50350][0m
+INFO 2026-04-26 13:08:53,938 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.05, 127.0.0.1:53968][0m
+INFO 2026-04-26 13:08:53,941 runserver 8492 6564 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:56479][0m
+INFO 2026-04-26 13:09:53,526 runserver 8492 6564 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.09, 127.0.0.1:56479][0m
+INFO 2026-04-26 13:09:53,527 runserver 8492 6564 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.06, 127.0.0.1:53968][0m
+INFO 2026-04-26 13:10:41,685 autoreload 8492 16612 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 13:10:45,349 autoreload 20328 6732 Watching for file changes with StatReloader
+INFO 2026-04-26 13:10:46,044 server 20328 13372 HTTP/2 support enabled
+INFO 2026-04-26 13:10:46,044 server 20328 13372 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 13:10:46,045 server 20328 13372 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 13:10:48,067 autoreload 20328 6732 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 13:10:53,532 autoreload 17760 17860 Watching for file changes with StatReloader
+INFO 2026-04-26 13:10:54,317 server 17760 22412 HTTP/2 support enabled
+INFO 2026-04-26 13:10:54,318 server 17760 22412 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 13:10:54,320 server 17760 22412 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 13:10:54,432 runserver 17760 22412 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:58891][0m
+INFO 2026-04-26 13:10:54,557 runserver 17760 22412 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:49535][0m
+INFO 2026-04-26 13:11:02,879 autoreload 17760 17860 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-26 13:11:06,183 autoreload 19976 10592 Watching for file changes with StatReloader
+INFO 2026-04-26 13:11:06,878 server 19976 18472 HTTP/2 support enabled
+INFO 2026-04-26 13:11:06,879 server 19976 18472 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 13:11:06,880 server 19976 18472 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 13:11:53,813 runserver 19976 18472 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:61424][0m
+INFO 2026-04-26 13:12:53,496 runserver 19976 18472 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:61424][0m
+INFO 2026-04-26 13:13:11,046 autoreload 19976 10592 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 13:13:15,492 autoreload 18248 11684 Watching for file changes with StatReloader
+INFO 2026-04-26 13:13:30,247 autoreload 18248 11684 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 13:13:33,944 autoreload 15020 16888 Watching for file changes with StatReloader
+INFO 2026-04-26 13:13:34,506 server 15020 5248 HTTP/2 support enabled
+INFO 2026-04-26 13:13:34,507 server 15020 5248 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 13:13:34,508 server 15020 5248 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 13:13:53,806 runserver 15020 5248 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:49493][0m
+INFO 2026-04-26 13:14:11,821 autoreload 15020 16888 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 13:14:16,182 autoreload 11244 3360 Watching for file changes with StatReloader
+INFO 2026-04-26 13:14:20,163 autoreload 11244 3360 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 13:14:24,727 autoreload 21376 20052 Watching for file changes with StatReloader
+INFO 2026-04-26 13:14:31,780 autoreload 21376 20052 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 13:14:35,062 autoreload 15956 20624 Watching for file changes with StatReloader
+INFO 2026-04-26 13:14:35,693 server 15956 13376 HTTP/2 support enabled
+INFO 2026-04-26 13:14:35,693 server 15956 13376 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 13:14:35,695 server 15956 13376 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 13:14:53,806 runserver 15956 13376 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.06, 127.0.0.1:49971][0m
+INFO 2026-04-26 13:15:10,022 autoreload 15956 20624 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 13:15:13,905 autoreload 12516 4572 Watching for file changes with StatReloader
+INFO 2026-04-26 13:15:14,982 server 12516 1368 HTTP/2 support enabled
+INFO 2026-04-26 13:15:14,983 server 12516 1368 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 13:15:14,985 server 12516 1368 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-26 13:15:39,497 autoreload 12516 4572 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
+INFO 2026-04-26 13:15:43,100 autoreload 20284 5940 Watching for file changes with StatReloader

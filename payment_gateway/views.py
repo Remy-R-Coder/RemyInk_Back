@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.db import transaction
 from django.shortcuts import get_object_or_404
+from django.conf import settings
 import logging
 import json
 
@@ -30,29 +31,26 @@ class EmptySerializer(serializers.Serializer):
 # =========================
 class InitializePaymentView(APIView):
     permission_classes = [AllowAny]
-    serializer_class = PaymentInitializeSerializer
 
     def post(self, request):
         serializer = PaymentInitializeSerializer(
             data=request.data,
-            context={'request': request}
+            context={"request": request}
         )
         serializer.is_valid(raise_exception=True)
 
-        # ✅ SINGLE SOURCE OF TRUTH (serializer already validated everything)
-        job = serializer.validated_data['job']
-        actor_user = serializer.validated_data.get('actor_user')
-        actor_id = serializer.validated_data.get('actor_id')
-        callback_url = serializer.validated_data.get('callback_url')
-        idempotency_key = serializer.validated_data.get('idempotency_key')
-        existing_payment = serializer.validated_data.get('existing_payment')
+        job = serializer.validated_data["job"]
+        actor = serializer.validated_data["actor"]
+        email = serializer.validated_data["email"]
+        callback_url = serializer.validated_data.get("callback_url") or settings.PAYSTACK_CALLBACK_URL
+        existing_payment = serializer.validated_data.get("existing_payment")
 
         paystack = PaystackService()
 
         try:
-            # =========================
-            # RESUME PAYMENT (IDEMPOTENCY)
-            # =========================
+            # -------------------------
+            # RESUME PAYMENT
+            # -------------------------
             if existing_payment:
                 return Response({
                     "message": "Existing payment session resumed",
@@ -61,13 +59,24 @@ class InitializePaymentView(APIView):
                     "reference": existing_payment.reference
                 }, status=status.HTTP_200_OK)
 
-            # =========================
+            # -------------------------
+            # EMAIL CHECK
+            # -------------------------
+            email = email or getattr(actor.get("user"), "email", None)
+
+            if not email:
+                return Response(
+                    {"error": "Email is required for payment"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+           
+            # -------------------------
             # CREATE PAYMENT
-            # =========================
+            # -------------------------
             with transaction.atomic():
                 payment = Payment.objects.create(
                     job=job,
-                    user=actor_user,  # MUST be nullable in DB for guests
+                    user=actor["user"] if actor["type"] == "auth" else None,
                     amount=job.total_amount,
                     currency="USD",
                     reference=paystack.generate_reference(),
@@ -76,24 +85,9 @@ class InitializePaymentView(APIView):
                     user_agent=request.META.get("HTTP_USER_AGENT", ""),
                 )
 
-            # =========================
-            # EMAIL RESOLUTION (GUEST SAFE)
-            # =========================
-            email = (
-                getattr(actor_user, "email", None)
-                or request.data.get("email")
-                or request.data.get("client_email")
-            )
-
-            if not email:
-                return Response(
-                    {"error": "Email is required for payment"},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-
-            # =========================
+            # -------------------------
             # PAYSTACK INIT
-            # =========================
+            # -------------------------
             response = paystack.initialize_payment(
                 email=email,
                 amount=job.total_amount,
@@ -101,7 +95,7 @@ class InitializePaymentView(APIView):
                 callback_url=callback_url,
                 metadata={
                     "job_id": str(job.id),
-                    "actor_id": str(actor_id),
+                    "actor_type": actor["type"],
                     "payment_id": str(payment.id)
                 }
             )
@@ -122,7 +116,11 @@ class InitializePaymentView(APIView):
             job.status = JobStatus.PENDING_PAYMENT
             job.paystack_reference = payment.reference
             job.paystack_authorization_url = payment.authorization_url
-            job.save(update_fields=["status", "paystack_reference", "paystack_authorization_url"])
+            job.save(update_fields=[
+                "status",
+                "paystack_reference",
+                "paystack_authorization_url"
+            ])
 
             return Response({
                 "message": "Payment initialized successfully",
@@ -147,8 +145,7 @@ class InitializePaymentView(APIView):
 # VERIFY PAYMENT
 # =========================
 class VerifyPaymentView(APIView):
-    permission_classes = [AllowAny]  # IMPORTANT for guest return flow
-    serializer_class = PaymentVerifySerializer
+    permission_classes = [AllowAny]
 
     def post(self, request):
         serializer = PaymentVerifySerializer(data=request.data)
@@ -159,12 +156,13 @@ class VerifyPaymentView(APIView):
             reference=serializer.validated_data["reference"]
         )
 
-        # safe ownership check (works for guest + auth)
-        if payment.user and payment.user != request.user:
-            return Response(
-                {"error": "Unauthorized"},
-                status=status.HTTP_403_FORBIDDEN
-            )
+        # FIXED: safe auth check (guest + auth safe)
+        if payment.user:
+            if not request.user.is_authenticated:
+                return Response({"error": "Unauthorized"}, status=status.HTTP_403_FORBIDDEN)
+
+            if payment.user != request.user:
+                return Response({"error": "Unauthorized"}, status=status.HTTP_403_FORBIDDEN)
 
         if payment.is_successful:
             return Response({
@@ -212,18 +210,12 @@ class PaymentStatusView(APIView):
         job = get_object_or_404(Job, id=job_id)
 
         if job.client != request.user and job.freelancer != request.user:
-            return Response(
-                {"error": "Unauthorized"},
-                status=status.HTTP_403_FORBIDDEN
-            )
+            return Response({"error": "Unauthorized"}, status=status.HTTP_403_FORBIDDEN)
 
         payment = job.payments.order_by("-created_at").first()
 
         if not payment:
-            return Response(
-                {"error": "No payment found"},
-                status=status.HTTP_404_NOT_FOUND
-            )
+            return Response({"error": "No payment found"}, status=status.HTTP_404_NOT_FOUND)
 
         return Response(PaymentStatusSerializer({
             "reference": payment.reference,
@@ -243,7 +235,10 @@ class PaystackWebhookView(APIView):
 
     def post(self, request):
         try:
-            data = json.loads(request.body.decode("utf-8"))
+            try:
+                data = json.loads(request.body.decode("utf-8"))
+            except json.JSONDecodeError:
+                return Response({"error": "Invalid payload"}, status=400)
 
             event = data.get("event")
             payload = data.get("data", {})
@@ -261,7 +256,11 @@ class PaystackWebhookView(APIView):
                 log.payment = payment
                 log.save(update_fields=["payment"])
 
-                if event == "charge.success" and not payment.is_successful:
+                # FIXED: idempotency protection
+                if payment.is_successful:
+                    return Response({"status": "already processed"})
+
+                if event == "charge.success":
                     payment.mark_as_successful(payload)
 
                 elif event == "charge.failed":
@@ -295,5 +294,4 @@ class PaymentWebhookLogViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         if self.request.user.is_staff:
             return PaymentWebhookLog.objects.all()
-
-        return PaymentWebhookLog.objects.none()
+        return PaymentWebhookLog.objects.none() 
