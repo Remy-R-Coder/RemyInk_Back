@@ -5,33 +5,45 @@ from orders.models import Job, JobStatus
 # --- INTERNAL HELPER ---
 # Since utils.py doesn't exist, we define the identity resolver here.
 def resolve_actor_context(request):
-    """
-    Determines if the requester is an Authenticated User 
-    or a Guest with a valid session key.
-    """
     if not request:
         return None
         
-    # 1. Check for logged-in User
+    # 1. Standard Auth (Highest Priority)
     if request.user and request.user.is_authenticated:
         return {"user": request.user, "type": "auth"}
 
-    # 2. Check for Guest via session_key in URL or Body
-    session_key = request.query_params.get('session_key') or request.data.get('session_key')
+    # 2. Extract Session Key from any possible location
+    session_key = (
+        request.query_params.get('session_key') or 
+        request.data.get('session_key') or 
+        request.COOKIES.get('sessionid') or
+        getattr(request.session, 'session_key', None)
+    )
+    
     if session_key:
         from django.contrib.sessions.models import Session
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
         try:
             session = Session.objects.get(session_key=session_key)
-            uid = session.get_decoded().get('_auth_user_id')
+            session_data = session.get_decoded()
+            
+            # Look for the user ID in the session
+            uid = session_data.get('_auth_user_id')
             if uid:
-                from django.contrib.auth import get_user_model
-                user = get_user_model().objects.get(pk=uid)
+                user = User.objects.get(pk=uid)
                 return {"user": user, "type": "session"}
-        except Exception:
-            pass
+            
+            # FALLBACK: If this is a pure Guest (no User ID yet), 
+            # we need to decide if RemyInk allows anonymous payments.
+            # For now, we assume a User must be attached to the session.
+            
+        except Session.DoesNotExist:
+            print(f"Session {session_key} not found in database.")
+        except Exception as e:
+            print(f"Session resolution error: {e}")
             
     return None
-
 
 class PaymentSerializer(serializers.ModelSerializer):
     """Serializer for Payment model"""
