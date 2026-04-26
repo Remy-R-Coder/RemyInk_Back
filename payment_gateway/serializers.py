@@ -2,7 +2,35 @@ from rest_framework import serializers
 from .models import Payment, PaymentStatus, PaymentWebhookLog
 from orders.models import Job, JobStatus
 
-from payments.utils import resolve_actor_context
+# --- INTERNAL HELPER ---
+# Since utils.py doesn't exist, we define the identity resolver here.
+def resolve_actor_context(request):
+    """
+    Determines if the requester is an Authenticated User 
+    or a Guest with a valid session key.
+    """
+    if not request:
+        return None
+        
+    # 1. Check for logged-in User
+    if request.user and request.user.is_authenticated:
+        return {"user": request.user, "type": "auth"}
+
+    # 2. Check for Guest via session_key in URL or Body
+    session_key = request.query_params.get('session_key') or request.data.get('session_key')
+    if session_key:
+        from django.contrib.sessions.models import Session
+        try:
+            session = Session.objects.get(session_key=session_key)
+            uid = session.get_decoded().get('_auth_user_id')
+            if uid:
+                from django.contrib.auth import get_user_model
+                user = get_user_model().objects.get(pk=uid)
+                return {"user": user, "type": "session"}
+        except Exception:
+            pass
+            
+    return None
 
 
 class PaymentSerializer(serializers.ModelSerializer):
@@ -27,8 +55,7 @@ class PaymentSerializer(serializers.ModelSerializer):
             'created_at', 'updated_at'
         ]
         read_only_fields = [
-            'id',
-            'job_id', 'job_title',
+            'id', 'job_id', 'job_title',
             'user_email', 'username',
             'reference', 'authorization_url', 'access_code',
             'status',
@@ -46,6 +73,8 @@ class PaymentInitializeSerializer(serializers.Serializer):
 
     def validate(self, attrs):
         request = self.context.get('request')
+        
+        # Identity Check
         actor_context = resolve_actor_context(request)
 
         if not actor_context:
@@ -61,17 +90,13 @@ class PaymentInitializeSerializer(serializers.Serializer):
         except Job.DoesNotExist:
             raise serializers.ValidationError("Job not found")
 
-        # -----------------------------
-        # OWNERSHIP CHECK (ID SAFE)
-        # -----------------------------
+        # Ownership Check
         if job.client_id != actor_user.pk:
             raise serializers.ValidationError(
                 "You are not authorized to pay for this job."
             )
 
-        # -----------------------------
-        # VALID JOB STATE CHECK
-        # -----------------------------
+        # Valid Job State Check
         if job.status not in [
             JobStatus.PROVISIONAL,
             JobStatus.PENDING_PAYMENT,
@@ -81,17 +106,13 @@ class PaymentInitializeSerializer(serializers.Serializer):
                 f"Job is not awaiting payment. Current status: {job.get_status_display()}"
             )
 
-        # -----------------------------
-        # SUCCESS PAYMENT GUARD
-        # -----------------------------
+        # Success Payment Guard
         if job.payments.filter(status=PaymentStatus.SUCCESS).exists():
             raise serializers.ValidationError(
                 "This job has already been paid for."
             )
 
-        # -----------------------------
-        # IDEMPOTENCY SAFETY CHECK
-        # -----------------------------
+        # Idempotency Safety Check
         idempotency_key = attrs.get("idempotency_key")
 
         if idempotency_key:
@@ -102,7 +123,6 @@ class PaymentInitializeSerializer(serializers.Serializer):
             ).select_related("job", "user").first()
 
             if existing_payment:
-                # ownership safety check
                 if existing_payment.user_id != actor_user.pk:
                     raise serializers.ValidationError(
                         "Invalid payment session ownership."
@@ -110,7 +130,7 @@ class PaymentInitializeSerializer(serializers.Serializer):
 
                 attrs["existing_payment"] = existing_payment
 
-        # attach validated objects for view layer
+        # Attach for View
         attrs["job"] = job
         attrs["actor_user"] = actor_user
 
@@ -119,7 +139,6 @@ class PaymentInitializeSerializer(serializers.Serializer):
 
 class PaymentVerifySerializer(serializers.Serializer):
     """Serializer for payment verification request"""
-
     reference = serializers.CharField(required=True, max_length=255)
 
 
@@ -129,14 +148,8 @@ class PaymentWebhookLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = PaymentWebhookLog
         fields = [
-            'id',
-            'event_type',
-            'reference',
-            'payload',
-            'payment',
-            'processed',
-            'processing_error',
-            'created_at'
+            'id', 'event_type', 'reference', 'payload',
+            'payment', 'processed', 'processing_error', 'created_at'
         ]
         read_only_fields = ['id', 'created_at']
 
@@ -146,12 +159,7 @@ class PaymentStatusSerializer(serializers.Serializer):
 
     reference = serializers.CharField()
     status = serializers.CharField()
-
-    amount = serializers.DecimalField(
-        max_digits=10,
-        decimal_places=2
-    )
-
+    amount = serializers.DecimalField(max_digits=10, decimal_places=2)
     paid_at = serializers.DateTimeField(allow_null=True)
     job_id = serializers.UUIDField()
     job_status = serializers.CharField()
