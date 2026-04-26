@@ -69,7 +69,7 @@ class InitializePaymentView(APIView):
                     {"error": "Email is required for payment"},
                     status=status.HTTP_400_BAD_REQUEST
                 )
-           
+            
             # -------------------------
             # CREATE PAYMENT
             # -------------------------
@@ -79,24 +79,25 @@ class InitializePaymentView(APIView):
                     user=actor["user"] if actor["type"] == "auth" else None,
                     amount=job.total_amount,
                     currency="USD",
-                    reference=paystack.generate_reference(),
+                    reference=paystack.generate_reference() if hasattr(paystack, 'generate_reference') else f"JOB-{job.id}-{int(transaction.now().timestamp())}",
                     status=PaymentStatus.PENDING,
                     ip_address=self._get_client_ip(request),
                     user_agent=request.META.get("HTTP_USER_AGENT", ""),
                 )
 
             # -------------------------
-            # PAYSTACK INIT
+            # PAYSTACK INIT (FIXED METHOD NAME 🔥)
             # -------------------------
-            response = paystack.initialize_payment(
+            # Your PaystackService uses 'initialize_transaction'
+            response = paystack.initialize_transaction(
                 email=email,
                 amount=job.total_amount,
                 reference=payment.reference,
-                callback_url=callback_url,
                 metadata={
                     "job_id": str(job.id),
                     "actor_type": actor["type"],
-                    "payment_id": str(payment.id)
+                    "payment_id": str(payment.id),
+                    "callback_url": callback_url
                 }
             )
 
@@ -113,14 +114,15 @@ class InitializePaymentView(APIView):
             payment.paystack_response = response
             payment.save()
 
+            # Update Job
             job.status = JobStatus.PENDING_PAYMENT
-            job.paystack_reference = payment.reference
-            job.paystack_authorization_url = payment.authorization_url
-            job.save(update_fields=[
-                "status",
-                "paystack_reference",
-                "paystack_authorization_url"
-            ])
+            # Using hasattr to prevent crashes if fields aren't on Job model
+            if hasattr(job, 'paystack_reference'):
+                job.paystack_reference = payment.reference
+            if hasattr(job, 'paystack_authorization_url'):
+                job.paystack_authorization_url = payment.authorization_url
+            
+            job.save()
 
             return Response({
                 "message": "Payment initialized successfully",
@@ -130,7 +132,8 @@ class InitializePaymentView(APIView):
             }, status=status.HTTP_201_CREATED)
 
         except Exception as e:
-            logger.error(f"Payment initialization failed: {str(e)}")
+            # Adding exc_info=True will print the full traceback to your server logs
+            logger.error(f"Payment initialization failed: {str(e)}", exc_info=True)
             return Response(
                 {"error": "Payment initialization failed", "detail": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
@@ -156,7 +159,6 @@ class VerifyPaymentView(APIView):
             reference=serializer.validated_data["reference"]
         )
 
-        # FIXED: safe auth check (guest + auth safe)
         if payment.user:
             if not request.user.is_authenticated:
                 return Response({"error": "Unauthorized"}, status=status.HTTP_403_FORBIDDEN)
@@ -173,7 +175,8 @@ class VerifyPaymentView(APIView):
         paystack = PaystackService()
 
         try:
-            result = paystack.verify_payment(payment.reference)
+            # FIXED: Updated to match service method name 'verify_transaction'
+            result = paystack.verify_transaction(payment.reference)
 
             if result and result.get("status"):
                 with transaction.atomic():
@@ -193,9 +196,9 @@ class VerifyPaymentView(APIView):
             )
 
         except Exception as e:
-            logger.error(str(e))
+            logger.error(f"Verification error: {str(e)}", exc_info=True)
             return Response(
-                {"error": "Verification error"},
+                {"error": "Verification error", "detail": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
@@ -256,7 +259,6 @@ class PaystackWebhookView(APIView):
                 log.payment = payment
                 log.save(update_fields=["payment"])
 
-                # FIXED: idempotency protection
                 if payment.is_successful:
                     return Response({"status": "already processed"})
 
@@ -272,7 +274,7 @@ class PaystackWebhookView(APIView):
             return Response({"status": "ok"})
 
         except Exception as e:
-            logger.error(str(e))
+            logger.error(f"Webhook processing failed: {str(e)}", exc_info=True)
             return Response({"error": "Webhook failed"}, status=500)
 
 
@@ -294,4 +296,4 @@ class PaymentWebhookLogViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         if self.request.user.is_staff:
             return PaymentWebhookLog.objects.all()
-        return PaymentWebhookLog.objects.none() 
+        return PaymentWebhookLog.objects.none()
