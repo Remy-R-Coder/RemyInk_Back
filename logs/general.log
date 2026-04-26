@@ -8972,3 +8972,7 @@ ERROR 2026-04-12 14:50:20,915 runserver 18580 13700 [35;1mHTTP POST /api/chat/t
 INFO 2026-04-12 20:00:30,193 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/categories?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.16, 127.0.0.1:65152][0m
 INFO 2026-04-12 20:00:30,229 runserver 18580 13700 [mHTTP OPTIONS /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.02, 127.0.0.1:65152][0m
 INFO 2026-04-12 20:00:30,740 runserver 18580 13700 [mHTTP GET /api/jobs/categories/?session_key=53lyphneby7tai7jhsrtuv12cxrxc7ke 200 [0.19, 127.0.0.1:61662][0m
+INFO 2026-04-26 11:05:14,071 autoreload 17328 17188 Watching for file changes with StatReloader
+INFO 2026-04-26 11:05:14,464 server 17328 2856 HTTP/2 support enabled
+INFO 2026-04-26 11:05:14,465 server 17328 2856 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-26 11:05:14,466 server 17328 2856 Listening on TCP address 127.0.0.1:8000
