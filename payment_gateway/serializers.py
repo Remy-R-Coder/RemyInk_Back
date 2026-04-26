@@ -28,6 +28,7 @@ def resolve_actor_context(request):
     # GUEST
     email = (
         getattr(request, "data", {}).get("email")
+        or getattr(request, "data", {}).get("client_email")
         or getattr(request, "query_params", {}).get("email")
     )
 
@@ -73,14 +74,10 @@ class PaymentSerializer(serializers.ModelSerializer):
         read_only_fields = fields
 
     def get_user_email(self, obj):
-        if obj.user:
-            return obj.user.email
-        return getattr(obj, "guest_email", None)
+        return obj.user.email if obj.user else getattr(obj, "guest_email", None)
 
     def get_username(self, obj):
-        if obj.user:
-            return obj.user.username
-        return "Guest"
+        return obj.user.username if obj.user else "Guest"
 
 
 # =============================
@@ -91,8 +88,13 @@ class PaymentInitializeSerializer(serializers.Serializer):
     job_id = serializers.UUIDField(required=True)
     callback_url = serializers.URLField(required=False, allow_blank=True)
     idempotency_key = serializers.CharField(required=False, allow_blank=True)
-    email = serializers.EmailField(required=False, allow_blank=True)
 
+    # support BOTH old + frontend payloads
+    email = serializers.EmailField(required=False, allow_blank=True)
+    client_email = serializers.EmailField(required=False, allow_blank=True)
+
+    client_password = serializers.CharField(required=False, allow_blank=True)
+    client_password_confirm = serializers.CharField(required=False, allow_blank=True)
 
     def validate(self, attrs):
         request = self.context.get("request")
@@ -101,14 +103,17 @@ class PaymentInitializeSerializer(serializers.Serializer):
         if not actor:
             raise serializers.ValidationError("Invalid actor")
 
-        job_id = attrs["job_id"]
-
         try:
-            job = Job.objects.get(id=job_id)
+            job = Job.objects.get(id=attrs["job_id"])
         except Job.DoesNotExist:
             raise serializers.ValidationError("Job not found")
 
-        email = attrs.get("email")
+        # unified email resolution
+        email = (
+            attrs.get("client_email")
+            or attrs.get("email")
+            or actor.get("email")
+        )
 
         # =========================
         # AUTH USER RULE
@@ -118,10 +123,6 @@ class PaymentInitializeSerializer(serializers.Serializer):
                 raise serializers.ValidationError(
                     "Not authorized to pay for this job."
                 )
-
-            # fallback email from user account
-            if not email:
-                email = actor["user"].email
 
         # =========================
         # GUEST RULE
@@ -161,14 +162,13 @@ class PaymentInitializeSerializer(serializers.Serializer):
             if existing:
                 attrs["existing_payment"] = existing
 
-        # =========================
         # FINAL OUTPUT
-        # =========================
         attrs["job"] = job
         attrs["actor"] = actor
         attrs["email"] = email
 
         return attrs
+
 
 # =============================
 # VERIFY SERIALIZER
