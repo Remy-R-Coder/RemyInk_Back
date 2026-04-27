@@ -83,6 +83,7 @@ class InitializePaymentView(APIView):
                 email=email,
                 amount=job.total_amount,
                 reference=payment.reference,
+                currency="USD",  # <--- YOU MUST ADD THIS LINE
                 metadata={
                     "job_id": str(job.id),
                     "actor_type": actor["type"],

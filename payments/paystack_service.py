@@ -11,12 +11,13 @@ class PaystackService:
             'Content-Type': 'application/json',
         }
 
-    def initialize_transaction(self, email, amount, reference, metadata=None):
+    def initialize_transaction(self, email, amount, reference, currency="USD", metadata=None):
         url = settings.PAYSTACK_INITIALIZE_URL
         
         data = {
             "email": email,
             "amount": int(amount * 100), 
+            "currency": currency,  # <--- THIS IS THE LINE YOU ARE MISSING
             "reference": reference,
             "metadata": metadata if metadata is not None else {}
         }
