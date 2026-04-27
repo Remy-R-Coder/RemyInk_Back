@@ -10,8 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 
-if os.path.exists(os.path.join(BASE_DIR, '.env')):
-    environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# Only read .env if we are NOT in production or if the file exists locally
+if not os.getenv('DIGITALOCEAN_APP_ID'): # DO automatically sets this variable
+    if os.path.exists(os.path.join(BASE_DIR, '.env')):
+        environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG')
@@ -22,16 +24,15 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 if IS_PRODUCTION and not ALLOWED_HOSTS:
     raise ImproperlyConfigured('ALLOWED_HOSTS must be set in production.')
 # Add this to your config/settings.py
-PAYSTACK_CALLBACK_URL = "http://localhost:3000/payment/verify"
-PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY')
-PAYSTACK_PUBLIC_KEY = env('PAYSTACK_PUBLIC_KEY')
+PAYSTACK_CALLBACK_URL = env('PAYSTACK_CALLBACK_URL', default='https://remyink-9gqjd.ondigitalocean.app/payment/verify')
+PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY_LIVE')
+PAYSTACK_PUBLIC_KEY = env('PAYSTACK_PUBLIC_KEY_LIVE')
 PAYSTACK_WEBHOOK_SECRET = env('PAYSTACK_WEBHOOK_SECRET')
 PAYSTACK_INITIALIZE_URL = 'https://api.paystack.co/transaction/initialize'
 PAYSTACK_VERIFY_URL = 'https://api.paystack.co/transaction/verify/'
 
 CLIENT_FEE_PERCENTAGE = 0.20
 FREELANCER_PAYOUT_PERCENTAGE = 0.80
-
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=7),
