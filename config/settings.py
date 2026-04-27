@@ -21,7 +21,8 @@ IS_PRODUCTION = ENVIRONMENT == 'production'
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 if IS_PRODUCTION and not ALLOWED_HOSTS:
     raise ImproperlyConfigured('ALLOWED_HOSTS must be set in production.')
-
+# Add this to your config/settings.py
+PAYSTACK_CALLBACK_URL = "http://localhost:3000/payment/verify"
 PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY_NEW')
 PAYSTACK_PUBLIC_KEY = env('PAYSTACK_PUBLIC_KEY_NEW')
 PAYSTACK_WEBHOOK_SECRET = env('PAYSTACK_WEBHOOK_SECRET')

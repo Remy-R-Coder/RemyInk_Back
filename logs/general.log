@@ -9809,3 +9809,354 @@ INFO 2026-04-26 13:15:14,983 server 12516 1368 Configuring endpoint tcp:port=800
 INFO 2026-04-26 13:15:14,985 server 12516 1368 Listening on TCP address 127.0.0.1:8000
 INFO 2026-04-26 13:15:39,497 autoreload 12516 4572 C:\Users\USER\RemyInk_Back\payment_gateway\serializers.py changed, reloading.
 INFO 2026-04-26 13:15:43,100 autoreload 20284 5940 Watching for file changes with StatReloader
+INFO 2026-04-27 01:56:22,422 autoreload 6112 20140 Watching for file changes with StatReloader
+INFO 2026-04-27 01:56:23,536 server 6112 20832 HTTP/2 support enabled
+INFO 2026-04-27 01:56:23,537 server 6112 20832 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-27 01:56:23,539 server 6112 20832 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-27 01:56:52,414 runserver 6112 20832 [mHTTP OPTIONS /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:57420][0m
+INFO 2026-04-27 01:56:52,909 authentication 6112 20680 JWT auth returned None (no auth header present)
+INFO 2026-04-27 01:56:53,047 runserver 6112 20832 [mHTTP GET /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.29, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:56:53,152 runserver 6112 20832 [mHTTP OPTIONS /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:57420][0m
+INFO 2026-04-27 01:56:53,160 runserver 6112 20832 [mHTTP OPTIONS /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:51877][0m
+INFO 2026-04-27 01:56:53,217 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.06, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:56:53,295 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.07, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:57:01,178 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:57:10,165 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:57:17,176 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:57:26,176 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:57:34,235 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.07, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:57:38,988 runserver 6112 20832 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:57:38,990 runserver 6112 20832 [mHTTP OPTIONS /api/users/me/ 200 [0.02, 127.0.0.1:58783][0m
+INFO 2026-04-27 01:57:39,121 runserver 6112 20832 [mHTTP GET /api/users/me/ 200 [0.12, 127.0.0.1:58783][0m
+INFO 2026-04-27 01:57:39,122 runserver 6112 20832 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.12, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:57:42,172 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:57:45,417 runserver 6112 20832 [mHTTP OPTIONS /api/users/dashboard/notifications/ 200 [0.01, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:57:45,799 runserver 6112 20832 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.07, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:57:48,543 runserver 6112 20832 [mHTTP OPTIONS /api/users/dashboard/notifications/notif-95f2a6bf-e580-48c1-8541-4f55afa4963f/read/ 200 [0.00, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:57:48,575 runserver 6112 20832 [mHTTP PUT /api/users/dashboard/notifications/notif-95f2a6bf-e580-48c1-8541-4f55afa4963f/read/ 200 [0.03, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:57:48,634 runserver 6112 20832 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.05, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:57:50,163 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:57:52,372 runserver 6112 20832 [mHTTP OPTIONS /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/dispute/ 200 [0.01, 127.0.0.1:58783][0m
+INFO 2026-04-27 01:57:52,373 runserver 6112 20832 [mHTTP OPTIONS /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.01, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:57:52,414 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.03, 127.0.0.1:56119][0m
+WARNING 2026-04-27 01:57:52,480 log 6112 22684 Bad Request: /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/dispute/
+WARNING 2026-04-27 01:57:52,482 runserver 6112 20832 [31;1mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/dispute/ 400 [0.10, 127.0.0.1:58291][0m
+INFO 2026-04-27 01:57:52,971 runserver 6112 20832 [mHTTP OPTIONS /api/chat/threads/ 200 [0.04, 127.0.0.1:58783][0m
+INFO 2026-04-27 01:57:53,082 authentication 6112 18504 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-27 01:57:53,172 runserver 6112 20832 [mHTTP GET /api/chat/threads/ 200 [0.19, 127.0.0.1:58291][0m
+INFO 2026-04-27 01:57:57,175 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:57:59,147 runserver 6112 20832 [mHTTP OPTIONS /api/chat/threads/3/messages/ 200 [0.01, 127.0.0.1:58783][0m
+INFO 2026-04-27 01:57:59,149 runserver 6112 20832 [mHTTP OPTIONS /api/chat/threads/3/ 200 [0.01, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:57:59,167 authentication 6112 9984 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-27 01:57:59,172 authentication 6112 23160 JWT auth successful for user: Remy01 (ADMIN)
+INFO 2026-04-27 01:57:59,219 runserver 6112 20832 [mHTTP GET /api/chat/threads/3/messages/ 200 [0.07, 127.0.0.1:58291][0m
+INFO 2026-04-27 01:57:59,222 runserver 6112 20832 [mHTTP GET /api/chat/threads/3/ 200 [0.07, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:57:59,266 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.02, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:57:59,292 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.02, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:57:59,330 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.03, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:58:06,183 runserver 6112 20832 [mHTTP OPTIONS /api/payments/initialize/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.00, 127.0.0.1:61259][0m
+WARNING 2026-04-27 01:58:06,205 log 6112 22684 Bad Request: /api/payments/initialize/
+WARNING 2026-04-27 01:58:06,205 runserver 6112 20832 [31;1mHTTP POST /api/payments/initialize/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 400 [0.02, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:58:07,291 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.03, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:58:08,689 runserver 6112 20832 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.03, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:58:15,276 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.03, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:58:23,285 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.03, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:58:32,177 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.02, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:58:39,180 runserver 6112 20832 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.02, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:58:40,165 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.01, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:58:48,169 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.02, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:58:53,179 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:58:56,173 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.01, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:58:59,364 runserver 6112 20832 [mHTTP GET /api/users/me/ 200 [0.03, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:58:59,409 runserver 6112 20832 [mHTTP GET /api/users/dashboard/notifications/ 200 [0.04, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:59:04,175 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/ 200 [0.02, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:04,730 runserver 6112 20832 [mHTTP OPTIONS /api/users/csrf-and-session/ 200 [0.01, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:59:04,731 runserver 6112 20832 [mHTTP OPTIONS /api/users/csrf-and-session/ 200 [0.01, 127.0.0.1:51829][0m
+INFO 2026-04-27 01:59:04,793 runserver 6112 20832 [mHTTP GET /api/users/csrf-and-session/ 200 [0.06, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:04,817 runserver 6112 20832 [mHTTP GET /api/users/csrf-and-session/ 200 [0.02, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:04,833 runserver 6112 20832 [mHTTP OPTIONS /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.00, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:59:04,839 authentication 6112 22340 JWT auth returned None (no auth header present)
+WARNING 2026-04-27 01:59:04,847 log 6112 22684 Unauthorized: /api/chat/threads/3/messages/
+WARNING 2026-04-27 01:59:04,848 runserver 6112 20832 [31;1mHTTP GET /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 401 [0.01, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:09,866 runserver 6112 20832 [mHTTP OPTIONS /api/jobs/categories?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.03, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:59:09,867 runserver 6112 20832 [mHTTP OPTIONS /api/jobs/categories?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.03, 127.0.0.1:51829][0m
+INFO 2026-04-27 01:59:10,412 runserver 6112 20832 [32mHTTP GET /api/jobs/categories?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 301 [0.54, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:10,447 runserver 6112 20832 [mHTTP OPTIONS /api/jobs/categories/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.02, 127.0.0.1:61259][0m
+INFO 2026-04-27 01:59:10,449 runserver 6112 20832 [mHTTP OPTIONS /api/jobs/categories/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.02, 127.0.0.1:51829][0m
+INFO 2026-04-27 01:59:10,522 runserver 6112 20832 [mHTTP GET /api/jobs/categories/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.07, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:10,589 runserver 6112 20832 [mHTTP GET /api/jobs/categories/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.06, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:11,606 runserver 6112 20832 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=e288e1a6-3bbf-48da-9b94-7ea61618956b&session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.00, 127.0.0.1:51829][0m
+INFO 2026-04-27 01:59:11,646 runserver 6112 20832 [mHTTP GET /api/jobs/subject-areas/?category_id=e288e1a6-3bbf-48da-9b94-7ea61618956b&session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.04, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:13,713 runserver 6112 20832 [mHTTP OPTIONS /api/users/freelancers/?subject_id=2788ccb1-0deb-4be5-82e8-eb7b72aee2bb&session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.01, 127.0.0.1:51829][0m
+INFO 2026-04-27 01:59:13,793 runserver 6112 20832 [mHTTP GET /api/users/freelancers/?subject_id=2788ccb1-0deb-4be5-82e8-eb7b72aee2bb&session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.07, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:17,086 runserver 6112 20832 [mHTTP OPTIONS /api/chat/threads/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.00, 127.0.0.1:51829][0m
+INFO 2026-04-27 01:59:17,095 authentication 6112 23656 JWT auth returned None (no auth header present)
+INFO 2026-04-27 01:59:17,097 views 6112 23656 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-27 01:59:17,149 runserver 6112 20832 [mHTTP POST /api/chat/threads/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 201 [0.06, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:17,362 runserver 6112 20832 [mHTTP OPTIONS /api/chat/threads/4/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.01, 127.0.0.1:51829][0m
+INFO 2026-04-27 01:59:17,378 authentication 6112 22520 JWT auth returned None (no auth header present)
+INFO 2026-04-27 01:59:17,412 runserver 6112 20832 [mHTTP GET /api/chat/threads/4/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.05, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:24,207 authentication 6112 24164 JWT auth returned None (no auth header present)
+INFO 2026-04-27 01:59:24,235 views 6112 24164 Linked thread 4 to shadow client Client06
+INFO 2026-04-27 01:59:24,636 runserver 6112 20832 [mHTTP POST /api/chat/threads/4/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 201 [0.43, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:24,645 authentication 6112 23736 JWT auth returned None (no auth header present)
+INFO 2026-04-27 01:59:24,671 runserver 6112 20832 [mHTTP GET /api/chat/threads/4/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.03, 127.0.0.1:56119][0m
+INFO 2026-04-27 01:59:33,954 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.04, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:59:41,177 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:59:49,165 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 01:59:57,184 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:00:05,188 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:00:06,285 runserver 6112 20832 [mHTTP OPTIONS /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.00, 127.0.0.1:58244][0m
+ERROR 2026-04-27 02:00:06,725 log 6112 22684 Internal Server Error: /api/payments/initialize/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\payment_gateway\views.py", line 45, in post
+    callback_url = serializer.validated_data.get("callback_url") or settings.PAYSTACK_CALLBACK_URL
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'PAYSTACK_CALLBACK_URL'
+ERROR 2026-04-27 02:00:06,786 runserver 6112 20832 [35;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [0.50, 127.0.0.1:64327][0m
+ERROR 2026-04-27 02:00:10,029 log 6112 22684 Internal Server Error: /api/payments/initialize/
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 555, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+        request, *callback_args, **callback_kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 504, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\asgiref\sync.py", line 559, in thread_handler
+    return func(*args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\USER\RemyInk_Back\payment_gateway\views.py", line 45, in post
+    callback_url = serializer.validated_data.get("callback_url") or settings.PAYSTACK_CALLBACK_URL
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\RemyInk_Back\venv\Lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'PAYSTACK_CALLBACK_URL'
+ERROR 2026-04-27 02:00:10,035 runserver 6112 20832 [35;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [0.05, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:00:13,168 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:00:21,169 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:00:30,164 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:00:37,173 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:00:46,171 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:00:54,160 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:01:02,164 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:01:10,164 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:01:17,225 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:64327][0m
+INFO 2026-04-27 02:01:26,173 runserver 6112 20832 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:64327][0m
+INFO 2026-04-27 06:27:01,178 autoreload 15020 18416 Watching for file changes with StatReloader
+INFO 2026-04-27 06:27:01,907 server 15020 12188 HTTP/2 support enabled
+INFO 2026-04-27 06:27:01,907 server 15020 12188 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-27 06:27:01,909 server 15020 12188 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-27 06:27:16,373 runserver 15020 12188 [mHTTP OPTIONS /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.01, 127.0.0.1:64160][0m
+INFO 2026-04-27 06:27:16,708 authentication 15020 17328 JWT auth returned None (no auth header present)
+WARNING 2026-04-27 06:27:16,731 log 15020 1440 Unauthorized: /api/chat/threads/3/messages/
+WARNING 2026-04-27 06:27:16,733 runserver 15020 12188 [31;1mHTTP GET /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 401 [0.05, 127.0.0.1:55534][0m
+INFO 2026-04-27 06:27:18,767 authentication 15020 21064 JWT auth returned None (no auth header present)
+WARNING 2026-04-27 06:27:18,785 log 15020 1440 Unauthorized: /api/chat/threads/3/messages/
+WARNING 2026-04-27 06:27:18,786 runserver 15020 12188 [31;1mHTTP GET /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 401 [0.04, 127.0.0.1:55534][0m
+INFO 2026-04-27 06:27:22,814 authentication 15020 19736 JWT auth returned None (no auth header present)
+WARNING 2026-04-27 06:27:22,829 log 15020 1440 Unauthorized: /api/chat/threads/3/messages/
+WARNING 2026-04-27 06:27:22,830 runserver 15020 12188 [31;1mHTTP GET /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 401 [0.02, 127.0.0.1:55534][0m
+INFO 2026-04-27 06:27:26,625 authentication 15020 1460 JWT auth returned None (no auth header present)
+WARNING 2026-04-27 06:27:26,656 log 15020 1440 Unauthorized: /api/chat/threads/3/messages/
+WARNING 2026-04-27 06:27:26,679 runserver 15020 12188 [31;1mHTTP GET /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 401 [0.11, 127.0.0.1:55534][0m
+INFO 2026-04-27 06:27:27,723 authentication 15020 20572 JWT auth returned None (no auth header present)
+WARNING 2026-04-27 06:27:27,729 log 15020 1440 Unauthorized: /api/chat/threads/3/messages/
+WARNING 2026-04-27 06:27:27,730 runserver 15020 12188 [31;1mHTTP GET /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 401 [0.01, 127.0.0.1:55534][0m
+INFO 2026-04-27 06:27:29,760 authentication 15020 19364 JWT auth returned None (no auth header present)
+WARNING 2026-04-27 06:27:29,771 log 15020 1440 Unauthorized: /api/chat/threads/3/messages/
+WARNING 2026-04-27 06:27:29,772 runserver 15020 12188 [31;1mHTTP GET /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 401 [0.02, 127.0.0.1:55534][0m
+INFO 2026-04-27 06:27:33,803 authentication 15020 21168 JWT auth returned None (no auth header present)
+WARNING 2026-04-27 06:27:33,817 log 15020 1440 Unauthorized: /api/chat/threads/3/messages/
+WARNING 2026-04-27 06:27:33,819 runserver 15020 12188 [31;1mHTTP GET /api/chat/threads/3/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 401 [0.03, 127.0.0.1:55534][0m
+INFO 2026-04-27 06:29:01,197 autoreload 15020 18416 C:\Users\USER\RemyInk_Back\config\settings.py changed, reloading.
+INFO 2026-04-27 06:29:04,435 autoreload 7540 7272 Watching for file changes with StatReloader
+INFO 2026-04-27 06:29:04,885 server 7540 22232 HTTP/2 support enabled
+INFO 2026-04-27 06:29:04,885 server 7540 22232 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-27 06:29:04,886 server 7540 22232 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-27 06:29:07,543 autoreload 7540 7272 C:\Users\USER\RemyInk_Back\config\settings.py changed, reloading.
+INFO 2026-04-27 06:29:10,751 autoreload 5328 7108 Watching for file changes with StatReloader
+INFO 2026-04-27 06:29:11,211 server 5328 19268 HTTP/2 support enabled
+INFO 2026-04-27 06:29:11,212 server 5328 19268 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-27 06:29:11,213 server 5328 19268 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-27 06:30:03,153 runserver 5328 19268 [mHTTP OPTIONS /api/jobs/categories?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.01, 127.0.0.1:62581][0m
+INFO 2026-04-27 06:30:03,156 runserver 5328 19268 [mHTTP OPTIONS /api/jobs/categories?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.01, 127.0.0.1:64303][0m
+INFO 2026-04-27 06:30:03,174 runserver 5328 19268 [mHTTP OPTIONS /api/jobs/categories/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.01, 127.0.0.1:62581][0m
+INFO 2026-04-27 06:30:03,176 runserver 5328 19268 [mHTTP OPTIONS /api/jobs/categories/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.01, 127.0.0.1:64303][0m
+INFO 2026-04-27 06:30:03,545 runserver 5328 19268 [mHTTP GET /api/jobs/categories/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.05, 127.0.0.1:64933][0m
+INFO 2026-04-27 06:30:03,585 runserver 5328 19268 [mHTTP GET /api/jobs/categories/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.04, 127.0.0.1:64933][0m
+INFO 2026-04-27 06:30:05,018 runserver 5328 19268 [mHTTP OPTIONS /api/jobs/subject-areas/?category_id=e288e1a6-3bbf-48da-9b94-7ea61618956b&session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.00, 127.0.0.1:64303][0m
+INFO 2026-04-27 06:30:05,065 runserver 5328 19268 [mHTTP GET /api/jobs/subject-areas/?category_id=e288e1a6-3bbf-48da-9b94-7ea61618956b&session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.04, 127.0.0.1:64933][0m
+INFO 2026-04-27 06:30:07,228 runserver 5328 19268 [mHTTP OPTIONS /api/users/freelancers/?subject_id=2788ccb1-0deb-4be5-82e8-eb7b72aee2bb&session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.00, 127.0.0.1:64303][0m
+INFO 2026-04-27 06:30:07,295 runserver 5328 19268 [mHTTP GET /api/users/freelancers/?subject_id=2788ccb1-0deb-4be5-82e8-eb7b72aee2bb&session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.06, 127.0.0.1:64933][0m
+INFO 2026-04-27 06:30:10,350 runserver 5328 19268 [mHTTP OPTIONS /api/chat/threads/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.01, 127.0.0.1:64303][0m
+INFO 2026-04-27 06:30:10,358 authentication 5328 18164 JWT auth returned None (no auth header present)
+INFO 2026-04-27 06:30:10,359 views 5328 18164 Create thread request - User: AnonymousUser, Authenticated: False, Auth header: None
+INFO 2026-04-27 06:30:10,422 runserver 5328 19268 [mHTTP POST /api/chat/threads/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.07, 127.0.0.1:64933][0m
+INFO 2026-04-27 06:30:10,608 runserver 5328 19268 [mHTTP OPTIONS /api/chat/threads/4/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.00, 127.0.0.1:64303][0m
+INFO 2026-04-27 06:30:10,619 authentication 5328 1144 JWT auth returned None (no auth header present)
+INFO 2026-04-27 06:30:10,652 runserver 5328 19268 [mHTTP GET /api/chat/threads/4/messages/?session_key=7ik9cnbr61sj9qlthuou2zl5xak7zll2 200 [0.04, 127.0.0.1:64933][0m
+INFO 2026-04-27 06:30:20,395 runserver 5328 19268 [mHTTP OPTIONS /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.00, 127.0.0.1:49771][0m
+INFO 2026-04-27 06:30:20,733 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:30:21,121 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:30:27,027 runserver 5328 19268 [mHTTP OPTIONS /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.00, 127.0.0.1:49771][0m
+INFO 2026-04-27 06:30:27,038 authentication 5328 5848 JWT auth returned None (no auth header present)
+INFO 2026-04-27 06:30:27,082 runserver 5328 19268 [mHTTP GET /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.05, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:30:27,211 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.04, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:30:27,282 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.07, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:30:35,199 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:30:43,200 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:30:44,183 runserver 5328 19268 [mHTTP OPTIONS /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.00, 127.0.0.1:49771][0m
+ERROR 2026-04-27 06:30:44,266 views 5328 6992 Payment initialization failed: module 'django.db.transaction' has no attribute 'now'
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\payment_gateway\views.py", line 74, in post
+    reference=paystack.generate_reference() if hasattr(paystack, 'generate_reference') else f"JOB-{job.id}-{int(transaction.now().timestamp())}",
+                                                                                                                ^^^^^^^^^^^^^^^
+AttributeError: module 'django.db.transaction' has no attribute 'now'
+ERROR 2026-04-27 06:30:44,278 log 5328 9232 Internal Server Error: /api/payments/initialize/
+ERROR 2026-04-27 06:30:44,279 runserver 5328 19268 [35;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [0.09, 127.0.0.1:52925][0m
+ERROR 2026-04-27 06:30:48,450 views 5328 21756 Payment initialization failed: module 'django.db.transaction' has no attribute 'now'
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\payment_gateway\views.py", line 74, in post
+    reference=paystack.generate_reference() if hasattr(paystack, 'generate_reference') else f"JOB-{job.id}-{int(transaction.now().timestamp())}",
+                                                                                                                ^^^^^^^^^^^^^^^
+AttributeError: module 'django.db.transaction' has no attribute 'now'
+ERROR 2026-04-27 06:30:48,454 log 5328 9232 Internal Server Error: /api/payments/initialize/
+ERROR 2026-04-27 06:30:48,455 runserver 5328 19268 [35;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:30:51,211 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:30:59,191 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:31:08,123 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:31:16,118 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:31:24,125 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:31:32,112 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:31:40,116 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:31:48,120 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:31:56,123 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:32:04,140 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:32:53,141 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:33:53,140 runserver 5328 19268 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52925][0m
+INFO 2026-04-27 06:34:14,960 autoreload 5328 7108 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-27 06:34:18,727 autoreload 24016 9128 Watching for file changes with StatReloader
+INFO 2026-04-27 06:34:19,237 server 24016 22128 HTTP/2 support enabled
+INFO 2026-04-27 06:34:19,238 server 24016 22128 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-27 06:34:19,239 server 24016 22128 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-27 06:34:53,471 runserver 24016 22128 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.05, 127.0.0.1:62330][0m
+INFO 2026-04-27 06:35:09,541 autoreload 24016 9128 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-27 06:35:12,284 autoreload 21764 2440 Watching for file changes with StatReloader
+INFO 2026-04-27 06:35:35,516 autoreload 21764 2440 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-27 06:35:38,346 autoreload 23268 8800 Watching for file changes with StatReloader
+INFO 2026-04-27 06:35:38,866 server 23268 22720 HTTP/2 support enabled
+INFO 2026-04-27 06:35:38,867 server 23268 22720 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-27 06:35:38,868 server 23268 22720 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-27 06:35:40,598 autoreload 23268 8800 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-27 06:35:43,242 autoreload 16080 16732 Watching for file changes with StatReloader
+INFO 2026-04-27 06:35:43,654 server 16080 22940 HTTP/2 support enabled
+INFO 2026-04-27 06:35:43,654 server 16080 22940 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-27 06:35:43,655 server 16080 22940 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-27 06:35:45,305 autoreload 16080 16732 C:\Users\USER\RemyInk_Back\payment_gateway\views.py changed, reloading.
+INFO 2026-04-27 06:35:48,176 autoreload 4696 9524 Watching for file changes with StatReloader
+INFO 2026-04-27 06:35:48,662 server 4696 13480 HTTP/2 support enabled
+INFO 2026-04-27 06:35:48,662 server 4696 13480 Configuring endpoint tcp:port=8000:interface=127.0.0.1
+INFO 2026-04-27 06:35:48,663 server 4696 13480 Listening on TCP address 127.0.0.1:8000
+INFO 2026-04-27 06:36:29,609 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52546][0m
+ERROR 2026-04-27 06:36:35,122 paystack_service 4696 19740 Paystack Init Error for ref JOB-1003d76f-8377-494f-9694-f73b2c76ff62-1777260993: 401 Client Error: Unauthorized for url: https://api.paystack.co/transaction/initialize
+ERROR 2026-04-27 06:36:35,128 views 4696 19740 Payment initialization failed: No response from Paystack
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\payment_gateway\views.py", line 95, in post
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: No response from Paystack
+ERROR 2026-04-27 06:36:35,135 log 4696 18932 Internal Server Error: /api/payments/initialize/
+ERROR 2026-04-27 06:36:35,136 runserver 4696 13480 [35;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [1.31, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:36:35,198 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:36:41,916 authentication 4696 7612 JWT auth returned None (no auth header present)
+INFO 2026-04-27 06:36:41,959 runserver 4696 13480 [mHTTP GET /api/chat/threads/3/messages/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.05, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:36:42,132 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.09, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:36:42,219 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.08, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:36:50,067 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:36:58,071 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52546][0m
+ERROR 2026-04-27 06:36:59,964 paystack_service 4696 10400 Paystack Init Error for ref JOB-1003d76f-8377-494f-9694-f73b2c76ff62-1777261019: 401 Client Error: Unauthorized for url: https://api.paystack.co/transaction/initialize
+ERROR 2026-04-27 06:36:59,967 views 4696 10400 Payment initialization failed: No response from Paystack
+Traceback (most recent call last):
+  File "C:\Users\USER\RemyInk_Back\payment_gateway\views.py", line 95, in post
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: No response from Paystack
+ERROR 2026-04-27 06:36:59,977 log 4696 18932 Internal Server Error: /api/payments/initialize/
+ERROR 2026-04-27 06:36:59,979 runserver 4696 13480 [35;1mHTTP POST /api/payments/initialize/?session_key=aasch8sequst57r6q7pveku9grne1czo 500 [0.77, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:37:06,058 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:37:14,088 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:37:22,067 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:37:30,122 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:37:38,114 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:37:46,128 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:37:54,117 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:38:02,112 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:38:10,122 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.02, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:38:18,124 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:38:26,126 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.01, 127.0.0.1:52546][0m
+INFO 2026-04-27 06:38:53,143 runserver 4696 13480 [mHTTP GET /api/orders/jobs/1003d76f-8377-494f-9694-f73b2c76ff62/?session_key=aasch8sequst57r6q7pveku9grne1czo 200 [0.03, 127.0.0.1:52546][0m

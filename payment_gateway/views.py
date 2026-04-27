@@ -2,6 +2,7 @@ from rest_framework import status, viewsets, serializers
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.utils import timezone  # <--- Add this
 from django.db import transaction
 from django.shortcuts import get_object_or_404
 from django.conf import settings
@@ -18,6 +19,7 @@ from .serializers import (
 )
 # FIXED: Using the specific filename we found in your VS Code
 from payments.paystack_service import PaystackService
+
 from orders.models import Job, JobStatus
 
 logger = logging.getLogger(__name__)
@@ -70,7 +72,7 @@ class InitializePaymentView(APIView):
                     user=actor["user"] if actor["type"] == "auth" else None,
                     amount=job.total_amount,
                     currency="USD",
-                    reference=paystack.generate_reference() if hasattr(paystack, 'generate_reference') else f"JOB-{job.id}-{int(transaction.now().timestamp())}",
+                    reference=paystack.generate_reference() if hasattr(paystack, 'generate_reference') else f"JOB-{job.id}-{int(timezone.now().timestamp())}",
                     status=PaymentStatus.PENDING,
                     ip_address=self._get_client_ip(request),
                     user_agent=request.META.get("HTTP_USER_AGENT", ""),
