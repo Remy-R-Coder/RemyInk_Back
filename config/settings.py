@@ -23,7 +23,7 @@ if IS_PRODUCTION and not ALLOWED_HOSTS:
     raise ImproperlyConfigured('ALLOWED_HOSTS must be set in production.')
 # Add this to your config/settings.py
 PAYSTACK_CALLBACK_URL = "http://localhost:3000/payment/verify"
-PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY_NEW')
+PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY')
 PAYSTACK_PUBLIC_KEY = env('PAYSTACK_PUBLIC_KEY_NEW')
 PAYSTACK_WEBHOOK_SECRET = env('PAYSTACK_WEBHOOK_SECRET')
 PAYSTACK_INITIALIZE_URL = 'https://api.paystack.co/transaction/initialize'
