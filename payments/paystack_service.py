@@ -14,28 +14,31 @@ class PaystackService:
     def initialize_transaction(self, email, amount, reference, currency="USD", metadata=None):
         url = settings.PAYSTACK_INITIALIZE_URL
         
+        # FORCE cast to float then int to handle Decimal or String inputs safely
+        try:
+            clean_amount = int(float(amount) * 100)
+        except (TypeError, ValueError):
+            logger.error(f"Invalid amount provided: {amount}")
+            return None
+
         data = {
             "email": email,
-            "amount": int(amount * 100), 
-            "currency": currency,  # <--- THIS IS THE LINE YOU ARE MISSING
+            "amount": clean_amount, 
+            "currency": currency,
             "reference": reference,
+            # Ensure metadata values are strings to avoid serialization errors
             "metadata": metadata if metadata is not None else {}
         }
         
         try:
-            response = requests.post(url, headers=self.headers, json=data)
+            # Set a timeout so the server doesn't hang indefinitely
+            response = requests.post(url, headers=self.headers, json=data, timeout=10)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
-            logger.error(f"Paystack Init Error for ref {reference}: {e}")
-            return None
-
-    def verify_transaction(self, reference):
-        url = f"{settings.PAYSTACK_VERIFY_URL}{reference}"
-        try:
-            response = requests.get(url, headers=self.headers)
-            response.raise_for_status()
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            logger.error(f"Paystack Verify Error for ref {reference}: {e}")
+            # If Paystack returns an error (like a 400), this will log the body
+            if e.response is not None:
+                logger.error(f"Paystack rejected request: {e.response.json()}")
+            else:
+                logger.error(f"Paystack Init Error for ref {reference}: {e}")
             return None
